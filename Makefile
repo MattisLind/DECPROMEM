@@ -1,13 +1,13 @@
 AS=/Users/mattislind/Downloads/xhomer-2-19-24/bin2abs/macro11/macro11
 OBJ2BIN=/Users/mattislind/Downloads/xhomer-2-19-24/bin2abs/macro11/obj2bin/obj2bin.pl
 TARGET=mem.rom
-CSCALC=calcProChkSum
+CSCALC=./calcProChkSum
 CC=cc
 
 calcProChkSum: calcProChkSum.c
 	$(CC) -o $(CSCALC) $(CSCALC).c
 
-mem.rom: mem.bin
+mem.rom: mem.bin calcProChkSum
 	$(CSCALC) mem.bin > mem.rom
 
 mem.bin: mem.obj
@@ -19,5 +19,5 @@ mem.obj:mem.asm
 .PHONY: clean
 
 clean:
-	@rm -f mem.obj mem.bin $(CSCALC)
+	@rm -f mem.obj mem.bin $(CSCALC) mem.lst
 
