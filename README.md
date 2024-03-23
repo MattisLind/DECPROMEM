@@ -43,5 +43,10 @@ The firmware is used to initialize and test the board. The process is the follow
 5. It now enables the functionaity where  the memory board by design writes the oposite parity value which means that a read will cause a trap, thereby checking so that the parity circuits work.
 6. Sets back to normal partity handling and checks the entire array.
 7. If everything is ok it reports back the new base value which is essentially the old base value plus the size of this memory array. If something wrong has been detected then it will turn off the memory board and issue a fault code as return value.
-   
+
+### Firmware building
+
+Since I want to change the firmware to not have any parity checking I need to build it using the macro-11 assembler and then compute the two levels of checksums to get a working rom-image to use on the board or in Xhomer. The macro-11 program creates an object file which has to be converted into a raw binary file. This is done using the obj2bin tool.
+
+The Makefile provided should do all the work of doing all this provided that the correct paths to the macro-11 and obj2bin binaries has been given.
 
