@@ -33,3 +33,15 @@ The checksum algorithm is a combination of xor and shift operations.
 7. The process repeats at 2 until all words has been read.
 8. If the result in the accumulator is zero when all words has vbeen read then we have a good checksum.
 
+### Firmware functions
+
+The firmware is used to initialize and test the board. The process is the following:
+1. Calculates the size of the board. There are two jumpers on the board which give the actual size of the board. I think actually this calculation is buggy for boards with 256 k chips!
+2. It compares the calculated size with the value used as base value for this memory array. If the base address indicate that we already configured 3 Megabytes of memory we bail out with an error code.
+3. Enable the memory board with the base value given from the system.
+4. If memory size of the board give that it will exceed the 3 meg limit it tests so that there is no response from the memory for addresses aboev 3 meg.
+5. It now enables the functionaity where  the memory board by design writes the oposite parity value which means that a read will cause a trap, thereby checking so that the parity circuits work.
+6. Sets back to normal partity handling and checks the entire array.
+7. If everything is ok it reports back the new base value which is essentially the old base value plus the size of this memory array. If something wrong has been detected then it will turn off the memory board and issue a fault code as return value.
+   
+
