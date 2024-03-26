@@ -30,7 +30,8 @@
         MOV #200,L3266
 BIG:    MOV L3266,R5          ; Size of board
         ADD L3274,R5          ; Plus base
-        CMP R5,#140           ; Compare with 3meg limit
+        MOV #1,@L3264         ; Enable board         
+        CMP R5,#140           ; Compare with 3meg limit       
         BLE L2372             ; We are lower than 3 meg limit
         MOV #140,L3266        ; we are over the limit. We cannot use the full size of this memory board.
         SUB L3274,L3266       ; calculate the size that we can use
@@ -41,7 +42,6 @@ BIG:    MOV L3266,R5          ; Size of board
 L2312:  MOV PC,-(SP)
         ADD #L3104-.,(SP)     ; Setup 3104 as trap 4 vector.
         MOV (SP)+,@#4
-        MOV #1,@L3264         ; Enable board
         MOV #20000,R0         ; This is the lowest addres in page 1.
         CLR R5
         MOV #1,-(SP)          ; Use only one page
@@ -54,7 +54,10 @@ L2312:  MOV PC,-(SP)
         BNE L2372             ; Then we skip else we bail out
         JSR PC,EXIT           ; A memory error trap failed to occur when addresses higher than the 3 megabyte limit were attempted on a system configuration exceeding that limit by including this module's memory capacity.
         .WORD 000003
-L2372:  MOV #52525,R1         ; Test pattern
+L2372:  MOV PC,-(SP)
+        ADD #L3064-.,(SP)   
+        MOV (SP)+,@#4         ; Setup 2036+1026=3064 as trap 4 vector        
+        MOV #52525,R1         ; Test pattern
         MOV #125252,R5
         MOV L3272,R3          ; 3272 is the base address in 8k segments.
         MOV L3266,R4          ; 3266 is the size in 32 k segments
