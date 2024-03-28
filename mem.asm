@@ -24,10 +24,10 @@
         MOV L3274,L3272       ; Move the base value into 3272 as well
         ASL L3272             ; Multiply by 4. 3272 seems to be used when setting up the MMU mapping
         ASL L3272             ; Now we should have 200 here.
-        MOV #100,L3266             
-        BIT #40,@L3264        ; Check FPOP bit. New module has only 2meg or 4meg. I.e. 64 (0100) or 128 (0200) 32k blocks.
-        BEQ BIG
-        MOV #200,L3266
+        MOV @L3264, R0        ; Bit 1 to bit 7 in the CSR is the size of the board in 32 k blocks. 0= 32k 0177=4M
+        ASR R0                ; Shift right one to remove the enable bit.
+        INC R0                ; add one to create a value that can be used.
+        MOV R0,L3266
 BIG:    MOV L3266,R5          ; Size of board
         ADD L3274,R5          ; Plus base
         MOV #1,@L3264         ; Enable board         
