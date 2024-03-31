@@ -4,3 +4,6 @@
 [submodule "obj2bin"]
 	path = obj2bin
 	url = https://github.com/AK6DN/obj2bin.git
+[submodule "vhdl/atf15xx-yosys-docker"]
+	path = vhdl/atf15xx-yosys-docker
+	url = git@github.com:MattisLind/atf15xx-yosys-docker.git
