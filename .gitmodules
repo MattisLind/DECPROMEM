@@ -1,0 +1,6 @@
+[submodule "macro11"]
+	path = macro11
+	url = https://gitlab.com/Rhialto/macro11.git
+[submodule "obj2bin"]
+	path = obj2bin
+	url = https://github.com/AK6DN/obj2bin.git
