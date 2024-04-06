@@ -12,30 +12,68 @@ port (
 );
 end entity decpromem;
 architecture rtl of decpromem is
-    signal state : integer range 0 to 33;
+    type stateType is (INITIAL, SEND_COMMAND, SEND_HIGH_ADDRESS, SEND_LOW_ADDRESS, RECEIVE_DATA);
+    signal state: stateType; 
+    signal counter: integer range 0 to 7;   
     signal inputShiftReg: std_logic_vector(7 downto 0);
+    signal inputReg: std_logic_vector(7 downto 0);
+    signal loadNext: std_logic;
 begin
     process(clk,reset)
     begin
         if reset = '1' then
-            state <= 0;
+            state <= INITIAL;
             ncs <= '1';
             nhold <= '1';
+            counter <= 0;
+            inputShiftReg <= "00000000";
+            mosi <= '0';
         elsif (falling_edge(clk)) then
-            if (state < 33) then
-                state <= state + 1; 
-            end if;
-            if (state = 7 or state = 8) then
-                mosi <= '1';
-            else 
-                mosi <= '0';
-            end if;
-            if (state = 1) then 
-                ncs <= '0';
-            end if;
-            if (state > 16 and state < 24) then
-                inputShiftReg <= inputShiftReg(inputShiftReg'high - 1 downto inputShiftReg'low) & miso;           
-            end if;
+            case state is
+                when INITIAL =>
+                    ncs <= '0';
+                    state <= SEND_COMMAND;
+                when SEND_COMMAND =>
+                    if counter = 7 then
+                        counter <= 0;
+                        state <= SEND_HIGH_ADDRESS;
+                    else 
+                        counter <= counter + 1;
+                    end if;
+                    if (counter = 5 or counter = 6) then -- read comand!
+                        mosi <= '1';
+                    else 
+                        mosi <= '0';
+                    end if;
+                when SEND_HIGH_ADDRESS =>
+                    mosi <= '0';
+                    if counter = 7 then
+                        counter <= 0;
+                        state <= SEND_LOW_ADDRESS;
+                    else 
+                        counter <= counter + 1;
+                    end if;
+                when SEND_LOW_ADDRESS =>
+                    mosi <= '0';
+                    if counter = 7 then
+                        counter <= 0;
+                        state <= RECEIVE_DATA;
+                    else 
+                        counter <= counter + 1;
+                    end if;                
+                when RECEIVE_DATA =>
+                    if counter = 7 then
+                        counter <= 0;
+                        inputReg <= inputShiftReg;
+                        -- state <= HOLD;
+                    else 
+                        counter <= counter + 1;
+                    end if;    
+                    inputShiftReg <= inputShiftReg(inputShiftReg'high - 1 downto inputShiftReg'low) & miso;                         
+                -- when HOLD =>
+            end case;
+
+            
         end if;
     end process;
 end architecture rtl;

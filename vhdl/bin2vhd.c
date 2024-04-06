@@ -26,11 +26,13 @@ int printROMProlog(char * entity) {
   printf("entity %s is\n",entity);
   printf("port(\n");
   printf("  address  : in integer range 0 to 1023;\n");
-  printf("  data     : out std_logic_vector (7 downto 0));\n");
+  printf("  bitAddress : in integer range 0 to 7;\n");
+  printf("  data     : out std_logic);\n");
   printf("end %s;\n", entity);
   printf("\n");
   printf("architecture logic of %s is\n",entity);
   printf("type rom_type is array (0 to 1023) of std_logic_vector(7 downto 0); \n");
+  printf("signal dataFromRom: std_logic_vector(7 downto 0);\n");
   printf("signal rom : rom_type := ( \n");
   printf("\n");
 }
@@ -40,8 +42,9 @@ int printROMEpilog() {
   printf("\n");
   printf("begin\n"); 
   printf("\n");
-  printf("data <= rom(address); \n");
-  printf("\n");
+  printf("  dataFromRom <= rom(address);\n");
+  printf("  data <= dataFromRom(7-bitAddress); \n");
+  //printf("\n");
   printf("end logic;\n");
 }
 
