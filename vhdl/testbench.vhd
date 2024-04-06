@@ -21,6 +21,17 @@ port (
     nhold: out std_logic
 );
 end component;
+
+
+
+component DiagROM is 
+port (
+  address : in integer range 0 to 1023;
+  data:  out std_logic;
+  bitAddress: in integer range 0 to 7
+);
+end component;
+
 type stateType is (STORECOMMAND, STOREADDRESS, OUTPUTDATA);
 signal state: stateType;
 signal clkInput, reset : std_logic;
@@ -32,10 +43,16 @@ signal commandCount: integer range 0 to 7;
 signal addressCount: integer range 0 to 16;
 signal commandRegister: std_logic_vector (7 downto 0);
 signal addressRegister: std_logic_vector (15 downto 0);
+signal address: integer range 0 to 1023;
 signal dataCount: integer range 0 to 7;
-signal dataOut: std_logic_vector (7 downto 0);
+signal dataOut: std_logic;
 begin
-
+  address <= to_integer(unsigned(addressRegister));
+  ROM: DiagROM port map(
+    address => address,
+    data => dataOut,
+    bitAddress => dataCount
+  );
   -- Connect DUT
   DUT: decpromem port map(
 -- Clk is to be generated externally    
@@ -53,7 +70,7 @@ begin
     wait for 200 ns;
     reset <= '0';
     wait for 200 ns;
-    for i in 1 to 64 loop
+    for i in 1 to 128 loop
       clkInput <= '0'; 
       wait for 200 ns;
       clkInput <= '1';
@@ -69,7 +86,6 @@ begin
       state <= STORECOMMAND;
       addressCount <= 0;
       commandCount <= 0;
-      dataOut <= "01010101";
       commandRegister <= "00000000";
       addressRegister <= "0000000000000000";
     elsif (rising_edge(clkInput)) then
@@ -93,10 +109,11 @@ begin
     elsif (falling_edge(clkInput)) then
       case state is
         when OUTPUTDATA =>
-          dataOut <= dataOut(6 downto 0) & "0"; 
-          miso <= dataOut(dataOut'high);
+          -- dataOut <= dataOut(6 downto 0) & "0"; 
+          
           if dataCount = 7 then 
             dataCount <= 0;
+            addressRegister <= std_logic_vector(unsigned(addressRegister) + 1);
           else 
             dataCount <= dataCount + 1;
           end if;
@@ -105,5 +122,5 @@ begin
       end case;
     end if;
   end process;
-
+  miso <= dataOut;
 end tb;
