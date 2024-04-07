@@ -94,7 +94,6 @@ begin
                 when HOLD => 
                     if newReadCycle = '1' then
                         state <= RECEIVE_DATA;
-                        -- inputShiftReg <= inputShiftReg(inputShiftReg'high - 1 downto inputShiftReg'low) & miso; 
                     end if;
                 when OTHERS =>
             end case;
