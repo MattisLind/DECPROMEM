@@ -18,7 +18,8 @@ port (
     miso: in std_logic;
     reset : in std_logic;
     ncs: out std_logic;
-    nhold: out std_logic
+    nhold: out std_logic;
+    newReadCycle: in std_logic
 );
 end component;
 
@@ -46,6 +47,8 @@ signal addressRegister: std_logic_vector (15 downto 0);
 signal address: integer range 0 to 1023;
 signal dataCount: integer range 0 to 7;
 signal dataOut: std_logic;
+signal startRead: std_logic;
+signal nhold: std_logic;
 begin
   address <= to_integer(unsigned(addressRegister));
   ROM: DiagROM port map(
@@ -60,10 +63,13 @@ begin
     reset => reset,
     ncs => ncs,
     mosi => mosi,
-    miso => miso
+    miso => miso,
+    newReadCycle => startRead,
+    nhold => nhold
     );
   CLK: process
   begin
+    startRead <= '0';
     reset <= '0';
     wait for 200 ns;
     reset <= '1';
@@ -75,6 +81,11 @@ begin
       wait for 200 ns;
       clkInput <= '1';
       wait for 200 ns;  
+      if i = 37 or i = 48 or i = 59 or i = 71 then 
+        startRead <= '1';
+      else 
+        startRead <= '0';
+      end if;
     end loop;
     assert false report "Test done." severity note;
     wait;
@@ -88,7 +99,7 @@ begin
       commandCount <= 0;
       commandRegister <= "00000000";
       addressRegister <= "0000000000000000";
-    elsif (rising_edge(clkInput)) then
+    elsif (nhold = '1' and rising_edge(clkInput)) then
       case state is
         when STORECOMMAND =>
           commandRegister <= commandRegister(commandRegister'high - 1 downto commandRegister'low) & mosi; 
@@ -106,7 +117,7 @@ begin
           end if;
         when OUTPUTDATA =>
       end case;
-    elsif (falling_edge(clkInput)) then
+    elsif (nhold = '1' and falling_edge(clkInput)) then
       case state is
         when OUTPUTDATA =>
           -- dataOut <= dataOut(6 downto 0) & "0"; 
@@ -122,5 +133,7 @@ begin
       end case;
     end if;
   end process;
-  miso <= dataOut;
+  with nhold select
+    miso <= dataOut when '1',
+            'Z' when others;
 end tb;
