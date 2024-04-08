@@ -14,6 +14,7 @@ architecture tb of testbench is
 component decpromem is
 port (
     clk : in std_logic;
+    spiclk: out std_logic;
     mosi: out std_logic;
     miso: in std_logic;
     reset : in std_logic;
@@ -60,6 +61,7 @@ begin
   DUT: decpromem port map(
 -- Clk is to be generated externally    
     clk => clkInput,
+    spiclk => spiclk,
     reset => reset,
     ncs => ncs,
     mosi => mosi,
@@ -91,7 +93,7 @@ begin
     wait;
   end process;
 
-  EEPROM: process(clkInput, ncs)
+  EEPROM: process(spiclk, ncs)
   begin
     if ncs = '1' then
       state <= STORECOMMAND;
@@ -99,7 +101,7 @@ begin
       commandCount <= 0;
       commandRegister <= "00000000";
       addressRegister <= "0000000000000000";
-    elsif (nhold = '1' and rising_edge(clkInput)) then
+    elsif (nhold = '1' and rising_edge(spiclk)) then
       case state is
         when STORECOMMAND =>
           commandRegister <= commandRegister(commandRegister'high - 1 downto commandRegister'low) & mosi; 
@@ -117,7 +119,7 @@ begin
           end if;
         when OUTPUTDATA =>
       end case;
-    elsif (nhold = '1' and falling_edge(clkInput)) then
+    elsif (nhold = '1' and falling_edge(spiclk)) then
       case state is
         when OUTPUTDATA =>
           -- dataOut <= dataOut(6 downto 0) & "0"; 
