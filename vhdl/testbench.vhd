@@ -13,14 +13,42 @@ architecture tb of testbench is
 
 component decpromem is
 port (
+    -- 40 MHz clock
     clk : in std_logic;
+    -- spi interface 
     spiclk: out std_logic;
     mosi: out std_logic;
     miso: in std_logic;
-    reset : in std_logic;
     ncs: out std_logic;
     nhold: out std_logic;
-    newReadCycle: in std_logic
+    -- PRO bus interface
+    -- bdcokh: in std_logic;
+    binitl: in std_logic;
+    ioa: in std_logic_vector (6 downto 1);
+    a: in std_logic_vector (21 downto 15);
+    data: inout std_logic_vector (7 downto 0);
+    --brplyl: out std_logic;
+    bmdenl: in std_logic;
+    bwritel: in std_logic;
+    bwlbl: in std_logic;
+    bwhbl: in std_logic;
+    bsdenl: in std_logic;
+    ssxl: in std_logic;
+    bdsl: in std_logic;
+    -- basl: in std_logic;
+    biosel: in std_logic;
+    -- memory inteface
+    ma: out std_logic_vector(19 downto 14);
+    mce1: out std_logic;
+    mce2: out std_logic;
+    moe: out std_logic;
+    mwh: out std_logic;
+    mwl: out std_logic;
+    -- size jumper
+    msiz : in std_logic;
+    -- dir and oe for 74ALS640-1
+    busoe: out std_logic;
+    busdir: out std_logic
 );
 end component;
 
@@ -41,6 +69,7 @@ signal cmd : std_logic_vector (7 downto 0);
 signal ncs: std_logic;
 signal mosi: std_logic;
 signal miso: std_logic;
+signal spiclk: std_logic;
 signal commandCount: integer range 0 to 7;
 signal addressCount: integer range 0 to 16;
 signal commandRegister: std_logic_vector (7 downto 0);
@@ -50,6 +79,31 @@ signal dataCount: integer range 0 to 7;
 signal dataOut: std_logic;
 signal startRead: std_logic;
 signal nhold: std_logic;
+signal ioa: std_logic_vector (6 downto 1);
+signal a: std_logic_vector (21 downto 15);
+signal data: std_logic_vector (7 downto 0);
+--brplyl: out std_logic;
+signal bmdenl: std_logic;
+signal bwritel: std_logic;
+signal bwlbl: std_logic;
+signal bwhbl: std_logic;
+signal bsdenl: std_logic;
+signal ssxl: std_logic;
+signal bdsl: std_logic;
+-- basl: in std_logic;
+signal biosel: std_logic;
+-- memory inteface
+signal ma:  std_logic_vector(19 downto 14);
+signal mce1:  std_logic;
+signal mce2: std_logic;
+signal moe:  std_logic;
+signal mwh: std_logic;
+signal mwl: std_logic;
+-- size jumper
+signal msiz : std_logic;
+-- dir and oe for 74ALS640-1
+signal busoe: std_logic;
+signal busdir: std_logic;
 begin
   address <= to_integer(unsigned(addressRegister));
   ROM: DiagROM port map(
@@ -62,32 +116,52 @@ begin
 -- Clk is to be generated externally    
     clk => clkInput,
     spiclk => spiclk,
-    reset => reset,
+    binitl => reset,
     ncs => ncs,
     mosi => mosi,
     miso => miso,
-    newReadCycle => startRead,
-    nhold => nhold
+    nhold => nhold,
+    -- PRO bus interface
+    -- bdcokh: in std_logic;
+    ioa => ioa,
+    a => a,
+    data => data,
+    --brplyl: out std_logic;
+    bmdenl => bmdenl,
+    bwritel => bwritel,
+    bwlbl => bwlbl,
+    bwhbl => bwhbl,
+    bsdenl => bsdenl,
+    ssxl => ssxl,
+    bdsl => bdsl,
+    -- basl: in std_logic;
+    biosel => biosel,
+    -- memory inteface
+    ma => ma,
+    mce1 => mce1,
+    mce2 => mce2,
+    moe => moe,
+    mwh => mwh,
+    mwl => mwl,
+    -- size jumper
+    msiz => msiz,
+    -- dir and oe for 74ALS640-1
+    busoe => busoe,
+    busdir => busdir    
     );
   CLK: process
   begin
-    startRead <= '0';
-    reset <= '0';
-    wait for 200 ns;
     reset <= '1';
     wait for 200 ns;
     reset <= '0';
     wait for 200 ns;
-    for i in 1 to 128 loop
+    reset <= '1';
+    wait for 200 ns;
+    for i in 1 to 1000 loop  -- 40 MHz clock
       clkInput <= '0'; 
-      wait for 200 ns;
+      wait for 25 ns;
       clkInput <= '1';
-      wait for 200 ns;  
-      if i = 37 or i = 48 or i = 59 or i = 71 then 
-        startRead <= '1';
-      else 
-        startRead <= '0';
-      end if;
+      wait for 25 ns;  
     end loop;
     assert false report "Test done." severity note;
     wait;

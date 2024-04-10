@@ -14,8 +14,8 @@ port (
     -- PRO bus interface
     -- bdcokh: in std_logic;
     binitl: in std_logic;
-    ioaddress: in std_logic_vector (6 downto 1);
-    address: in std_logic_vector (21 downto 15);
+    ioa: in std_logic_vector (6 downto 1);
+    a: in std_logic_vector (21 downto 15);
     data: inout std_logic_vector (7 downto 0);
     --brplyl: out std_logic;
     bmdenl: in std_logic;
@@ -28,22 +28,21 @@ port (
     -- basl: in std_logic;
     biosel: in std_logic;
     -- memory inteface
-    memoryaddress: out std_logic_vector(19 downto 14);
-    memoryselect1: out std_logic;
-    memoryselect2: out std_logic;
-    memoryoe: out std_logic;
-    memorywritehigh: out std_logic;
-    memorywritelow: out std_logic;
+    ma: out std_logic_vector(19 downto 14);
+    mce1: out std_logic;
+    mce2: out std_logic;
+    moe: out std_logic;
+    mwh: out std_logic;
+    mwl: out std_logic;
     -- size jumper
-    memorysize : in std_logic;
+    msiz : in std_logic;
     -- dir and oe for 74ALS640-1
-    busdriveroe: out std_logic;
-    busdriverdir: out std_logic;
-    newReadCycle: in std_logic
+    busoe: out std_logic;
+    busdir: out std_logic
 );
 end entity decpromem;
 architecture rtl of decpromem is
-    type stateType is (INITIAL, SEND_COMMAND, SEND_HIGH_ADDRESS, SEND_LOW_ADDRESS, RECEIVE_DATA, HOLD);
+    type stateType is (INITIAL, SEND_COMMAND, SEND_HIGH_ADDRESS, SEND_LOW_ADDRESS, RECEIVE_DATA, HOLD, HOLD_WAIT_LOW);
     signal state: stateType; 
     signal counter: integer range 0 to 7;   
     signal inputShiftReg: std_logic_vector(7 downto 0);
@@ -64,9 +63,9 @@ architecture rtl of decpromem is
     signal dataOut: std_logic_vector(7 downto 0);
 begin
     
-    busdriveroe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
-    busdriverdir <= bsdenl;
-    with ioaddress(6 downto 1) select
+    busoe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
+    busdir <= bsdenl;
+    with ioa(6 downto 1) select
         decodedAddress <= "0001" when "000000",
                           "0010" when "000001",
                           "0100" when "000010",
@@ -90,14 +89,14 @@ begin
     --data(7 downto 0) <= inputShiftReg when readPort0 = '1' else
     --                    "ZZZZZZZZ";
 
-    --data(5) <= memorysize when readPort6 = '1' else  -- enable memory size onto bus.
+    --data(5) <= msiz when readPort6 = '1' else  -- enable memory size onto bus.
     --           'Z';
 
     --data(5) <= '0' when readPort6 = '1' else  -- enable memory size onto bus.
     --           'Z';    also bad
 
     dataOut <= inputShiftReg when readPort0 = '1' else
-               "00" & memorysize & "00000" when readPort6 = '1' else
+               "00" & msiz & "00000" when readPort6 = '1' else
                "00000000";
               
     data <= dataOut when readPort = '1' else
@@ -121,11 +120,11 @@ begin
         end if;
     end process;
 
-    nhold <= '0' when state = HOLD else
+    nhold <= '0' when state = HOLD or state = HOLD_WAIT_LOW else
              '1';
        
 
-    process(address, baseAddress, memorysize, enableMemory) 
+    process(a, baseAddress, msiz, enableMemory) 
     variable vAddress : integer range 0 to 127;
     variable vBaseAddress : integer range 0 to 127;
     variable vSize : integer range 0 to 255;
@@ -135,8 +134,8 @@ begin
     variable vOutputAddressVector : std_logic_vector (6 downto 0);
     begin
         vBaseAddress := to_integer(unsigned(baseAddress));
-        vAddress := to_integer(unsigned(address(21 downto 15)));
-        if memorysize = '1' then
+        vAddress := to_integer(unsigned(a(21 downto 15)));
+        if msiz = '1' then
             vSize := 8#100#;  -- 2 meg
         else 
             vSize := 8#200#;  -- 4 meg
@@ -152,16 +151,17 @@ begin
         end if;
         vOutputAddress := vAddress - vBaseAddress;
         vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
-        memoryselect1 <= vOutputAddressVector(6) and ramSelected and enableMemory;
-        memoryselect2 <= not vOutputAddressVector(6) and ramSelected and enableMemory;
-        memoryaddress <= vOutputAddressVector(5 downto 0);
-        memoryoe <= not bwritel;
-        memorywritehigh <= bwhbl;
-        memorywritelow <= bwlbl;
+        mce1 <= vOutputAddressVector(6) and ramSelected and enableMemory;
+        mce2 <= not vOutputAddressVector(6) and ramSelected and enableMemory;
+        ma <= vOutputAddressVector(5 downto 0);
+        moe <= not bwritel;
+        mwh <= bwhbl;
+        mwl <= bwlbl;
     end process;
 
     process(clk,reset)
     begin
+        
         if reset = '1' then
             state <= INITIAL;
             ncs <= '1';
@@ -181,10 +181,6 @@ begin
                             counter <= counter + 1;
                         end if;  
                         inputShiftReg <= inputShiftReg(inputShiftReg'high - 1 downto inputShiftReg'low) & miso;  
-                    when HOLD => 
-                        if newReadCycle = '1' then
-                            state <= RECEIVE_DATA;
-                        end if;
                     when OTHERS =>
                 end case;
             else
@@ -228,7 +224,11 @@ begin
                             state <= HOLD;
                         end if;    
                     when HOLD =>
-                        if newReadCycle = '1' then
+                        if readPort0 = '1' then
+                            state <= HOLD_WAIT_LOW;
+                        end if;
+                    when HOLD_WAIT_LOW =>
+                        if readPort0 = '0' then
                             state <= RECEIVE_DATA;
                         end if;
                 end case;
