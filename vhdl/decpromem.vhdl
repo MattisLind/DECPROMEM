@@ -12,20 +12,20 @@ port (
     ncs: out std_logic;
     nhold: out std_logic;
     -- PRO bus interface
-    bdcokh: in std_logic;
+    -- bdcokh: in std_logic;
     binitl: in std_logic;
     ioaddress: in std_logic_vector (6 downto 1);
     address: in std_logic_vector (21 downto 15);
     data: inout std_logic_vector (7 downto 0);
-    brplyl: out std_logic;
+    --brplyl: out std_logic;
     bmdenl: in std_logic;
     bwritel: in std_logic;
-    bwlb: in std_logic;
-    bwhb: in std_logic;
+    bwlbl: in std_logic;
+    bwhbl: in std_logic;
     bsdenl: in std_logic;
     ssxl: in std_logic;
     bdsl: in std_logic;
-    basl: in std_logic;
+    -- basl: in std_logic;
     biosel: in std_logic;
     -- memory inteface
     memoryaddress: out std_logic_vector(19 downto 14);
@@ -38,7 +38,7 @@ port (
     memorysize : in std_logic;
     -- dir and oe for 74ALS640-1
     busdriveroe: out std_logic;
-    buddriverdir: out std_logic;
+    busdriverdir: out std_logic;
     newReadCycle: in std_logic
 );
 end entity decpromem;
@@ -61,7 +61,11 @@ architecture rtl of decpromem is
     signal portAccess: std_logic;
     signal baseAddress: std_logic_vector(7 downto 0);
     signal intspiclk: std_logic;
+    signal dataOut: std_logic_vector(7 downto 0);
 begin
+    
+    busdriveroe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
+    busdriverdir <= bsdenl;
     with ioaddress(6 downto 1) select
         decodedAddress <= "0001" when "000000",
                           "0010" when "000001",
@@ -72,7 +76,7 @@ begin
 
     spiclk <= intspiclk;
     portAccess <=  not biosel and not ssxl and not bdsl;                     
-    writePort <= portAccess and not bwlb;
+    writePort <= portAccess and not bwlbl;
     readPort <= portAccess and bwritel;
     writePort0 <=  writePort and decodedAddress(0);
     reset <= not binitl or writePort0; -- A write to port 0 will reset counter
@@ -83,11 +87,21 @@ begin
     readPort0 <= readPort and decodedAddress(0);
     readPort6 <= readPort and decodedAddress(3);
 
-    data(7 downto 0) <= inputShiftReg when readPort0 = '1' else
-                        "ZZZZZZZZ";
+    --data(7 downto 0) <= inputShiftReg when readPort0 = '1' else
+    --                    "ZZZZZZZZ";
 
-    data(5) <= memorysize when readPort6 = '1' else  -- enable memory size onto bus.
-               'Z';
+    --data(5) <= memorysize when readPort6 = '1' else  -- enable memory size onto bus.
+    --           'Z';
+
+    --data(5) <= '0' when readPort6 = '1' else  -- enable memory size onto bus.
+    --           'Z';    also bad
+
+    dataOut <= inputShiftReg when readPort0 = '1' else
+               "00" & memorysize & "00000" when readPort6 = '1' else
+               "00000000";
+              
+    data <= dataOut when readPort = '1' else
+            "ZZZZZZZZ";           
 
     process(binitl, clk) -- latch for CSR. Only one bit - enable the memory.
     begin
@@ -141,6 +155,9 @@ begin
         memoryselect1 <= vOutputAddressVector(6) and ramSelected and enableMemory;
         memoryselect2 <= not vOutputAddressVector(6) and ramSelected and enableMemory;
         memoryaddress <= vOutputAddressVector(5 downto 0);
+        memoryoe <= not bwritel;
+        memorywritehigh <= bwhbl;
+        memorywritelow <= bwlbl;
     end process;
 
     process(clk,reset)
