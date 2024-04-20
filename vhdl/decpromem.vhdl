@@ -17,7 +17,7 @@ port (
     ioa: in std_logic_vector (6 downto 1);
     a: in std_logic_vector (21 downto 15);
     data: inout std_logic_vector (7 downto 0);
-    --brplyl: out std_logic;
+    brplyl: out std_logic;
     bmdenl: in std_logic;
     bwritel: in std_logic;
     bwlbl: in std_logic;
@@ -61,8 +61,10 @@ architecture rtl of decpromem is
     signal baseAddress: std_logic_vector(7 downto 0);
     signal intspiclk: std_logic;
     signal dataOut: std_logic_vector(7 downto 0);
+    signal spiReadReady: std_logic;
+    signal memoryAccess: std_logic;
 begin
-    
+    brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
     busoe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
     busdir <= bsdenl;
     with ioa(6 downto 1) select
@@ -149,6 +151,7 @@ begin
         else
             ramSelected := '0';
         end if;
+        memoryAccess <= ramSelected and not bdsl;
         vOutputAddress := vAddress - vBaseAddress;
         vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
         mce1 <= vOutputAddressVector(6) and ramSelected and enableMemory;
@@ -169,6 +172,7 @@ begin
             inputShiftReg <= "00000000";
             mosi <= '0';
             intspiclk <= '0';
+            spiReadReady <='0';
         elsif (rising_edge(clk)) then
             if intspiclk = '0' then
                 intspiclk <= '1';
@@ -222,6 +226,7 @@ begin
                     when RECEIVE_DATA =>
                         if counter = 7 then
                             state <= HOLD;
+                            spiReadReady <= '1';
                         end if;    
                     when HOLD =>
                         if readPort0 = '1' then
@@ -230,6 +235,7 @@ begin
                     when HOLD_WAIT_LOW =>
                         if readPort0 = '0' then
                             state <= RECEIVE_DATA;
+                            spiReadReady <= '0';
                         end if;
                 end case;
             end if;

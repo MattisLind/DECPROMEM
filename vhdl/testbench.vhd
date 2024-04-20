@@ -27,7 +27,7 @@ port (
     ioa: in std_logic_vector (6 downto 1);
     a: in std_logic_vector (21 downto 15);
     data: inout std_logic_vector (7 downto 0);
-    --brplyl: out std_logic;
+    brplyl: out std_logic;
     bmdenl: in std_logic;
     bwritel: in std_logic;
     bwlbl: in std_logic;
@@ -62,6 +62,37 @@ port (
 );
 end component;
 
+procedure readAccess (variable a: in std_logic_vector(6 downto 1);
+                      signal bdsl: out std_logic;
+                      signal ssxl: out std_logic;
+                      signal biosel: out std_logic;
+                      signal bwritel: out std_logic;
+                      signal bwlbl: out std_logic;
+                      signal bwhbl: out std_logic;
+                      signal ioa: out std_logic_vector(6 downto 1);
+                      signal brplyl: in std_logic) is
+begin
+  ssxl <= '0';
+  biosel <= '0';
+  bwritel <= '1';
+  bwlbl <= 'X';
+  bwhbl <= 'X';
+  wait for 200 ns;
+  ioa <= a;
+  wait for 200 ns;
+  bdsl <= '0';
+  while (brplyl = '1' or brplyl = 'H') loop
+    wait for 100 ns;
+  end loop;
+  wait for 400 ns;
+  bdsl <= '1';
+  ssxl <= '1';
+  biosel <= '1';
+  bwritel <= '1';
+  bwlbl <= 'X';
+  bwhbl <= 'X';
+end readAccess;
+
 type stateType is (STORECOMMAND, STOREADDRESS, OUTPUTDATA);
 signal state: stateType;
 signal clkInput, reset : std_logic;
@@ -82,7 +113,7 @@ signal nhold: std_logic;
 signal ioa: std_logic_vector (6 downto 1);
 signal a: std_logic_vector (21 downto 15);
 signal data: std_logic_vector (7 downto 0);
---brplyl: out std_logic;
+signal brplyl: std_logic;
 signal bmdenl: std_logic;
 signal bwritel: std_logic;
 signal bwlbl: std_logic;
@@ -106,6 +137,7 @@ signal busoe: std_logic;
 signal busdir: std_logic;
 begin
   address <= to_integer(unsigned(addressRegister));
+  brplyl <= 'H';
   ROM: DiagROM port map(
     address => address,
     data => dataOut,
@@ -126,7 +158,7 @@ begin
     ioa => ioa,
     a => a,
     data => data,
-    --brplyl: out std_logic;
+    brplyl => brplyl,
     bmdenl => bmdenl,
     bwritel => bwritel,
     bwlbl => bwlbl,
@@ -163,6 +195,31 @@ begin
       clkInput <= '1';
       wait for 25 ns;  
     end loop;
+    assert false report "Test done." severity note;
+    wait;
+  end process;
+
+  MEMORYACCESS: process
+  variable ad: std_logic_vector(6 downto 1);
+  begin
+    wait for 5000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);   
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 5 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);     
     assert false report "Test done." severity note;
     wait;
   end process;
