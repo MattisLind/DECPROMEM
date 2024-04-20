@@ -62,7 +62,7 @@ port (
 );
 end component;
 
-procedure readAccess (variable a: in std_logic_vector(6 downto 1);
+procedure readAccess (variable ad: in std_logic_vector(21 downto 0);
                       signal bdsl: out std_logic;
                       signal ssxl: out std_logic;
                       signal biosel: out std_logic;
@@ -70,7 +70,8 @@ procedure readAccess (variable a: in std_logic_vector(6 downto 1);
                       signal bwlbl: out std_logic;
                       signal bwhbl: out std_logic;
                       signal ioa: out std_logic_vector(6 downto 1);
-                      signal brplyl: in std_logic) is
+                      signal brplyl: in std_logic;
+                      signal a: out std_logic_vector (21 downto 15)) is
 begin
   ssxl <= '0';
   biosel <= '0';
@@ -94,7 +95,9 @@ begin
 end readAccess;
 
 
-procedure writeAccess (variable a: in std_logic_vector(6 downto 1);
+procedure writeAccess (variable address: in std_logic_vector(21 downto 0);
+                      variable data: in std_logic_vector(15 downto 0);
+                      variable byteAccess: in std_logic;
                       signal bdsl: out std_logic;
                       signal ssxl: out std_logic;
                       signal biosel: out std_logic;
@@ -102,21 +105,36 @@ procedure writeAccess (variable a: in std_logic_vector(6 downto 1);
                       signal bwlbl: out std_logic;
                       signal bwhbl: out std_logic;
                       signal ioa: out std_logic_vector(6 downto 1);
-                      signal brplyl: in std_logic) is
+                      signal brplyl: in std_logic;
+                      signal d: out std_logic_vector(7 downto 0);
+                      signal a: out std_logic_vector (21 downto 15)) is
 begin
   ssxl <= '0';
   biosel <= '0';
   bwritel <= '0';
-  bwlbl <= '0';
-  bwhbl <= 'X';
+  if byteAccess = '1' then
+    if address(0) = '0' then
+      bwlbl <= '0';
+      bwhbl <= '1';
+    else
+      bwlbl <= '1';
+      bwhbl <= '0';
+    end if;
+  else 
+    bwlbl <= '0';
+    bwhbl <= '0';
+  end if;
+  a <= address(21 downto 15);
   wait for 200 ns;
-  ioa <= a;
+  ioa <= address (6 downto 1);
   wait for 200 ns;
   bdsl <= '0';
+  data <= d;
   while (brplyl = '1' or brplyl = 'H') loop
     wait for 100 ns;
   end loop;
   wait for 400 ns;
+  data <= "ZZZZZZZZ";
   bdsl <= '1';
   ssxl <= '1';
   biosel <= '1';
@@ -233,6 +251,7 @@ begin
 
   MEMORYACCESS: process
   variable ad: std_logic_vector(6 downto 1);
+  variable d: std_logic_vector(7 downto 0);
   begin
     wait for 5000 ns;
     ad:="000000";
@@ -253,8 +272,9 @@ begin
     ad:="000000";
     readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);  
     wait for 2000 ns;
-    ad:="000001"; -- Resetting to address 0 again.
-    writeAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    ad:="000001"; -- Resetting to address 0 in diag ROM  again.
+    d := "00000000";
+    writeAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl, d, data); 
     wait for 2000 ns;
     ad:="000000";
     readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);   
@@ -264,7 +284,15 @@ begin
     wait for 2000 ns;
     ad:="000000";
     readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
-    wait for 2000 ns;      
+    wait for 2000 ns;   
+    ad:="000010"; -- Writing base address
+    d := "00100000";  -- Set base address to 1 meg.
+    writeAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl, d, data); 
+    wait for 2000 ns;    
+    ad:="000011"; -- Writing CSR
+    d := "00000001";  -- Enable memory
+    writeAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl, d, data); 
+    wait for 2000 ns;       
     assert false report "Test done." severity note;
     wait;
   end process;

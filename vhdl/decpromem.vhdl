@@ -152,8 +152,12 @@ begin
             ramSelected := '0';
         end if;
         memoryAccess <= ramSelected and not bdsl;
-        vOutputAddress := vAddress - vBaseAddress;
-        vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+        if ramSelected = '1' then
+            vOutputAddress := vAddress - vBaseAddress;
+            vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+        else 
+            vOutputAddressVector := "0000000";
+        end if;
         mce1 <= vOutputAddressVector(6) and ramSelected and enableMemory;
         mce2 <= not vOutputAddressVector(6) and ramSelected and enableMemory;
         ma <= vOutputAddressVector(5 downto 0);
