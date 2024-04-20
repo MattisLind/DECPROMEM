@@ -48,7 +48,7 @@ architecture rtl of decpromem is
     signal inputShiftReg: std_logic_vector(7 downto 0);
     signal loadNext: std_logic;
     signal reset: std_logic;
-    signal writePort0: std_logic;
+    signal writePort2: std_logic;
     signal decodedAddress: std_logic_vector(3 downto 0);
     signal readPort0: std_logic;
     signal readPort6: std_logic;
@@ -79,8 +79,8 @@ begin
     portAccess <=  not biosel and not ssxl and not bdsl;                     
     writePort <= portAccess and not bwlbl;
     readPort <= portAccess and bwritel;
-    writePort0 <=  writePort and decodedAddress(0);
-    reset <= not binitl or writePort0; -- A write to port 0 will reset counter
+    writePort2 <=  writePort and decodedAddress(1);
+    reset <= not binitl or writePort2; -- A write to port 2 will reset counter
 
     writePort6 <= writePort and decodedAddress(3);
     writePort4 <= writePort and decodedAddress(2);

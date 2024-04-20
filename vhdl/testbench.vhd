@@ -93,6 +93,38 @@ begin
   bwhbl <= 'X';
 end readAccess;
 
+
+procedure writeAccess (variable a: in std_logic_vector(6 downto 1);
+                      signal bdsl: out std_logic;
+                      signal ssxl: out std_logic;
+                      signal biosel: out std_logic;
+                      signal bwritel: out std_logic;
+                      signal bwlbl: out std_logic;
+                      signal bwhbl: out std_logic;
+                      signal ioa: out std_logic_vector(6 downto 1);
+                      signal brplyl: in std_logic) is
+begin
+  ssxl <= '0';
+  biosel <= '0';
+  bwritel <= '0';
+  bwlbl <= '0';
+  bwhbl <= 'X';
+  wait for 200 ns;
+  ioa <= a;
+  wait for 200 ns;
+  bdsl <= '0';
+  while (brplyl = '1' or brplyl = 'H') loop
+    wait for 100 ns;
+  end loop;
+  wait for 400 ns;
+  bdsl <= '1';
+  ssxl <= '1';
+  biosel <= '1';
+  bwritel <= '1';
+  bwlbl <= 'X';
+  bwhbl <= 'X';
+end writeAccess;
+
 type stateType is (STORECOMMAND, STOREADDRESS, OUTPUTDATA);
 signal state: stateType;
 signal clkInput, reset : std_logic;
@@ -217,9 +249,22 @@ begin
     wait for 2000 ns;
     ad:="000000";
     readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
-    wait for 5 ns;
+    wait for 5 ns; -- Testing the BRPLYL logic to prolong the bus - cycle when not ready shifting in SPI data.
     ad:="000000";
-    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);     
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);  
+    wait for 2000 ns;
+    ad:="000001"; -- Resetting to address 0 again.
+    writeAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl);   
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 2000 ns;
+    ad:="000000";
+    readAccess (ad, bdsl, ssxl, biosel, bwritel, bwlbl, bwhbl,ioa, brplyl); 
+    wait for 2000 ns;      
     assert false report "Test done." severity note;
     wait;
   end process;
@@ -230,6 +275,7 @@ begin
       state <= STORECOMMAND;
       addressCount <= 0;
       commandCount <= 0;
+      dataCount <= 0;
       commandRegister <= "00000000";
       addressRegister <= "0000000000000000";
     elsif (nhold = '1' and rising_edge(spiclk)) then
