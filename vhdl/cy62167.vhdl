@@ -17,7 +17,8 @@ end CY62167;
 
 architecture rtl of CY62167 is
 
-type RAM is array (0 to 1048576) of std_logic_vector(7 downto 0);
+type RAM is array (0 to 1024) of std_logic_vector(7 downto 0);
+--type RAM is array (0 to 1048576) of std_logic_vector(7 downto 0);
 signal memUpper : RAM := (others => "00000000");
 signal memLower : RAM := (others => "00000000");
 signal data_out : std_logic_vector (15 downto 0);
