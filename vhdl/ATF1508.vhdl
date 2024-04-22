@@ -96,10 +96,10 @@ begin
                "00" & msiz & "00000" when readPort6 = '1' else
                "00000000";
               
-    --data <= dataOut when readPort = '1' else
-    --        "ZZZZZZZZ";           
+    data <= dataOut when readPort = '1' else
+           "ZZZZZZZZ";           
 
-    data <= dataOut;
+    --data <= dataOut;
     -- data <= dataOut when bsdenl = '0' else "ZZZZZZZZ";
 
     process(binitl, clk)

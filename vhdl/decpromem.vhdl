@@ -40,9 +40,6 @@ signal mwe: std_logic;
 signal busoe: std_logic;
 signal busdir: std_logic;
 signal msiz: std_logic;
-signal hida: std_logic_vector (23 downto 16);
-signal hibdal: std_logic_vector (23 downto 16);
-signal hia: std_logic_vector (23 downto 16);
 signal mbank: std_logic_vector (21 downto 15);
 
 component CY62167 is
@@ -76,20 +73,48 @@ end component;
 
 component DP8307 is
     port(
-        A : inout std_logic_vector (7 downto 0);
-        B: inout std_logic_vector (7 downto 0);
-        nT: in std_logic;
-        nR: in std_logic
+        pin_1_A0: inout std_logic;
+        pin_2_A1: inout std_logic;
+        pin_3_A2: inout std_logic;
+        pin_4_A3: inout std_logic;
+        pin_5_A4: inout std_logic;
+        pin_6_A5: inout std_logic;
+        pin_7_A6: inout std_logic;
+        pin_8_A7: inout std_logic; 
+        pin_9_nT: in std_logic; 
+        pin_11_nR: in std_logic;
+        pin_12_B7: inout std_logic;
+        pin_13_B6: inout std_logic;
+        pin_14_B5: inout std_logic;
+        pin_15_B4: inout std_logic;
+        pin_16_B3: inout std_logic;
+        pin_17_B2: inout std_logic;
+        pin_18_B1: inout std_logic; 
+        pin_19_B0: inout std_logic 
     );
 end component;
 
 component SN74LS373 is
     port(
-        D : in std_logic_vector (7 downto 0);
-        Q: out std_logic_vector (7 downto 0);
-        C: in std_logic;
-        nOC: in std_logic
-    );
+        pin_1_nOC : in std_logic;
+        pin_2_1Q : out std_logic;
+        pin_3_1D : in std_logic;
+        pin_4_2D : in std_logic;
+        pin_5_2Q : out std_logic;
+        pin_6_3Q : out std_logic;
+        pin_7_3D : in std_logic;
+        pin_8_4D : in std_logic;
+        pin_9_4Q : out std_logic;
+        pin_11_C : in std_logic;
+        pin_12_5Q : out std_logic;
+        pin_13_5D : in std_logic;
+        pin_14_6D : in std_logic;
+        pin_15_6Q : out std_logic;
+        pin_16_7Q : out std_logic;
+        pin_17_7D : in std_logic;
+        pin_18_8D : in std_logic;
+        pin_19_8Q : out std_logic
+    );    
 end component;
 
 component ATF1508 is
@@ -173,51 +198,130 @@ begin
     );
 
     LOWXCEIVER: DP8307 port map (
-        A => bdal(7 downto 0),
-        B => ida(7 downto 0),
-        nT => bmdenl,
-        nR => bsdenl
+        pin_1_A0 => bdal(0),
+        pin_2_A1 => bdal(1),
+        pin_3_A2 => bdal(2),
+        pin_4_A3 => bdal(3),
+        pin_5_A4 => bdal(4),
+        pin_6_A5 => bdal(5),
+        pin_7_A6 => bdal(6),
+        pin_8_A7 => bdal(7), 
+        pin_9_nT => bmdenl,
+        pin_11_nR => bsdenl,
+        pin_12_B7 => ida(7),
+        pin_13_B6 => ida(6),
+        pin_14_B5 => ida(5),
+        pin_15_B4 => ida(4),
+        pin_16_B3 => ida(3),
+        pin_17_B2 => ida(2),
+        pin_18_B1 => ida(1), 
+        pin_19_B0 => ida(0)        
     );
 
     MIDXCEIVER: DP8307 port map (
-        A => bdal(15 downto 8),
-        B => ida(15 downto 8),
-        nT => bmdenl,
-        nR => bsdenl
+        pin_1_A0 => bdal(8),
+        pin_2_A1 => bdal(9),
+        pin_3_A2 => bdal(10),
+        pin_4_A3 => bdal(11),
+        pin_5_A4 => bdal(12),
+        pin_6_A5 => bdal(13),
+        pin_7_A6 => bdal(14),
+        pin_8_A7 => bdal(15), 
+        pin_9_nT => bmdenl,
+        pin_11_nR => bsdenl,
+        pin_12_B7 => ida(15),
+        pin_13_B6 => ida(14),
+        pin_14_B5 => ida(13),
+        pin_15_B4 => ida(12),
+        pin_16_B3 => ida(11),
+        pin_17_B2 => ida(10),
+        pin_18_B1 => ida(9), 
+        pin_19_B0 => ida(8)   
     );
 
     HIXCEIVER: DP8307 port map (
-        A => hibdal(23 downto 16),
-        B => hida(23 downto 16),
-        nT => bmdenl,
-        nR => bsdenl
+        pin_1_A0 => bdal(16),
+        pin_2_A1 => bdal(17),
+        pin_3_A2 => bdal(18),
+        pin_4_A3 => bdal(19),
+        pin_5_A4 => bdal(20),
+        pin_6_A5 => bdal(21),
+        pin_7_A6 => open,
+        pin_8_A7 => open, 
+        pin_9_nT => bmdenl,
+        pin_11_nR => bsdenl,
+        pin_12_B7 => open,
+        pin_13_B6 => open,
+        pin_14_B5 => ida(21),
+        pin_15_B4 => ida(20),
+        pin_16_B3 => ida(19),
+        pin_17_B2 => ida(18),
+        pin_18_B1 => ida(17), 
+        pin_19_B0 => ida(16)   
     );  
 
-    hibdal(21 downto 16) <= bdal(21 downto 16);
-    ida(21 downto 16) <= hida(21 downto 16);
-
     LOWLATCH: SN74LS373 port map(
-        D => ida(7 downto 0),
-        Q => ia (7 downto 0),
-        C => basl,
-        nOC => '0'
+        pin_1_nOC => '0',
+        pin_2_1Q => ia(0),
+        pin_3_1D => ida(0),
+        pin_4_2D => ida(1),
+        pin_5_2Q => ia(1),
+        pin_6_3Q => ia(2),
+        pin_7_3D => ida(2),
+        pin_8_4D => ida(3),
+        pin_9_4Q => ia(3),
+        pin_11_C => basl,
+        pin_12_5Q => ia(4),
+        pin_13_5D => ida(4),
+        pin_14_6D => ida(5),
+        pin_15_6Q => ia(5),
+        pin_16_7Q => ia(6),
+        pin_17_7D => ida(6),
+        pin_18_8D => ida(7),
+        pin_19_8Q => ia(7)
     );
     
-    MIDLATCH: SN74LS373 port map(
-        D => ida(15 downto 8),
-        Q => ia (15 downto 8),
-        C => basl,
-        nOC => '0'
+    MIDLATCH: SN74LS373 port map( 
+        pin_1_nOC => '0',
+        pin_2_1Q => ia(8),
+        pin_3_1D => ida(8),
+        pin_4_2D => ida(9),
+        pin_5_2Q => ia(9),
+        pin_6_3Q => ia(10),
+        pin_7_3D => ida(10),
+        pin_8_4D => ida(11),
+        pin_9_4Q => ia(11),
+        pin_11_C => basl,
+        pin_12_5Q => ia(12),
+        pin_13_5D => ida(12),
+        pin_14_6D => ida(13),
+        pin_15_6Q => ia(13),
+        pin_16_7Q => ia(14),
+        pin_17_7D => ida(14),
+        pin_18_8D => ida(15),
+        pin_19_8Q => ia(15)        
     );
 
     HILATCH: SN74LS373 port map(
-        D => hida(23 downto 16),
-        Q => hia (23 downto 16),
-        C => basl,
-        nOC => '0'
+        pin_1_nOC => '0',
+        pin_2_1Q => ia(16),
+        pin_3_1D => ida(16),
+        pin_4_2D => ida(17),
+        pin_5_2Q => ia(17),
+        pin_6_3Q => ia(18),
+        pin_7_3D => ida(18),
+        pin_8_4D => ida(19),
+        pin_9_4Q => ia(19),
+        pin_11_C => basl,
+        pin_12_5Q => ia(20),
+        pin_13_5D => ida(20),
+        pin_14_6D => ida(21),
+        pin_15_6Q => ia(21),
+        pin_16_7Q => open,
+        pin_17_7D => 'H',
+        pin_18_8D => 'H',
+        pin_19_8Q => open         
     );
-
-    ia (21 downto 16) <= hia(21 downto 16);
     
     CPLD: ATF1508 port map(
            -- 40 MHz clock
