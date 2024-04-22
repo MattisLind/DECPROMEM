@@ -72,7 +72,8 @@ procedure readAccess (variable a: in integer range 0 to 4194303;
                       signal bdal: inout std_logic_vector(21 downto 0);
                       signal brplyl: in std_logic;
                       variable accessFault: out boolean;
-                      variable dataRead: out integer range 0 to 65535) is
+                      variable dataRead: out integer range 0 to 65535;
+                      variable numWaitStates: out integer range 0 to 30) is
 variable address : std_logic_vector (21 downto 0);
 variable data : std_logic_vector (15 downto 0);
 variable loopCounter : integer range 0 to 30;
@@ -123,7 +124,17 @@ begin
       return;
     end if;
   end loop;
-  dataRead := to_integer(unsigned(not bdal(15 downto 0)));
+  numWaitStates := 29 - loopCounter;
+  
+  if byteAccess and a MOD 1 = 0 then
+    dataRead := to_integer(unsigned(not bdal(7 downto 0)));
+  end if;
+  if byteAccess and a MOD 1 = 1 then
+    dataRead := to_integer(unsigned(not bdal(15 downto 8)));
+  end if; 
+  if not byteAccess then
+    dataRead := to_integer(unsigned(not bdal(15 downto 0)));
+  end if;   
   wait for 400 ns;
   bdsl <= '1';
   wait for 100 ns;
@@ -131,14 +142,14 @@ begin
   wait for 100 ns;
   basl <= '1';
   loopCounter := 30;
-  --while (brplyl = '0') loop
-  --  wait for 100 ns;
-  --  loopCounter := loopCounter - 1;
-  --  if loopCounter = 0 then
-  --    accessFault := true;
-  --    return;
-  --  end if;  
-  --end loop; 
+  while (brplyl = '0') loop
+    wait for 100 ns;
+    loopCounter := loopCounter - 1;
+    if loopCounter = 0 then
+      accessFault := true;
+      return;
+    end if;  
+  end loop; 
 end readAccess;
 
 
@@ -188,6 +199,7 @@ begin
   variable slot: integer range 0 to 7;
   variable byteAccess: boolean;
   variable accessFault: boolean;
+  variable numWaitStates : integer range 0 to 30;
   begin
 
     -- RESET
@@ -212,7 +224,20 @@ begin
     address:=8#17774000#;
     byteAccess := true;
     slot := 0;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data);     
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);   
+    report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+    report "num wait states:" & integer'image(numWaitStates);
+    assert data = 8#34# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+    report "num wait states:" & integer'image(numWaitStates);
+    assert data = 8#0# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));   
+    
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+    report "num wait states:" & integer'image(numWaitStates);
+    assert data = 8#0# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
+
     assert false report "Test done." severity note;
     wait;
   end process;

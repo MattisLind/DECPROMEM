@@ -36,6 +36,7 @@ begin
     with nHOLD select
         MISO <= dataOut when '1',
                 'Z' when others;
+    address <= to_integer(unsigned(addressRegister(9 downto 0)));
     ROM: DiagROM port map(
         address => address,
         data => dataOut,

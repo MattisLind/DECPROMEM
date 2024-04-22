@@ -15,9 +15,9 @@ begin
     begin
         for i in 1 to 10000 loop  -- 40 MHz clock
             CLK <= '0'; 
-            wait for 12.5 ns;
+            wait for 50 ns;
             CLK <= '1';
-            wait for 12.5 ns;  
+            wait for 50 ns;  
             end loop;
         assert false report "Clock generator done." severity note;
         wait;
