@@ -16,7 +16,8 @@ port (
     bssxl: in std_logic;
     bdsl: in std_logic;
     basl: in std_logic;
-    biosel: in std_logic
+    biosel: in std_logic;
+    msiz: in std_logic
 );
 end entity decpromem;
 
@@ -39,7 +40,6 @@ signal moe: std_logic;
 signal mwe: std_logic;
 signal busoe: std_logic;
 signal busdir: std_logic;
-signal msiz: std_logic;
 signal mbank: std_logic_vector (21 downto 15);
 
 component CY62167 is
@@ -362,6 +362,5 @@ begin
         busdir => busdir
       );
 
-    msiz <= '0';
 
 end architecture rtl;

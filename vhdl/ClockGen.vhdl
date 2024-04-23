@@ -13,11 +13,11 @@ signal latch: std_logic_vector (7 downto 0);
 begin 
     process
     begin
-        for i in 1 to 10000 loop  -- 40 MHz clock
+        for i in 1 to 100000 loop  -- 40 MHz clock
             CLK <= '0'; 
-            wait for 50 ns;
+            wait for 25 ns;
             CLK <= '1';
-            wait for 50 ns;  
+            wait for 25 ns;  
             end loop;
         assert false report "Clock generator done." severity note;
         wait;

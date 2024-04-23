@@ -52,6 +52,7 @@ architecture rtl of ATF1508 is
     signal writePort2: std_logic;
     signal decodedAddress: std_logic_vector(3 downto 0);
     signal readPort0: std_logic;
+    signal readPort4: std_logic;
     signal readPort6: std_logic;
     signal enableMemory: std_logic;
     signal writePort4: std_logic;
@@ -90,10 +91,12 @@ begin
     writePort4 <= writePort and decodedAddress(2);
 
     readPort0 <= readPort and decodedAddress(0);
+    readPort4 <= readPort and decodedAddress(2);
     readPort6 <= readPort and decodedAddress(3);
 
     dataOut <= inputShiftReg when readPort0 = '1' else
-               "00" & msiz & "00000" when readPort6 = '1' else
+               "00" & msiz & "0000" & enableMemory when readPort6 = '1' else
+               baseAddress when readPort4 = '1' else
                "00000000";
               
     data <= dataOut when readPort = '1' else
@@ -176,8 +179,13 @@ begin
     end process;
 
     moe <= not bwritel and not bdsl;
-    mhe <= bwhbl or ((not bwritel) and bdsl);
-    mle <= bwlbl or ((not bwritel) and bdsl);
+    mhe <= bwhbl and not bwritel and bdsl;
+    mhe <= '0' when bwhbl = '0' else 
+           '0' when bwritel = '1' and bdsl = '0' else
+           '1';
+    mle <= '0' when bwlbl = '0' else 
+           '0' when bwritel = '1' and bdsl = '0' else
+           '1';
     mwe <= bwlbl and bwhbl; 
     process(clk,reset)
     begin
