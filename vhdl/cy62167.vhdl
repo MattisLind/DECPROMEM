@@ -31,10 +31,10 @@ data(15 downto 8)  <= data_out (15 downto 8) when ce2 = '1' and nce1 = '0' and n
 MEM_WRITE: process (address, data, nce1, ce2, nwe) begin
   if (nce1 = '0' and ce2 = '1' and nwe = '0') then
     if (nble = '0') then
-      memLower(to_integer(unsigned(address))) <= data(7 downto 0);
+      memLower(to_integer(unsigned(address(17 downto 0)))) <= data(7 downto 0);
     end if;
     if (nbhe = '0') then
-      memUpper(to_integer(unsigned(address))) <= data(15 downto 8);
+      memUpper(to_integer(unsigned(address(17 downto 0)))) <= data(15 downto 8);
     end if;
   end if;
 end process;
@@ -42,7 +42,7 @@ end process;
 
 MEM_READ: process (address, nce1, ce2, memUpper, memLower) begin
   if (nce1 = '0' and ce2 = '1')   then
-    data_out <= memUpper(to_integer(unsigned(address))) & memLower(to_integer(unsigned(address)));
+    data_out <= memUpper(to_integer(unsigned(address(17 downto 0)))) & memLower(to_integer(unsigned(address(17 downto 0))));
   end if;
 end process;  
   

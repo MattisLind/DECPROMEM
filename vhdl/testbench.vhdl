@@ -3,7 +3,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 use std.textio.all;
- 
+use ieee.math_real.uniform;
+use ieee.math_real.floor; 
 entity testbench is
 -- empty
 end testbench; 
@@ -30,6 +31,9 @@ component decpromem is
     msiz: in std_logic
 );
 end component;
+
+
+
 
 procedure slotActive(variable a: in integer range 0 to 4194303;
                      variable slot: in integer range 0 to 7;
@@ -297,13 +301,17 @@ begin
 
   MEMORYACCESS: process
   variable address: integer range 0 to 4194303;
-  variable data: integer range 0 to 65535;
+  variable data, readData: integer range 0 to 65535;
   variable slot: integer range 0 to 7;
   variable byteAccess: boolean;
   variable accessFault: boolean;
   variable numWaitStates : integer range 0 to 100;
+  variable seed1 : positive;
+  variable seed2 : positive;
+  variable x : real;
   begin
-
+    seed1 := 999;
+    seed2 := 999;
     -- RESET
     msiz <= '1';
     bdcokh <= '0';
@@ -400,9 +408,9 @@ begin
     assert accessFault = false report "Read caused accessFault";
 
     -- Write base register
-    report "Write 040 to base register and read back";
+    report "Write 010 to base register and read back";
     address:=8#17774004#;
-    data:= 8#40#;
+    data:= 8#10#;
     writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = false report "write caused accessFault";
 
@@ -426,28 +434,123 @@ begin
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#01# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
     assert accessFault = false report "Read caused accessFault";
-
+    address:=8#01000000#;
     -- Write to lowest address in memory
-    report "Write 0152525 to lowest address in exp memory";
-    address:=8#04000000#;
+    while (address  < 8#11000000#) loop
+      uniform(seed1, seed2, x);
+      data := integer(floor(x * 65536.0));
+      report "Write " & to_ostring(std_logic_vector(to_unsigned(data, 16))) & " to address " & to_ostring(std_logic_vector(to_unsigned(address, 22)));
+      
+      --data:= 8#152525#;
+      byteAccess := false;
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      assert accessFault = false report "write caused accessFault";
+  
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+      report "num wait states:" & integer'image(numWaitStates);
+      assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
+      assert accessFault = false report "Read caused accessFault";      
+      address := address + 8#100000#;
+    end loop; 
+
+    -- Write outside memory
+    --report "Trying to write to 00777776 which is outside memory should trigger access fault.";
+    address:=8#00777776#;
     data:= 8#152525#;
     byteAccess := false;
     writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
-    assert accessFault = false report "write caused accessFault";
+    assert accessFault = true report "write outside memory didn't cause accessFault"; 
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
-    report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
-    report "num wait states:" & integer'image(numWaitStates);
-    assert data = 8#152525# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
-    assert accessFault = false report "Read caused accessFault";  
+    --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
+    address:=8#11000000#;
+    data:= 8#152525#;
+    byteAccess := false;
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    assert accessFault = true report "write outside memory didn't cause accessFault";
+
+    msiz <= '1';
+
+    address:=8#01000000#;
+    -- Write to lowest address in memory
+    while (address  < 8#14000000#) loop
+      uniform(seed1, seed2, x);
+      data := integer(floor(x * 65536.0));
+      report "Write " & to_ostring(std_logic_vector(to_unsigned(data, 16))) & " to address " & to_ostring(std_logic_vector(to_unsigned(address, 22)));
+      
+      --data:= 8#152525#;
+      byteAccess := false;
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      assert accessFault = false report "write caused accessFault";
+  
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+      report "num wait states:" & integer'image(numWaitStates);
+      assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
+      assert accessFault = false report "Read caused accessFault";      
+      address := address + 8#100000#;
+    end loop; 
     
     -- Write outside memory
-    report "Trying to write to 014000000 which is outside memory should trigger access fault.";
+    --report "Trying to write to 00777776 which is outside memory should trigger access fault.";
+    address:=8#00777776#;
+    data:= 8#152525#;
+    byteAccess := false;
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    assert accessFault = true report "write outside memory didn't cause accessFault"; 
+
+    -- Write outside memory
+    --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
     address:=8#14000000#;
     data:= 8#152525#;
     byteAccess := false;
     writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";
+
+    msiz <= '0';
+    -- Write base register
+    report "Write 040 to base register and read back";
+    address:=8#17774004#;
+    data:= 8#40#;
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    assert accessFault = false report "write caused accessFault";
+
+    address:=8#04000000#;
+    -- Write to lowest address in memory
+    while (address  < 8#14000000#) loop
+      uniform(seed1, seed2, x);
+      data := integer(floor(x * 65536.0));
+      report "Write " & to_ostring(std_logic_vector(to_unsigned(data, 16))) & " to address " & to_ostring(std_logic_vector(to_unsigned(address, 22)));
+      
+      --data:= 8#152525#;
+      byteAccess := false;
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      assert accessFault = false report "write caused accessFault";
+  
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
+      report "num wait states:" & integer'image(numWaitStates);
+      assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
+      assert accessFault = false report "Read caused accessFault";      
+      address := address + 8#100000#;
+    end loop; 
+
+    -- Write outside memory
+    --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
+    address:=8#14000000#;
+    data:= 8#152525#;
+    byteAccess := false;
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    assert accessFault = true report "write outside memory didn't cause accessFault";
+    
+    -- Write outside memory
+    --report "Trying to write to 03777776 which is outside memory should trigger access fault.";
+    address:=8#03777776#;
+    data:= 8#152525#;
+    byteAccess := false;
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    assert accessFault = true report "write outside memory didn't cause accessFault";    
+
 
     assert false report "Test done." severity note;
     wait;

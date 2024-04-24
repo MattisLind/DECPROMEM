@@ -152,9 +152,9 @@ begin
         vBaseAddress := to_integer(unsigned(baseAddress));
         vAddress := to_integer(unsigned(a(21 downto 15)));
         if msiz = '1' then
-            vSize := 8#100#;  -- 2 meg
+            vSize := 8#200#;  -- 2 meg
         else 
-            vSize := 8#200#;  -- 4 meg
+            vSize := 8#100#;  -- 4 meg
         end if;
         vTop := vBaseAddress + vSize;
         if vTop > 8#140# then
