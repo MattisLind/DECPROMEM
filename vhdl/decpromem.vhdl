@@ -22,7 +22,7 @@ port (
 end entity decpromem;
 
 architecture rtl of decpromem is
-
+constant useSN74ALS640 : boolean := true;
 signal clk: std_logic;
 signal spiclk: std_logic;
 signal miso: std_logic;
@@ -94,6 +94,30 @@ component DP8307 is
     );
 end component;
 
+component SN74ALS640 is
+    port(
+        pin_1_DIR: in std_logic;
+        pin_2_A1: inout std_logic;
+        pin_3_A2: inout std_logic;
+        pin_4_A3: inout std_logic;
+        pin_5_A4: inout std_logic;
+        pin_6_A5: inout std_logic;
+        pin_7_A6: inout std_logic;
+        pin_8_A7: inout std_logic; 
+        pin_9_A8: inout std_logic;     
+        pin_11_B8: inout std_logic;
+        pin_12_B7: inout std_logic;
+        pin_13_B6: inout std_logic;
+        pin_14_B5: inout std_logic;
+        pin_15_B4: inout std_logic;
+        pin_16_B3: inout std_logic;
+        pin_17_B2: inout std_logic;
+        pin_18_B1: inout std_logic; 
+        pin_19_nOE: in std_logic    
+    );
+end component;
+
+
 component SN74LS373 is
     port(
         pin_1_nOC : in std_logic;
@@ -162,6 +186,7 @@ end component;
 begin
     ma(21 downto 15) <= mbank(21 downto 15);
     ma(14 downto 1) <= ia (14 downto 1);
+
     HighRAM: CY62167 port map(
         address => ma(20 downto 1),
         data => ida (15 downto 0),
@@ -196,6 +221,8 @@ begin
         MISO => miso,
         CLK => spiclk
     );
+
+CondDP8307: if not useSN74ALS640 generate 
 
     LOWXCEIVER: DP8307 port map (
         pin_1_A0 => bdal(0),
@@ -259,6 +286,73 @@ begin
         pin_18_B1 => ida(17), 
         pin_19_B0 => ida(16)   
     );  
+
+end generate CondDP8307;
+CondSN74ALS640: if useSN74ALS640 generate 
+    LOWXCEIVER: SN74ALS640 port map (
+            pin_1_DIR => busdir,
+            pin_2_A1 => bdal(0),
+            pin_3_A2 => bdal(1),
+            pin_4_A3 => bdal(2),
+            pin_5_A4 => bdal(3),
+            pin_6_A5 => bdal(4),
+            pin_7_A6 => bdal(5),
+            pin_8_A7 => bdal(6), 
+            pin_9_A8 => bdal(7),     
+            pin_11_B8 => ida(7),
+            pin_12_B7 => ida(6),
+            pin_13_B6 => ida(5),
+            pin_14_B5 => ida(4),
+            pin_15_B4 => ida(3),
+            pin_16_B3 => ida(2),
+            pin_17_B2 => ida(1),
+            pin_18_B1 => ida(0), 
+            pin_19_nOE => busoe
+    );
+
+    MIDXCEIVER: SN74ALS640 port map (
+        pin_1_DIR => busdir,
+        pin_2_A1 => bdal(8),
+        pin_3_A2 => bdal(9),
+        pin_4_A3 => bdal(10),
+        pin_5_A4 => bdal(11),
+        pin_6_A5 => bdal(12),
+        pin_7_A6 => bdal(13),
+        pin_8_A7 => bdal(14), 
+        pin_9_A8 => bdal(15),     
+        pin_11_B8 => ida(15),
+        pin_12_B7 => ida(14),
+        pin_13_B6 => ida(13),
+        pin_14_B5 => ida(12),
+        pin_15_B4 => ida(11),
+        pin_16_B3 => ida(10),
+        pin_17_B2 => ida(9),
+        pin_18_B1 => ida(8), 
+        pin_19_nOE => busoe  
+);
+
+HIXCEIVER: SN74ALS640 port map (
+    pin_1_DIR => busdir,
+    pin_2_A1 => bdal(16),
+    pin_3_A2 => bdal(17),
+    pin_4_A3 => bdal(18),
+    pin_5_A4 => bdal(19),
+    pin_6_A5 => bdal(20),
+    pin_7_A6 => bdal(21),
+    pin_8_A7 => open, 
+    pin_9_A8 => open,     
+    pin_11_B8 => open,
+    pin_12_B7 => open,
+    pin_13_B6 => ida(21),
+    pin_14_B5 => ida(20),
+    pin_15_B4 => ida(19),
+    pin_16_B3 => ida(18),
+    pin_17_B2 => ida(17),
+    pin_18_B1 => ida(16), 
+    pin_19_nOE => busoe 
+);
+
+end generate CondSN74ALS640;
 
     LOWLATCH: SN74LS373 port map(
         pin_1_nOC => '0',

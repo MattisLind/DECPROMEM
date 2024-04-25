@@ -20,7 +20,7 @@ port(
   signal pin_16_B3: inout std_logic;
   signal pin_17_B2: inout std_logic;
   signal pin_18_B1: inout std_logic; 
-  signal pin_19_nOE: in std_logic;    
+  signal pin_19_nOE: in std_logic    
 );
 end SN74ALS640;
 

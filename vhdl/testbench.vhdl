@@ -417,7 +417,7 @@ begin
     readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
-    assert data = 8#40# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
+    assert data = 8#10# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
     assert accessFault = false report "Read caused accessFault";
 
     report "Enable memory and read back to check bit.";
