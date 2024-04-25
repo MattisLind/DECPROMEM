@@ -179,7 +179,7 @@ begin
     end process;
 
     moe <= not bwritel and not bdsl;
-    mhe <= bwhbl and not bwritel and bdsl;
+    -- mhe <= bwhbl and not bwritel and bdsl;
     mhe <= '0' when bwhbl = '0' else 
            '0' when bwritel = '1' and bdsl = '0' else
            '1';
