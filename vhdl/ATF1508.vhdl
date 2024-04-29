@@ -40,6 +40,65 @@ port (
     -- dir and oe for 74ALS640-1
     busoe: out std_logic;
     busdir: out std_logic
+--PIN:CHIP "src/ATF1508" ASSIGNED TO AN PLCC84
+--PIN:miso    : 73
+--PIN:spiclk  : 76
+--PIN:ncs     : 74
+--PIN:mosi    : 75
+--PIN:bdsl    : 12
+--PIN:bwritel : 11
+--PIN:brplyl  : 10
+--PIN:nhold   : 77
+--PIN:moe     :  8
+--PIN:data_0  :  5
+--PIN:data_5  :  4
+--PIN:mle     : 22
+--PIN:data_7  : 21
+--PIN:data_6  : 20
+--PIN:data_3  : 18
+--PIN:data_4  : 17
+--PIN:data_2  : 16
+--PIN:data_1  : 15
+--PIN:TDI     : 14
+--PIN:ioa_3   : 31
+--PIN:ioa_2   : 30
+--PIN:ioa_0   : 29
+--PIN:ioa_1   : 28
+--PIN:ioa_4   : 27
+--PIN:busdir  : 25
+--PIN:TMS     : 23
+--PIN:ioa_5   : 41
+--PIN:msiz    : 40
+--PIN:bwlbl   : 39
+--PIN:A_6     : 37
+--PIN:A_5     : 36
+--PIN:nmcehigh: 34
+--PIN:mcelow  : 33
+--PIN:ma_0    : 44
+--PIN:ma_5    : 45
+--PIN:ma_3    : 46
+--PIN:ma_1    : 48
+--PIN:ma_2    : 49
+--PIN:ma_6    : 50
+--PIN:ma_4    : 51
+--PIN:A_4     : 54
+--PIN:A_3     : 55
+--PIN:bsdenl  : 56
+--PIN:A_2     : 57
+--PIN:mwe     : 58
+--PIN:busoe   : 60
+--PIN:mhe     : 61
+--PIN:TCK     : 62
+--PIN:A_0     : 63
+--PIN:A_1     : 64
+--PIN:bwhbl   : 65
+--PIN:bmdenl  : 67
+--PIN:basl    : 68
+--PIN:biosel  : 69
+--PIN:TDO     : 71
+--PIN:bssxl   : 79
+--PIN:CLK     : 83
+--PIN:binitl  : 1    
 );
 end entity ATF1508;
 architecture rtl of ATF1508 is
