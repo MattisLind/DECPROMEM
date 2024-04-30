@@ -12,10 +12,10 @@ port (
     ncs: out std_logic;
     nhold: out std_logic;
     -- PRO bus interface
-    -- bdcokh: in std_logic;
+    bdcokh: in std_logic;
     binitl: in std_logic;
-    ioa: in std_logic_vector (6 downto 1);
-    a: in std_logic_vector (21 downto 15);
+    ioa: in std_logic_vector (5 downto 0);
+    a: in std_logic_vector (6 downto 0);
     data: inout std_logic_vector (7 downto 0);
     brplyl: out std_logic;
     bmdenl: in std_logic;
@@ -28,7 +28,7 @@ port (
     basl: in std_logic;
     biosel: in std_logic;
     -- memory inteface
-    ma: out std_logic_vector(21 downto 15);
+    ma: out std_logic_vector(6 downto 0);
     mcelow: out std_logic;
     nmcehigh: out std_logic;
     moe: out std_logic;
@@ -45,10 +45,11 @@ port (
 --PIN:spiclk  : 76
 --PIN:ncs     : 74
 --PIN:mosi    : 75
+--PIN:nhold   : 77
+--PIN:bdcokh  : 84
 --PIN:bdsl    : 12
 --PIN:bwritel : 11
 --PIN:brplyl  : 10
---PIN:nhold   : 77
 --PIN:moe     :  8
 --PIN:data_0  :  5
 --PIN:data_5  :  4
@@ -74,29 +75,29 @@ port (
 --PIN:A_5     : 36
 --PIN:nmcehigh: 34
 --PIN:mcelow  : 33
---PIN:ma_0    : 44
---PIN:ma_5    : 45
---PIN:ma_3    : 46
---PIN:ma_1    : 48
---PIN:ma_2    : 49
---PIN:ma_6    : 50
---PIN:ma_4    : 51
---PIN:A_4     : 54
---PIN:A_3     : 55
---PIN:bsdenl  : 56
---PIN:A_2     : 57
---PIN:mwe     : 58
---PIN:busoe   : 60
---PIN:mhe     : 61
+--PIN:ma_0    : 45
+--PIN:ma_5    : 49
+--PIN:ma_3    : 48
+--PIN:ma_1    : 50
+--PIN:ma_2    : 33
+--PIN:ma_6    : 51
+--PIN:ma_4    : 52
+--PIN:A_4     : 6
+--PIN:A_3     : 79
+--PIN:bsdenl  : 57
+--PIN:A_2     : 9
+--PIN:mwe     : 44
+--PIN:busoe   : 24
+--PIN:mhe     : 46
 --PIN:TCK     : 62
---PIN:A_0     : 63
---PIN:A_1     : 64
---PIN:bwhbl   : 65
---PIN:bmdenl  : 67
---PIN:basl    : 68
---PIN:biosel  : 69
+--PIN:A_0     : 55
+--PIN:A_1     : 56
+--PIN:bwhbl   : 60
+--PIN:bmdenl  : 58
+--PIN:basl    : 61
+--PIN:biosel  : 63
 --PIN:TDO     : 71
---PIN:bssxl   : 79
+--PIN:bssxl   : 64
 --PIN:CLK     : 83
 --PIN:binitl  : 1    
 );
@@ -130,7 +131,7 @@ begin
     brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
     busoe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
     busdir <= bsdenl;
-    with ioa(6 downto 1) select
+    with ioa(5 downto 0) select
         decodedAddress <= "0001" when "000000",
                           "0010" when "000001",
                           "0100" when "000010",
@@ -144,7 +145,7 @@ begin
     writePort <= portAccess and not bwlbl;
     readPort <= portAccess and bwritel;
     writePort2 <=  writePort and decodedAddress(1);
-    reset <= not binitl or writePort2; -- A write to port 2 will reset counter
+    reset <= (not binitl and bdcokh) or writePort2; -- A write to port 2 will reset counter
 
     writePort6 <= writePort and decodedAddress(3);
     writePort4 <= writePort and decodedAddress(2);
@@ -209,7 +210,7 @@ begin
     variable vOutputAddressVector : std_logic_vector (6 downto 0);
     begin
         vBaseAddress := to_integer(unsigned(baseAddress));
-        vAddress := to_integer(unsigned(a(21 downto 15)));
+        vAddress := to_integer(unsigned(a(6 downto 0)));
         if msiz = '1' then
             vSize := 8#200#;  -- 2 meg
         else 
@@ -233,7 +234,7 @@ begin
         end if;
         mcelow <= ramSelected and enableMemory;
         nmcehigh <= not (ramSelected and enableMemory);
-        ma(21 downto 15) <= vOutputAddressVector(6 downto 0);
+        ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
 
     end process;
 

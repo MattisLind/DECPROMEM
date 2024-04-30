@@ -40,7 +40,7 @@ signal moe: std_logic;
 signal mwe: std_logic;
 signal busoe: std_logic;
 signal busdir: std_logic;
-signal mbank: std_logic_vector (21 downto 15);
+signal mbank: std_logic_vector (6 downto 0);
 
 component CY62167 is
     port(
@@ -152,10 +152,10 @@ component ATF1508 is
         ncs: out std_logic;
         nhold: out std_logic;
         -- PRO bus interface
-        -- bdcokh: in std_logic;
+        bdcokh: in std_logic;
         binitl: in std_logic;
-        ioa: in std_logic_vector (6 downto 1);
-        a: in std_logic_vector (21 downto 15);
+        ioa: in std_logic_vector (5 downto 0);
+        a: in std_logic_vector (6 downto 0);
         data: inout std_logic_vector (7 downto 0);
         brplyl: out std_logic;
         bmdenl: in std_logic;
@@ -168,7 +168,7 @@ component ATF1508 is
         basl: in std_logic;
         biosel: in std_logic;
         -- memory inteface
-        ma: out std_logic_vector(21 downto 15);
+        ma: out std_logic_vector(6 downto 0);
         mcelow: out std_logic;
         nmcehigh: out std_logic;
         moe: out std_logic;
@@ -184,7 +184,7 @@ component ATF1508 is
 end component;
 
 begin
-    ma(21 downto 15) <= mbank(21 downto 15);
+    ma(21 downto 15) <= mbank(6 downto 0);
     ma(14 downto 1) <= ia (14 downto 1);
 
     HighRAM: CY62167 port map(
@@ -428,6 +428,7 @@ end generate CondSN74ALS640;
         nhold => nhold,
     -- PRO bus interface
         binitl => binitl,
+        bdcokh => bdcokh,
         ioa => ia (6 downto 1),
         a => ia (21 downto 15),
         data => ida(7 downto 0),
