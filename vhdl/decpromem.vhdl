@@ -41,6 +41,9 @@ signal mwe: std_logic;
 signal busoe: std_logic;
 signal busdir: std_logic;
 signal mbank: std_logic_vector (6 downto 0);
+signal asl: std_logic;
+signal mdenl: std_logic;
+signal sdenl: std_logic;
 
 component CY62167 is
     port(
@@ -179,7 +182,11 @@ component ATF1508 is
         msiz : in std_logic;
         -- dir and oe for 74ALS640-1
         busoe: out std_logic;
-        busdir: out std_logic
+        busdir: out std_logic;
+        -- 
+        asl : out std_logic;
+        mdenl : out std_logic;
+        sdenl : out std_logic
     );
 end component;
 
@@ -233,8 +240,8 @@ CondDP8307: if not useSN74ALS640 generate
         pin_6_A5 => bdal(5),
         pin_7_A6 => bdal(6),
         pin_8_A7 => bdal(7), 
-        pin_9_nT => bmdenl,
-        pin_11_nR => bsdenl,
+        pin_9_nT => mdenl,
+        pin_11_nR => sdenl,
         pin_12_B7 => ida(7),
         pin_13_B6 => ida(6),
         pin_14_B5 => ida(5),
@@ -254,8 +261,8 @@ CondDP8307: if not useSN74ALS640 generate
         pin_6_A5 => bdal(13),
         pin_7_A6 => bdal(14),
         pin_8_A7 => bdal(15), 
-        pin_9_nT => bmdenl,
-        pin_11_nR => bsdenl,
+        pin_9_nT => mdenl,
+        pin_11_nR => sdenl,
         pin_12_B7 => ida(15),
         pin_13_B6 => ida(14),
         pin_14_B5 => ida(13),
@@ -275,8 +282,8 @@ CondDP8307: if not useSN74ALS640 generate
         pin_6_A5 => bdal(21),
         pin_7_A6 => open,
         pin_8_A7 => open, 
-        pin_9_nT => bmdenl,
-        pin_11_nR => bsdenl,
+        pin_9_nT => mdenl,
+        pin_11_nR => sdenl,
         pin_12_B7 => open,
         pin_13_B6 => open,
         pin_14_B5 => ida(21),
@@ -364,7 +371,7 @@ end generate CondSN74ALS640;
         pin_7_3D => ida(2),
         pin_8_4D => ida(3),
         pin_9_4Q => ia(3),
-        pin_11_C => basl,
+        pin_11_C => asl,
         pin_12_5Q => ia(4),
         pin_13_5D => ida(4),
         pin_14_6D => ida(5),
@@ -385,7 +392,7 @@ end generate CondSN74ALS640;
         pin_7_3D => ida(10),
         pin_8_4D => ida(11),
         pin_9_4Q => ia(11),
-        pin_11_C => basl,
+        pin_11_C => asl,
         pin_12_5Q => ia(12),
         pin_13_5D => ida(12),
         pin_14_6D => ida(13),
@@ -406,7 +413,7 @@ end generate CondSN74ALS640;
         pin_7_3D => ida(18),
         pin_8_4D => ida(19),
         pin_9_4Q => ia(19),
-        pin_11_C => basl,
+        pin_11_C => asl,
         pin_12_5Q => ia(20),
         pin_13_5D => ida(20),
         pin_14_6D => ida(21),
@@ -454,7 +461,10 @@ end generate CondSN74ALS640;
         msiz => msiz,
     -- dir and oe for 74ALS640-1
         busoe => busoe,
-        busdir => busdir
+        busdir => busdir,
+        asl => asl,
+        mdenl => mdenl,
+        sdenl => sdenl
       );
 
 

@@ -39,7 +39,11 @@ port (
     msiz : in std_logic;
     -- dir and oe for 74ALS640-1
     busoe: out std_logic;
-    busdir: out std_logic
+    busdir: out std_logic;
+    -- buffered outputs
+    asl: out std_logic;
+    mdenl: out std_logic;
+    sdenl: out std_logic
 --PIN:CHIP "src/ATF1508" ASSIGNED TO AN PLCC84
 --PIN:miso    : 73
 --PIN:spiclk  : 76
@@ -73,31 +77,31 @@ port (
 --PIN:bwlbl   : 39
 --PIN:A_6     : 37
 --PIN:A_5     : 36
---PIN:nmcehigh: 34
---PIN:mcelow  : 33
---PIN:ma_0    : 45
---PIN:ma_5    : 49
---PIN:ma_3    : 48
---PIN:ma_1    : 50
---PIN:ma_2    : 33
---PIN:ma_6    : 51
---PIN:ma_4    : 52
---PIN:A_4     : 6
---PIN:A_3     : 79
---PIN:bsdenl  : 57
---PIN:A_2     : 9
---PIN:mwe     : 44
+--PIN:nmcehigh: 44
+--PIN:mcelow  : 45
+--PIN:ma_0    : 48
+--PIN:ma_5    : 35
+--PIN:ma_3    : 33
+--PIN:ma_1    : 34
+--PIN:ma_2    : 50
+--PIN:ma_6    : 52
+--PIN:ma_4    : 51
+--PIN:A_4     : 63
+--PIN:A_3     : 9
+--PIN:bsdenl  : 55
+--PIN:A_2     : 16
+--PIN:mwe     : 46
 --PIN:busoe   : 24
---PIN:mhe     : 46
+--PIN:mhe     : 49
 --PIN:TCK     : 62
---PIN:A_0     : 55
---PIN:A_1     : 56
---PIN:bwhbl   : 60
---PIN:bmdenl  : 58
---PIN:basl    : 61
---PIN:biosel  : 63
+--PIN:A_0     : 6
+--PIN:A_1     : 57
+--PIN:bwhbl   : 64
+--PIN:bmdenl  : 56
+--PIN:basl    : 65
+--PIN:biosel  : 67
 --PIN:TDO     : 71
---PIN:bssxl   : 64
+--PIN:bssxl   : 68
 --PIN:CLK     : 83
 --PIN:binitl  : 1    
 );
@@ -128,6 +132,9 @@ architecture rtl of ATF1508 is
     signal latchedSsxl: std_logic;
     signal latchedIosel: std_logic;
 begin
+    asl <= basl;
+    mdenl <= bmdenl;
+    sdenl <= bsdenl;
     brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
     busoe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
     busdir <= bsdenl;
