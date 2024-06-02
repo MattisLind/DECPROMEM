@@ -15643,6 +15643,16 @@
 		)
 		(uuid "88ba7eb8-f588-4988-88f1-ff089c663b83")
 	)
+	(wire
+		(pts
+			(xy 162.56 228.6) (xy 171.45 228.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88bbed6a-6b41-41f4-8432-90c44770f9ac")
+	)
 	(bus
 		(pts
 			(xy 142.24 34.29) (xy 142.24 31.75)
@@ -22093,6 +22103,17 @@
 			(justify left bottom)
 		)
 		(uuid "86910892-92d3-4027-91f8-c5db27a0229e")
+	)
+	(label "BINITL"
+		(at 162.56 228.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "87556292-0a99-4535-adb8-03a7cd1b9c21")
 	)
 	(label "DAH18"
 		(at 156.21 115.57 0)
@@ -32747,6 +32768,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 157.48 228.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bb655f2f-e361-475f-a567-b5058432332b")
+		(property "Reference" "J85"
+			(at 155.194 228.346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "BINITL"
+			(at 153.162 228.092 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 157.48 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 157.48 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b7420b7e-e368-42f8-b917-7c6bc4e5efab")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J85")
 					(unit 1)
 				)
 			)
