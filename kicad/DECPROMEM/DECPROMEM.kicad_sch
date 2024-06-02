@@ -8685,7 +8685,7 @@
 		(uuid "986fa40c-7189-4e8f-af88-f07e93eb676f")
 	)
 	(no_connect
-		(at 187.96 41.91)
+		(at 187.96 24.13)
 		(uuid "9d85142a-572e-47f2-aa68-1f603eca1d55")
 	)
 	(no_connect
@@ -9275,7 +9275,7 @@
 		(uuid "35bce1ee-f24f-4ab0-a9b5-4f0a7f695bb0")
 	)
 	(bus_entry
-		(at 201.93 34.29)
+		(at 201.93 36.83)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -9311,7 +9311,7 @@
 		(uuid "37263a3a-3f35-4d33-9160-88b87c864579")
 	)
 	(bus_entry
-		(at 201.93 41.91)
+		(at 201.93 44.45)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -9338,7 +9338,7 @@
 		(uuid "39cc2cc7-38e3-4cef-9450-e639c50cdc52")
 	)
 	(bus_entry
-		(at 201.93 39.37)
+		(at 201.93 41.91)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -9482,7 +9482,7 @@
 		(uuid "53587510-8de5-4ef0-92ff-9376d2d0559f")
 	)
 	(bus_entry
-		(at 201.93 29.21)
+		(at 201.93 31.75)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -9509,7 +9509,7 @@
 		(uuid "55d31fad-1a62-4e8e-a2da-0fedc7f8caf2")
 	)
 	(bus_entry
-		(at 201.93 31.75)
+		(at 201.93 34.29)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -10589,7 +10589,7 @@
 		(uuid "ce00c939-236c-4276-98a3-cddd4c568283")
 	)
 	(bus_entry
-		(at 201.93 36.83)
+		(at 201.93 39.37)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -10769,7 +10769,7 @@
 		(uuid "e249953c-eb8d-41be-bbd9-bac1ed0d1948")
 	)
 	(bus_entry
-		(at 201.93 26.67)
+		(at 201.93 29.21)
 		(size -2.54 -2.54)
 		(stroke
 			(width 0)
@@ -11665,13 +11665,23 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 31.75) (xy 199.39 31.75)
+			(xy 187.96 34.29) (xy 199.39 34.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "1290089b-3d5a-445c-88a9-bd25299a1eed")
+	)
+	(wire
+		(pts
+			(xy 219.71 252.73) (xy 231.14 252.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12a6e735-6b00-44df-a96c-be01b3cec2ee")
 	)
 	(wire
 		(pts
@@ -12033,6 +12043,16 @@
 		)
 		(uuid "1dff0957-75e7-4b54-b5b4-f55288489ad4")
 	)
+	(wire
+		(pts
+			(xy 219.71 234.95) (xy 223.52 234.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e0e6cae-05e6-492b-b168-c01ea08e00d7")
+	)
 	(bus
 		(pts
 			(xy 142.24 213.36) (xy 142.24 215.9)
@@ -12113,16 +12133,6 @@
 		)
 		(uuid "206bc175-7664-4b5a-9d71-445b23261d92")
 	)
-	(bus
-		(pts
-			(xy 201.93 39.37) (xy 201.93 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20ceedcb-92aa-4d35-95f2-3b88615804bb")
-	)
 	(wire
 		(pts
 			(xy 316.23 73.66) (xy 316.23 106.68)
@@ -12132,6 +12142,26 @@
 			(type default)
 		)
 		(uuid "20d85935-7310-4d23-a5bc-ee3edb478559")
+	)
+	(wire
+		(pts
+			(xy 219.71 237.49) (xy 223.52 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20ea3c7e-82d2-4590-9a74-e41c314364ff")
+	)
+	(wire
+		(pts
+			(xy 219.71 257.81) (xy 231.14 257.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "213cf189-f6da-4f21-913b-9f5e5cff1ec9")
 	)
 	(wire
 		(pts
@@ -12152,6 +12182,16 @@
 			(type default)
 		)
 		(uuid "223ac465-5669-4880-8323-14327d70cbbc")
+	)
+	(wire
+		(pts
+			(xy 219.71 219.71) (xy 231.14 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2267b61b-bf15-4df3-b68e-02678e9604db")
 	)
 	(wire
 		(pts
@@ -12765,7 +12805,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 39.37) (xy 199.39 39.37)
+			(xy 187.96 41.91) (xy 199.39 41.91)
 		)
 		(stroke
 			(width 0)
@@ -13045,7 +13085,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 29.21) (xy 199.39 29.21)
+			(xy 187.96 31.75) (xy 199.39 31.75)
 		)
 		(stroke
 			(width 0)
@@ -13122,6 +13162,16 @@
 			(type default)
 		)
 		(uuid "3f2cca90-87c3-4c1d-9bd6-c816bfb7ba0c")
+	)
+	(wire
+		(pts
+			(xy 219.71 232.41) (xy 223.52 232.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f3d1b32-1d9a-434b-8e90-65c5b28973ec")
 	)
 	(bus
 		(pts
@@ -13305,7 +13355,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 31.75) (xy 201.93 34.29)
+			(xy 201.93 34.29) (xy 201.93 36.83)
 		)
 		(stroke
 			(width 0)
@@ -13715,6 +13765,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 222.25) (xy 231.14 222.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50424274-1807-4475-a9c9-305c55f191c0")
+	)
+	(wire
+		(pts
 			(xy 191.77 185.42) (xy 200.66 185.42)
 		)
 		(stroke
@@ -13722,6 +13782,16 @@
 			(type default)
 		)
 		(uuid "50f02be8-6b1e-466b-9163-6759b179ed99")
+	)
+	(wire
+		(pts
+			(xy 219.71 217.17) (xy 231.14 217.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51097359-ffe0-438f-a7b0-9309530e07e2")
 	)
 	(bus
 		(pts
@@ -14265,13 +14335,23 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 36.83) (xy 199.39 36.83)
+			(xy 187.96 39.37) (xy 199.39 39.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5ec854f7-65cb-4e0f-a1d6-6d7b24f05684")
+	)
+	(wire
+		(pts
+			(xy 219.71 214.63) (xy 231.14 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ecfc7de-62f2-444d-8ce3-e30bc9a92dcc")
 	)
 	(wire
 		(pts
@@ -14935,6 +15015,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 247.65) (xy 223.52 247.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "761f16e0-4b42-4d59-bf32-0684a70f6777")
+	)
+	(wire
+		(pts
 			(xy 83.82 88.9) (xy 105.41 88.9)
 		)
 		(stroke
@@ -15035,7 +15125,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 29.21) (xy 201.93 31.75)
+			(xy 201.93 31.75) (xy 201.93 34.29)
 		)
 		(stroke
 			(width 0)
@@ -15545,7 +15635,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 34.29) (xy 201.93 36.83)
+			(xy 201.93 36.83) (xy 201.93 39.37)
 		)
 		(stroke
 			(width 0)
@@ -15655,6 +15745,16 @@
 	)
 	(bus
 		(pts
+			(xy 201.93 44.45) (xy 201.93 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88e0b39d-a835-4893-b4a6-fdbe3dcbf79d")
+	)
+	(bus
+		(pts
 			(xy 142.24 34.29) (xy 142.24 31.75)
 		)
 		(stroke
@@ -15672,6 +15772,16 @@
 			(type default)
 		)
 		(uuid "890f6b85-3317-4f13-b60b-1956bbaf16c2")
+	)
+	(wire
+		(pts
+			(xy 219.71 260.35) (xy 231.14 260.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89111da9-589b-4ee6-9fab-a8b7f6301821")
 	)
 	(bus
 		(pts
@@ -15772,6 +15882,16 @@
 			(type default)
 		)
 		(uuid "8c675bfe-06da-47c5-8d17-1cbbe45904b6")
+	)
+	(wire
+		(pts
+			(xy 219.71 242.57) (xy 223.52 242.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cbd66a8-9e4b-4286-abb7-d82d74fef29f")
 	)
 	(wire
 		(pts
@@ -16225,6 +16345,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 255.27) (xy 231.14 255.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "986416ab-1fbf-45b1-9832-c449c8e0fccb")
+	)
+	(wire
+		(pts
 			(xy 262.89 87.63) (xy 266.7 87.63)
 		)
 		(stroke
@@ -16462,6 +16592,16 @@
 			(type default)
 		)
 		(uuid "9f8f5655-d805-4017-a237-22817f9b9a60")
+	)
+	(wire
+		(pts
+			(xy 219.71 245.11) (xy 223.52 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fd9cc1c-17d0-44bf-9306-a42e19db1205")
 	)
 	(wire
 		(pts
@@ -16742,6 +16882,16 @@
 			(type default)
 		)
 		(uuid "a8333440-8d3e-47fe-985c-d7c07c2548b8")
+	)
+	(wire
+		(pts
+			(xy 219.71 227.33) (xy 231.14 227.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a85d64b7-7f44-469a-9bac-501b7ddda25f")
 	)
 	(wire
 		(pts
@@ -17195,6 +17345,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 262.89) (xy 231.14 262.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5bd4c4e-5b61-4d2d-93b0-90706ad9081c")
+	)
+	(wire
+		(pts
 			(xy 270.51 185.42) (xy 279.4 185.42)
 		)
 		(stroke
@@ -17355,7 +17515,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 26.67) (xy 201.93 29.21)
+			(xy 201.93 29.21) (xy 201.93 31.75)
 		)
 		(stroke
 			(width 0)
@@ -17563,6 +17723,16 @@
 		)
 		(uuid "be96642b-7f69-48ef-bc2c-c3823eb59a73")
 	)
+	(wire
+		(pts
+			(xy 219.71 212.09) (xy 231.14 212.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bea6c25e-86f2-4e7c-b8a2-f8d442afcb9d")
+	)
 	(bus
 		(pts
 			(xy 142.24 76.2) (xy 142.24 73.66)
@@ -17755,7 +17925,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 34.29) (xy 199.39 34.29)
+			(xy 187.96 36.83) (xy 199.39 36.83)
 		)
 		(stroke
 			(width 0)
@@ -18055,7 +18225,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 41.91) (xy 201.93 68.58)
+			(xy 201.93 41.91) (xy 201.93 44.45)
 		)
 		(stroke
 			(width 0)
@@ -18262,6 +18432,16 @@
 			(type default)
 		)
 		(uuid "d3488e61-6dfe-42a0-8738-5e8f3a7159a9")
+	)
+	(wire
+		(pts
+			(xy 219.71 229.87) (xy 223.52 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3cc6ed3-296a-42fe-849e-db5386b9f0b0")
 	)
 	(wire
 		(pts
@@ -18583,6 +18763,16 @@
 		)
 		(uuid "dd9d8500-aa7e-46a1-8d01-aac9fbff283d")
 	)
+	(wire
+		(pts
+			(xy 219.71 240.03) (xy 223.52 240.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ddbb8f56-b15f-4c25-beed-4441f90b71e3")
+	)
 	(bus
 		(pts
 			(xy 358.14 41.91) (xy 358.14 39.37)
@@ -18655,7 +18845,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 26.67) (xy 199.39 26.67)
+			(xy 187.96 29.21) (xy 199.39 29.21)
 		)
 		(stroke
 			(width 0)
@@ -19265,7 +19455,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 24.13) (xy 199.39 24.13)
+			(xy 187.96 26.67) (xy 199.39 26.67)
 		)
 		(stroke
 			(width 0)
@@ -19463,6 +19653,16 @@
 		)
 		(uuid "f3ae846d-dc53-41cb-a915-73e89bdc9309")
 	)
+	(wire
+		(pts
+			(xy 219.71 224.79) (xy 231.14 224.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3ed3afe-5fc0-4f6f-bdca-26b03abf115f")
+	)
 	(bus
 		(pts
 			(xy 86.36 255.27) (xy 86.36 257.81)
@@ -19535,7 +19735,7 @@
 	)
 	(bus
 		(pts
-			(xy 201.93 36.83) (xy 201.93 39.37)
+			(xy 201.93 39.37) (xy 201.93 41.91)
 		)
 		(stroke
 			(width 0)
@@ -19845,6 +20045,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 250.19) (xy 231.14 250.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe3525ad-838f-4f17-b432-a12383376c9d")
+	)
+	(wire
+		(pts
 			(xy 62.23 127) (xy 71.12 127)
 		)
 		(stroke
@@ -19904,6 +20114,28 @@
 		)
 		(uuid "005075d0-e72e-42d5-ae3c-80b0837ae6e9")
 	)
+	(label "A18"
+		(at 219.71 255.27 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "01108955-ec12-413c-8ae9-ab19fac17e4f")
+	)
+	(label "A1"
+		(at 219.71 212.09 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "01c450da-0fd5-4de1-b938-f3089c9da2d8")
+	)
 	(label "DAH0"
 		(at 349.25 36.83 0)
 		(fields_autoplaced yes)
@@ -19938,7 +20170,7 @@
 		(uuid "03c3b2d2-2a6d-4a54-b658-debfbd5d78dc")
 	)
 	(label "A10"
-		(at 195.58 78.74 0)
+		(at 195.58 71.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20026,7 +20258,7 @@
 		(uuid "064e7ad8-c042-483c-b511-4dd02046ec50")
 	)
 	(label "A1"
-		(at 187.96 24.13 0)
+		(at 187.96 26.67 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20147,7 +20379,7 @@
 		(uuid "0b1b79ec-3139-4653-9c14-2d8c96ef4fca")
 	)
 	(label "A9"
-		(at 195.58 81.28 0)
+		(at 195.58 68.58 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20211,6 +20443,17 @@
 			(justify left bottom)
 		)
 		(uuid "12225dba-16d4-47af-9637-d0525c5c2752")
+	)
+	(label "A6"
+		(at 219.71 224.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "136af3e9-e39b-4d2c-9119-cae52e7266f9")
 	)
 	(label "BDAL10"
 		(at 62.23 78.74 0)
@@ -20488,7 +20731,7 @@
 		(uuid "23b911e3-b038-408d-ac54-85c96e767bd2")
 	)
 	(label "A13"
-		(at 195.58 71.12 0)
+		(at 195.58 78.74 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20543,7 +20786,7 @@
 		(uuid "26f5a2e0-e9f7-4507-9f42-03054a319648")
 	)
 	(label "A7"
-		(at 187.96 39.37 0)
+		(at 187.96 41.91 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20576,7 +20819,7 @@
 		(uuid "29638251-502b-4d8c-bc27-7856363a92ea")
 	)
 	(label "A3"
-		(at 187.96 29.21 0)
+		(at 187.96 31.75 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20839,6 +21082,17 @@
 		)
 		(uuid "392884db-01ce-45ad-96f5-cbcc92314cbb")
 	)
+	(label "A20"
+		(at 219.71 260.35 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "397e5a20-f08f-4d98-87bf-ba13a7709c30")
+	)
 	(label "BDAL4"
 		(at 90.17 34.29 0)
 		(fields_autoplaced yes)
@@ -20895,7 +21149,7 @@
 		(uuid "3af8c315-97db-42f1-bd3b-7580da5390d0")
 	)
 	(label "A15"
-		(at 195.58 66.04 0)
+		(at 195.58 83.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20948,6 +21202,17 @@
 			(justify left bottom)
 		)
 		(uuid "3fecd837-3bc0-4a40-8968-9eadeb7956e5")
+	)
+	(label "A19"
+		(at 219.71 257.81 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "40193f5b-b0dd-464d-af6c-f1e3f1803c1b")
 	)
 	(label "DAH3"
 		(at 132.08 163.83 0)
@@ -21048,6 +21313,28 @@
 		)
 		(uuid "462efbff-f32a-40b2-9e41-560f2b3ea84e")
 	)
+	(label "A15"
+		(at 219.71 229.87 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "46b6a2f5-03f1-4092-9e88-7a12271fddb9")
+	)
+	(label "A17"
+		(at 219.71 252.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "47f8425e-4c57-41aa-aced-f2500a947c32")
+	)
 	(label "BDAL17"
 		(at 165.1 195.58 0)
 		(fields_autoplaced yes)
@@ -21082,7 +21369,7 @@
 		(uuid "488be7ae-c7c9-4432-8ee4-711360bc7c6c")
 	)
 	(label "A20"
-		(at 187.96 113.03 0)
+		(at 187.96 120.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21467,7 +21754,7 @@
 		(uuid "5c9bf619-44af-4d0b-90e0-04c98ecb7a7a")
 	)
 	(label "A6"
-		(at 187.96 36.83 0)
+		(at 187.96 39.37 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21487,6 +21774,17 @@
 			(justify left bottom)
 		)
 		(uuid "5e832c57-76da-4136-88bc-b5e74c87d74e")
+	)
+	(label "A5"
+		(at 219.71 222.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5ee16e31-eda1-45b7-a2e9-6c0f1d50b086")
 	)
 	(label "CLK"
 		(at 256.54 100.33 0)
@@ -21531,6 +21829,17 @@
 			(justify left bottom)
 		)
 		(uuid "60a609e6-9022-43e1-820e-9312c2136af2")
+	)
+	(label "A8"
+		(at 219.71 247.65 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6199650c-3617-48fe-99d0-80dc15efefb0")
 	)
 	(label "DAH15"
 		(at 389.89 74.93 0)
@@ -21642,6 +21951,17 @@
 		)
 		(uuid "68df5d85-3e94-49b7-93bb-40ba3e057cd6")
 	)
+	(label "A14"
+		(at 219.71 232.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "69f58735-54e9-4e7f-a5f5-06766b8a3495")
+	)
 	(label "BDAL19"
 		(at 165.1 200.66 0)
 		(fields_autoplaced yes)
@@ -21675,6 +21995,17 @@
 		)
 		(uuid "6b1fa88e-1c56-45cb-bca7-a5b47bb7939f")
 	)
+	(label "A2"
+		(at 219.71 214.63 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6fcc8cc5-d6d7-4b35-adb3-7aea548c0537")
+	)
 	(label "DAH1"
 		(at 156.21 26.67 0)
 		(fields_autoplaced yes)
@@ -21697,6 +22028,17 @@
 		)
 		(uuid "702d1477-6914-430a-97a8-a0a267d1eae7")
 	)
+	(label "A4"
+		(at 219.71 219.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "716d817c-f44a-47c6-9875-08d9aa58cfba")
+	)
 	(label "BDAL9"
 		(at 62.23 81.28 0)
 		(fields_autoplaced yes)
@@ -21709,7 +22051,7 @@
 		(uuid "71a31465-0886-4ec1-83df-2b03ae465f3b")
 	)
 	(label "A14"
-		(at 195.58 68.58 0)
+		(at 195.58 81.28 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21884,6 +22226,17 @@
 		)
 		(uuid "7a3249ba-24ca-4235-8202-a30fda9bdfae")
 	)
+	(label "A16"
+		(at 219.71 250.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7a78103b-5a99-4266-bee8-153db1a7aa69")
+	)
 	(label "SCK"
 		(at 251.46 26.67 0)
 		(fields_autoplaced yes)
@@ -21995,7 +22348,7 @@
 		(uuid "7fdc5918-f72a-4575-8d89-b30e2426b4a9")
 	)
 	(label "A8"
-		(at 195.58 83.82 0)
+		(at 195.58 66.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -22037,6 +22390,17 @@
 			(justify left bottom)
 		)
 		(uuid "81dcb186-9166-4aaa-92b1-ed4c691bb842")
+	)
+	(label "A10"
+		(at 219.71 242.57 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "82ce3965-d96b-4246-ac3f-a71b0713dd28")
 	)
 	(label "MLEL"
 		(at 194.31 231.14 0)
@@ -22423,6 +22787,17 @@
 		)
 		(uuid "96eb1fbe-4a09-45b7-b962-c5685b5bf283")
 	)
+	(label "A13"
+		(at 219.71 234.95 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "97f146df-a194-4355-a2b2-7ab3ee052945")
+	)
 	(label "DAH2"
 		(at 194.31 157.48 0)
 		(fields_autoplaced yes)
@@ -22622,7 +22997,7 @@
 		(uuid "a4b0f9c9-35ed-471c-970e-cb5e1f8f98df")
 	)
 	(label "A5"
-		(at 187.96 34.29 0)
+		(at 187.96 36.83 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -22853,7 +23228,7 @@
 		(uuid "b3fa6597-9ee1-4356-a594-f6f09f6afee6")
 	)
 	(label "A18"
-		(at 187.96 118.11 0)
+		(at 187.96 115.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -22874,6 +23249,17 @@
 		)
 		(uuid "b46bb579-6a30-4de2-8d5e-c1d820730e5f")
 	)
+	(label "A21"
+		(at 219.71 262.89 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b4b54a51-30f4-482a-915c-3ef706a8c2bf")
+	)
 	(label "BWHBL"
 		(at 252.73 68.58 0)
 		(fields_autoplaced yes)
@@ -22884,6 +23270,28 @@
 			(justify left bottom)
 		)
 		(uuid "b55ced76-dbb2-4117-bb16-8112e1a41260")
+	)
+	(label "A9"
+		(at 219.71 245.11 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b5675dfc-d27c-4113-b9fa-c0981e683cce")
+	)
+	(label "A3"
+		(at 219.71 217.17 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b56b88f5-7310-427a-993f-c6fd425dfd10")
 	)
 	(label "MA15"
 		(at 193.04 245.11 0)
@@ -22930,7 +23338,7 @@
 		(uuid "b80ec40c-f4b3-4b4f-9d69-853813bb5889")
 	)
 	(label "A16"
-		(at 187.96 123.19 0)
+		(at 187.96 110.49 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23049,6 +23457,17 @@
 			(justify left bottom)
 		)
 		(uuid "c18b2867-12d7-421e-afcc-a0caa3808747")
+	)
+	(label "A7"
+		(at 219.71 227.33 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c1acb2de-9171-4255-b300-eb04692e7142")
 	)
 	(label "MA20"
 		(at 322.58 85.09 0)
@@ -23271,7 +23690,7 @@
 		(uuid "c9009a2c-9c8d-492b-9453-870a04be62b8")
 	)
 	(label "A11"
-		(at 195.58 76.2 0)
+		(at 195.58 73.66 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23414,7 +23833,7 @@
 		(uuid "d06eeba9-312f-44ce-bfcf-9a81f524153f")
 	)
 	(label "A12"
-		(at 195.58 73.66 0)
+		(at 195.58 76.2 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23546,7 +23965,7 @@
 		(uuid "da960f6c-c911-4e04-9704-b5d101151a22")
 	)
 	(label "A4"
-		(at 187.96 31.75 0)
+		(at 187.96 34.29 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23566,6 +23985,17 @@
 			(justify left bottom)
 		)
 		(uuid "db1b1356-1c77-4379-ba5d-48a7ae800b06")
+	)
+	(label "A12"
+		(at 219.71 237.49 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "db3cb2e2-5716-40a6-a018-ba8551baced2")
 	)
 	(label "DAH1"
 		(at 389.89 39.37 0)
@@ -23732,6 +24162,17 @@
 		)
 		(uuid "e646c783-4a7e-4a3b-8ac2-581a2a0a09a3")
 	)
+	(label "A11"
+		(at 219.71 240.03 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e6984a0e-d6b6-4939-a394-06153591116d")
+	)
 	(label "DAH14"
 		(at 194.31 187.96 0)
 		(fields_autoplaced yes)
@@ -23777,7 +24218,7 @@
 		(uuid "ea2699d3-09da-4f38-a3a3-e7aaed0556a2")
 	)
 	(label "A19"
-		(at 187.96 115.57 0)
+		(at 187.96 118.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23843,7 +24284,7 @@
 		(uuid "edae870c-5d2a-4f0f-88f6-b7918c339ce1")
 	)
 	(label "A21"
-		(at 187.96 110.49 0)
+		(at 187.96 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24173,7 +24614,7 @@
 		(uuid "fdade6de-e874-4385-919a-18d775844ed5")
 	)
 	(label "A17"
-		(at 187.96 120.65 0)
+		(at 187.96 113.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24184,7 +24625,7 @@
 		(uuid "fecf502b-1227-4805-9a38-b8236f6fe46d")
 	)
 	(label "A2"
-		(at 187.96 26.67 0)
+		(at 187.96 29.21 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24645,6 +25086,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 240.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "10497579-6789-4cea-bb9e-779650088784")
+		(property "Reference" "J97"
+			(at 212.344 239.776 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A12"
+			(at 210.312 239.522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 240.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2ffb8a5b-48aa-46b6-9e24-18b3720f4214")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J97")
 					(unit 1)
 				)
 			)
@@ -25302,6 +25808,71 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 234.95 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1a8e7157-3598-4ea5-992e-02b78360c872")
+		(property "Reference" "J95"
+			(at 212.344 234.696 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A10"
+			(at 210.312 234.442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7a8515fa-eb91-4f60-8b99-209b824740c0")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J95")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
 		(at 186.69 203.2 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -25822,6 +26393,136 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 232.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "29b2b31b-33ec-4b67-a550-b8e46bcba3c2")
+		(property "Reference" "J94"
+			(at 212.344 232.156 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A9"
+			(at 210.312 231.902 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "918966dc-7d91-467b-a31e-3abb8ce3cf1b")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J94")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 262.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2a8ee69e-6f24-46ce-b762-1efe356a7a2f")
+		(property "Reference" "J106"
+			(at 212.344 262.636 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A21"
+			(at 210.312 262.382 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9a40ad2-2a74-451d-b634-adb474ab71b1")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J106")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
 		(at 157.48 213.36 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -25945,6 +26646,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J46")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 222.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2e79f812-0a5d-4978-8152-1d209f3a88d4")
+		(property "Reference" "J90"
+			(at 212.344 221.996 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A5"
+			(at 210.312 221.742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "663f4a87-b253-4e48-8d0a-269f5eb1b513")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J90")
 					(unit 1)
 				)
 			)
@@ -26075,6 +26841,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 214.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "31d56dab-6e2b-44b5-9aaa-52babceda3f7")
+		(property "Reference" "J87"
+			(at 212.344 214.376 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A2"
+			(at 210.312 214.122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "efd6d511-1839-4e4b-929b-c0851fc3346a")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J87")
 					(unit 1)
 				)
 			)
@@ -28254,6 +29085,71 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 217.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "59161dc2-0622-4c66-a035-85712d43f020")
+		(property "Reference" "J88"
+			(at 212.344 216.916 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A3"
+			(at 210.312 216.662 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 217.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5d3dec90-c6c5-4b01-9ab5-696247ef3ae6")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
 		(at 157.48 236.22 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -28703,6 +29599,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J47")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 242.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d693be0-0720-4e55-b1d1-9fe1d1d63e06")
+		(property "Reference" "J98"
+			(at 212.344 242.316 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A13"
+			(at 210.312 242.062 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 242.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "38430daf-e979-45d3-be7f-4ac5861714d4")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J98")
 					(unit 1)
 				)
 			)
@@ -29165,6 +30126,136 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 245.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6bbe441b-dc0e-4fad-8206-22d2642ea66d")
+		(property "Reference" "J99"
+			(at 212.344 244.856 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A14"
+			(at 210.312 244.602 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0ac504fb-b151-483b-9b11-cff0fa6c9ac6")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J99")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 257.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6d5ebfda-c9f1-4174-b5f9-af7bc787ba80")
+		(property "Reference" "J104"
+			(at 212.344 257.556 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A19"
+			(at 210.312 257.302 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 257.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7030f50d-3d07-4556-a991-cc75c3db6ad6")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 215.9 26.67 90)
 		(unit 1)
@@ -29292,6 +30383,136 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 229.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "70395e86-a558-41c9-a0a5-17e45645796f")
+		(property "Reference" "J93"
+			(at 212.344 229.616 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A8"
+			(at 210.312 229.362 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c4347e98-27d9-4b77-8d6a-af897182521d")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J93")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 250.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "70d437f8-983f-4cba-af49-99f5b437fd95")
+		(property "Reference" "J101"
+			(at 212.344 249.936 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A16"
+			(at 210.312 249.682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 250.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 250.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 250.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a11bbd91-d756-4eb1-9f8e-7281ab8caea3")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J101")
 					(unit 1)
 				)
 			)
@@ -29995,6 +31216,71 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 255.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7cab29e4-6c08-4f05-9906-24f298e3b542")
+		(property "Reference" "J103"
+			(at 212.344 255.016 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A18"
+			(at 210.312 254.762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2e5ce31f-af6d-4de3-9198-d317de4f9531")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
 		(at 187.96 233.68 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -30053,6 +31339,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 237.49 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7e30eaa7-7428-46bd-8cb7-164f7d05ceac")
+		(property "Reference" "J96"
+			(at 212.344 237.236 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A11"
+			(at 210.312 236.982 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cb10f226-01db-43a9-9297-1d042309ae60")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J96")
 					(unit 1)
 				)
 			)
@@ -30877,6 +32228,71 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 219.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8e48d475-5654-4a1f-8a33-026349010a34")
+		(property "Reference" "J89"
+			(at 212.344 219.456 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A4"
+			(at 210.312 219.202 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 219.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "37504e11-0872-4119-9d60-2850b5c84d98")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J89")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 175.26 146.05 0)
 		(unit 1)
@@ -30936,6 +32352,136 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 252.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8f1545b4-f007-4c4d-acd2-72ac8ace76b7")
+		(property "Reference" "J102"
+			(at 212.344 252.476 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A17"
+			(at 210.312 252.222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 252.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e454bf2e-49d6-4129-b3cc-9f46b6017243")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 212.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "945f0997-055c-4066-a59d-414a11c779a6")
+		(property "Reference" "J86"
+			(at 212.344 211.836 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A1"
+			(at 210.312 211.582 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 212.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d230682b-0696-4f06-b46f-debef82f099b")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J86")
 					(unit 1)
 				)
 			)
@@ -31525,6 +33071,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 260.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9f5ec79a-e8fa-42d9-9fff-8a8cf0066bc9")
+		(property "Reference" "J105"
+			(at 212.344 260.096 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A20"
+			(at 210.312 259.842 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a922552-5d1c-4284-956b-afa96973f622")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J105")
 					(unit 1)
 				)
 			)
@@ -33040,6 +34651,71 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 247.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c39c742a-6d15-4d5f-b4c6-090edea03eb3")
+		(property "Reference" "J100"
+			(at 212.344 247.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A15"
+			(at 210.312 247.142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 247.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 247.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 247.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "de0fc1f4-07ef-4bf2-afd5-d1e1675aa5e3")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J100")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
 		(at 157.48 160.02 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -34250,6 +35926,136 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 224.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dad06816-00f2-42c6-8b0f-1baee7d5b1e8")
+		(property "Reference" "J91"
+			(at 212.344 224.536 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A6"
+			(at 210.312 224.282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "158ce40c-7683-4cf9-a8fd-2030dc22d253")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J91")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 214.63 227.33 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dc1018a7-f851-44eb-88de-47bb88798136")
+		(property "Reference" "J92"
+			(at 212.344 227.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "A7"
+			(at 210.312 226.822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 214.63 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 214.63 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f2fe46b0-440e-4bcc-8e7c-d86f22adfd6d")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J92")
 					(unit 1)
 				)
 			)
