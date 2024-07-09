@@ -150,7 +150,7 @@ L2760:  CMP R1,-(R0)          ; Read back from memory and check. Loop here until
         CMP R5,(R0)           ; and read it back
         BEQ L3000
 L2772:  JSR PC,L3136          ; Bad data was read from memory
-        000005
+        .WORD 000005
 L3000:  SOB R2,L2760          ; loop reading back memory
         EMT 6
         SOB R4,L2732          ; loop
