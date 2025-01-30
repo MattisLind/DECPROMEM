@@ -21314,7 +21314,7 @@
 		(uuid "462efbff-f32a-40b2-9e41-560f2b3ea84e")
 	)
 	(label "A15"
-		(at 219.71 229.87 0)
+		(at 219.71 247.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21831,7 +21831,7 @@
 		(uuid "60a609e6-9022-43e1-820e-9312c2136af2")
 	)
 	(label "A8"
-		(at 219.71 247.65 0)
+		(at 219.71 229.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -21952,7 +21952,7 @@
 		(uuid "68df5d85-3e94-49b7-93bb-40ba3e057cd6")
 	)
 	(label "A14"
-		(at 219.71 232.41 0)
+		(at 219.71 245.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -22392,7 +22392,7 @@
 		(uuid "81dcb186-9166-4aaa-92b1-ed4c691bb842")
 	)
 	(label "A10"
-		(at 219.71 242.57 0)
+		(at 219.71 234.95 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -22788,7 +22788,7 @@
 		(uuid "96eb1fbe-4a09-45b7-b962-c5685b5bf283")
 	)
 	(label "A13"
-		(at 219.71 234.95 0)
+		(at 219.71 242.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23272,7 +23272,7 @@
 		(uuid "b55ced76-dbb2-4117-bb16-8112e1a41260")
 	)
 	(label "A9"
-		(at 219.71 245.11 0)
+		(at 219.71 232.41 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23987,7 +23987,7 @@
 		(uuid "db1b1356-1c77-4379-ba5d-48a7ae800b06")
 	)
 	(label "A12"
-		(at 219.71 237.49 0)
+		(at 219.71 240.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24163,7 +24163,7 @@
 		(uuid "e646c783-4a7e-4a3b-8ac2-581a2a0a09a3")
 	)
 	(label "A11"
-		(at 219.71 240.03 0)
+		(at 219.71 237.49 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
