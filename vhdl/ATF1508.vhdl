@@ -89,7 +89,7 @@ port (
 --PIN:A_4     : 63
 --PIN:A_3     : 9
 --PIN:bsdenl  : 55
---PIN:A_2     : 16
+--PIN:A_2     : 54
 --PIN:mwe     : 46
 --PIN:busoe   : 24
 --PIN:mhe     : 49
@@ -103,7 +103,10 @@ port (
 --PIN:TDO     : 71
 --PIN:bssxl   : 68
 --PIN:CLK     : 83
---PIN:binitl  : 1    
+--PIN:binitl  : 1
+--PIN:asl     : 58
+--PIN:mdenl   : 60
+--PIN:sdenl   : 61    
 );
 end entity ATF1508;
 architecture rtl of ATF1508 is
