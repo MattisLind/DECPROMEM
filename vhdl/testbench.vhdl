@@ -551,7 +551,13 @@ begin
     writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";    
 
-
+    -- Read outside memory
+    --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
+    address:=8#14000000#;
+    byteAccess := false;
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates);
+    assert accessFault = true report "write outside memory didn't cause accessFault";
+    report "readData:" & to_ostring(std_logic_vector(to_unsigned(readData, 22))); 
     assert false report "Test done." severity note;
     wait;
   end process;

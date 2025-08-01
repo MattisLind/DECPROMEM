@@ -44,7 +44,7 @@ port (
     asl: out std_logic;
     mdenl: out std_logic;
     sdenl: out std_logic
---PIN: CHIP "ATF1508" ASSIGNED TO AN PLCC84
+--PIN: CHIP "src/ATF1508" ASSIGNED TO AN PLCC84
 --PIN: miso : 73
 --PIN: spiclk : 76
 --PIN: ncs : 74
@@ -137,9 +137,9 @@ architecture rtl of ATF1508 is
 begin
     asl <= basl;
     mdenl <= bmdenl;
-    sdenl <= bsdenl;
+    sdenl <= '0' when ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
     brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
-    busoe <= '0' when bsdenl = '0' or bmdenl = '0' else '1';
+    busoe <= '0' when (bmdenl = '0') or ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
     busdir <= bsdenl;
     with ioa(5 downto 0) select
         decodedAddress <= "0001" when "000000",

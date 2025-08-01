@@ -22,7 +22,7 @@ port (
 end entity decpromem;
 
 architecture rtl of decpromem is
-constant useSN74ALS640 : boolean := true;
+constant useSN74ALS640 : boolean := false;
 signal clk: std_logic;
 signal spiclk: std_logic;
 signal miso: std_logic;
