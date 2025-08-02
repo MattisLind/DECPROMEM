@@ -27,7 +27,6 @@ component decpromem is
     bssxl: in std_logic;
     bdsl: in std_logic;
     basl: in std_logic;
-    biosel: in std_logic;
     msiz: in std_logic
 );
 end component;
@@ -70,7 +69,6 @@ procedure readAccess (variable a: in integer range 0 to 4194303;
                       signal bmdenl: out std_logic;
                       signal bsdenl: out std_logic;
                       signal bssxl: out std_logic;
-                      signal biosel: out std_logic;
                       signal bwritel: out std_logic;
                       signal bwlbl: out std_logic;
                       signal bwhbl: out std_logic;
@@ -83,12 +81,10 @@ variable address : std_logic_vector (21 downto 0);
 variable data : std_logic_vector (15 downto 0);
 variable loopCounter : integer range 0 to 100;
 begin
-  -- biosel is activated in the range 17760000-17777777
 
   loopCounter := 100;
   accessFault := false;
   bssxl <= '1';
-  biosel <= '1';
   bwritel <= '1';
   bwlbl <= '1';
   bwhbl <= '1';
@@ -100,9 +96,8 @@ begin
   wait for 100 ns;
   bmdenl <= '0';
   wait for 100 ns;
-  if a >= 8#17760000# and a <= 8#17777777# then -- active biosel in IO range. Also activate bssxl if right slot.
+  if a >= 8#17760000# and a <= 8#17777777# then --  Also activate bssxl if right slot.
     slotActive(a, slot, bssxl);
-    biosel <= '0';
   end if;
   bdal <= not std_logic_vector(to_unsigned(a, 22));
   wait for 100 ns;
@@ -111,8 +106,7 @@ begin
   basl <= '1';
   wait for 200 ns;
   bdal <= "ZZZZZZZZZZZZZZZZZZZZZZ";
-  bssxl <= '1';
-  biosel <= '1';
+
   wait for 100 ns;
   bmdenl <= '1';
   wait for 200 ns;
@@ -146,6 +140,8 @@ begin
   bsdenl <= '1';
   wait for 100 ns;
   basl <= '1';
+  wait for 50 ns;
+  bssxl <= '1';
   loopCounter := 100;
   while (brplyl = '0') loop
     wait for 100 ns;
@@ -167,7 +163,6 @@ procedure writeAccess (variable a: in integer range 0 to 4194303;
                       signal bmdenl: out std_logic;
                       signal bsdenl: out std_logic;
                       signal bssxl: out std_logic;
-                      signal biosel: out std_logic;
                       signal bwritel: out std_logic;
                       signal bwlbl: out std_logic;
                       signal bwhbl: out std_logic;
@@ -179,12 +174,10 @@ variable address : std_logic_vector (21 downto 0);
 variable data : std_logic_vector (15 downto 0);
 variable loopCounter : integer range 0 to 100;
 begin
-  -- biosel is activated in the range 17760000-17777777
 
   loopCounter := 100;
   accessFault := false;
   bssxl <= '1';
-  biosel <= '1';
   bwritel <= '1';
   bwlbl <= '1';
   bwhbl <= '1';
@@ -196,9 +189,8 @@ begin
   wait for 100 ns;
   bmdenl <= '0';
   wait for 100 ns;
-  if a >= 8#17760000# and a <= 8#17777777# then -- active biosel in IO range. Also activate bssxl if right slot.
+  if a >= 8#17760000# and a <= 8#17777777# then --  Also activate bssxl if right slot.
     slotActive(a, slot, bssxl);
-    biosel <= '0';
   end if;
   bwritel <= '0';
   bdal <= not std_logic_vector(to_unsigned(a, 22));
@@ -208,8 +200,7 @@ begin
   basl <= '1';
   wait for 200 ns;
   bdal <= "ZZZZZZZZZZZZZZZZZZZZZZ";
-  bssxl <= '1';
-  biosel <= '1';
+
   wait for 100 ns;
   bmdenl <= '1';
   wait for 200 ns;
@@ -247,6 +238,8 @@ begin
   bmdenl <= '1';
   wait for 100 ns;
   basl <= '1';
+  wait for 50 ns;
+  bssxl <= '1';
   bwritel <= '1';
   loopCounter := 30;
   while (brplyl = '0') loop
@@ -271,7 +264,6 @@ signal bsdenl: std_logic;
 signal bssxl: std_logic;
 signal bdsl: std_logic;
 signal basl: std_logic;
-signal biosel: std_logic;
 signal binitl: std_logic;
 signal bdcokh: std_logic;
 signal msiz: std_logic;
@@ -293,7 +285,6 @@ begin
     bssxl => bssxl,
     bdsl => bdsl,
     basl => basl,
-    biosel => biosel,
     binitl => binitl,
     msiz => msiz  
   );
@@ -317,7 +308,6 @@ begin
     bdcokh <= '0';
     binitl <= '0';
     bssxl <= '1';
-    biosel <= '1';
     bwritel <= '1';
     bwlbl <= '1';
     bwhbl <= '1';
@@ -334,37 +324,37 @@ begin
     address:=8#17774000#;
     byteAccess := true;
     slot := 0;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);   
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);   
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#34# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     assert accessFault = false report "Read caused accessFault";
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#0# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));   
     assert accessFault = false report "Read caused accessFault";
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#377# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
     assert accessFault = false report "Read caused accessFault";
 
     address:=8#17774176#;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);     
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);     
     assert accessFault = false report "Read caused accessFault";
 
     address:=8#17774200#;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);     
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);     
     assert accessFault = true report "Read didn't cause accessFault";
 
     -- Reset Diag ROM counter
 
     address:=8#17774002#;
     data:= 8#0#;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = false report "write caused accessFault";
 
     -- Read from beginning again!
@@ -372,19 +362,19 @@ begin
     address:=8#17774000#;
     byteAccess := true;
     slot := 0;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);   
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates);   
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#34# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     assert accessFault = false report "Read caused accessFault";
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#0# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));   
     assert accessFault = false report "Read caused accessFault";
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#377# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -392,7 +382,7 @@ begin
 
     -- Read fpop bit
     address:=8#17774006#;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#40# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -401,7 +391,7 @@ begin
     -- Read fpop bit
     msiz <= '0';
     address:=8#17774006#;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#00# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -411,10 +401,10 @@ begin
     report "Write 010 to base register and read back";
     address:=8#17774004#;
     data:= 8#10#;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = false report "write caused accessFault";
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#10# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -424,12 +414,12 @@ begin
     -- Enable memory 
     address:=8#17774006#;
     data:= 8#1#;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = false report "write caused accessFault";
 
     -- Read back memory enable bit.
 
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, data, numWaitStates); 
     report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
     report "num wait states:" & integer'image(numWaitStates);
     assert data = 8#01# report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -443,10 +433,10 @@ begin
       
       --data:= 8#152525#;
       byteAccess := false;
-      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
       assert accessFault = false report "write caused accessFault";
   
-      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
       report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
       report "num wait states:" & integer'image(numWaitStates);
       assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -459,14 +449,14 @@ begin
     address:=8#00777776#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault"; 
 
     --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
     address:=8#11000000#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";
 
     msiz <= '1';
@@ -480,10 +470,10 @@ begin
       
       --data:= 8#152525#;
       byteAccess := false;
-      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
       assert accessFault = false report "write caused accessFault";
   
-      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
       report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
       report "num wait states:" & integer'image(numWaitStates);
       assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -496,7 +486,7 @@ begin
     address:=8#00777776#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault"; 
 
     -- Write outside memory
@@ -504,7 +494,7 @@ begin
     address:=8#14000000#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";
 
     msiz <= '0';
@@ -512,7 +502,7 @@ begin
     report "Write 040 to base register and read back";
     address:=8#17774004#;
     data:= 8#40#;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = false report "write caused accessFault";
 
     address:=8#04000000#;
@@ -524,10 +514,10 @@ begin
       
       --data:= 8#152525#;
       byteAccess := false;
-      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+      writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
       assert accessFault = false report "write caused accessFault";
   
-      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
+      readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates); 
       report "data:" & to_ostring(std_logic_vector(to_unsigned(data, 22))); 
       report "num wait states:" & integer'image(numWaitStates);
       assert readData = data report "Got wrong data: " & to_ostring(std_logic_vector(to_unsigned(data, 22)));    
@@ -540,7 +530,7 @@ begin
     address:=8#14000000#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";
     
     -- Write outside memory
@@ -548,14 +538,14 @@ begin
     address:=8#03777776#;
     data:= 8#152525#;
     byteAccess := false;
-    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
+    writeAccess (address, byteAccess, slot, data, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, numWaitStates);     
     assert accessFault = true report "write outside memory didn't cause accessFault";    
 
     -- Read outside memory
     --report "Trying to write to 014000000 which is outside memory should trigger access fault.";
     address:=8#14000000#;
     byteAccess := false;
-    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, biosel, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates);
+    readAccess (address, byteAccess, slot, basl, bdsl, bmdenl, bsdenl, bssxl, bwritel, bwlbl, bwhbl,bdal, brplyl, accessFault, readData, numWaitStates);
     assert accessFault = true report "write outside memory didn't cause accessFault";
     report "readData:" & to_ostring(std_logic_vector(to_unsigned(readData, 22))); 
     assert false report "Test done." severity note;

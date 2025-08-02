@@ -26,7 +26,6 @@ port (
     bssxl: in std_logic;
     bdsl: in std_logic;
     basl: in std_logic;
-    biosel: in std_logic;
     -- memory inteface
     ma: out std_logic_vector(6 downto 0);
     mcelow: out std_logic;
@@ -99,7 +98,6 @@ port (
 --PIN: bwhbl : 64
 --PIN: bmdenl : 56
 --PIN: basl : 65
---PIN: biosel : 67
 --PIN: TDO : 71
 --PIN: bssxl : 68
 --PIN: CLK : 83
@@ -132,8 +130,6 @@ architecture rtl of ATF1508 is
     signal dataOut: std_logic_vector(7 downto 0);
     signal spiReadReady: std_logic;
     signal memoryAccess: std_logic;
-    signal latchedSsxl: std_logic;
-    signal latchedIosel: std_logic;
 begin
     asl <= basl;
     mdenl <= bmdenl;
@@ -150,8 +146,7 @@ begin
 
 
     spiclk <= intspiclk;
-    portAccess <=  not latchedIosel and not latchedSsxl and not bdsl;   
-    --portAccess <=   not bdsl;                     
+    portAccess <=  not bssxl and not bdsl;                        
     writePort <= portAccess and not bwlbl;
     readPort <= portAccess and bwritel;
     writePort2 <=  writePort and decodedAddress(1);
@@ -182,18 +177,6 @@ begin
         elsif (rising_edge(clk) and writePort6 = '1' ) then
             enableMemory <= data(0);
         end if;   
-    end process;
-    process(binitl, clk)
-    begin
-        if (binitl = '0') then
-            latchedSsxl <= '1';
-            latchedIosel <= '1';
-        elsif rising_edge(clk) then
-            if basl = '0' then 
-                latchedSsxl <= bssxl;
-                latchedIosel <= biosel;
-            end if;
-        end if;    
     end process;
 
     process (clk) 
@@ -273,6 +256,9 @@ begin
                 intspiclk <= '1';
                 -- rising edge spiclk
                 case state is 
+                    when INITIAL =>
+                        ncs <= '0';
+                        state <= SEND_COMMAND;
                     when RECEIVE_DATA =>
                         if counter = 7 then
                             counter <= 0;
@@ -286,9 +272,7 @@ begin
                 intspiclk <= '0';
                 -- falling edge spiclk
                 case state is
-                    when INITIAL =>
-                        ncs <= '0';
-                        state <= SEND_COMMAND;
+
                     when SEND_COMMAND =>
                         if counter = 7 then
                             counter <= 0;
@@ -332,6 +316,7 @@ begin
                             state <= RECEIVE_DATA;
                             spiReadReady <= '0';
                         end if;
+                    when OTHERS =>    
                 end case;
             end if;
         end if;

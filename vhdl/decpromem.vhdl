@@ -16,7 +16,6 @@ port (
     bssxl: in std_logic;
     bdsl: in std_logic;
     basl: in std_logic;
-    biosel: in std_logic;
     msiz: in std_logic
 );
 end entity decpromem;
@@ -169,7 +168,6 @@ component ATF1508 is
         bssxl: in std_logic;
         bdsl: in std_logic;
         basl: in std_logic;
-        biosel: in std_logic;
         -- memory inteface
         ma: out std_logic_vector(6 downto 0);
         mcelow: out std_logic;
@@ -448,7 +446,6 @@ end generate CondSN74ALS640;
         bssxl => bssxl,
         bdsl => bdsl,
         basl => basl,
-        biosel => biosel,
     -- memory inteface
         ma => mbank,
         mcelow => mcelow,
