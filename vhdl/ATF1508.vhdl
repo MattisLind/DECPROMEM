@@ -137,7 +137,8 @@ begin
     asl <= basl;
     mdenl <= bmdenl;
     sdenl <= '0' when ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
-    brplyl_oe <= '1' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort4 = '1') or (readPort6 = '1') or (memoryAccess = '1')) else '0';
+    -- brplyl_oe <= '1' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort4 = '1') or (readPort6 = '1') or (memoryAccess = '1')) else '0';
+    brplyl_oe <= (spiReadReady and readPort0) or writePort or readPort4 or readPort6;
     brplyl <= '0' when brplyl_oe = '1' else 'Z';       
     -- brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
     ma(0) <= brplyl_oe;
