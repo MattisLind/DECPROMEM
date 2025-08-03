@@ -137,10 +137,10 @@ begin
     asl <= basl;
     mdenl <= bmdenl;
     sdenl <= '0' when ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
-    brplyl_oe <= '1' when (spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or (memoryAccess = '1') else '0';
+    brplyl_oe <= '1' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and (readPort4 = '1' or (readPort6 = '1')) ) or (memoryAccess = '1')) else '0';
     brplyl <= '0' when brplyl_oe = '1' else 'Z';       
     -- brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
-
+    ma(0) <= brplyl_oe;
     busoe <= '0' when (bmdenl = '0') or ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
     busdir <= bsdenl;
     with ioa(5 downto 0) select
@@ -152,16 +152,21 @@ begin
 
 
     spiclk <= intspiclk;
-    portAccess <=  not bssxl and not bdsl;                        
+    portAccess <=  not bssxl and not bdsl; 
+    ma(1) <= portAccess;                       
     writePort <= portAccess and not bwlbl;
+    ma(2) <= writePort;
     readPort <= portAccess and bwritel;
+    ma(3) <= readPort;
     writePort2 <=  writePort and decodedAddress(1);
+    ma(4) <= writePort2;
     reset <= (not binitl and bdcokh) or writePort2; -- A write to port 2 will reset counter
 
     writePort6 <= writePort and decodedAddress(3);
     writePort4 <= writePort and decodedAddress(2);
-
+    ma(6) <= writePort4;
     readPort0 <= readPort and decodedAddress(0);
+    ma(5) <= readPort0;
     readPort4 <= readPort and decodedAddress(2);
     readPort6 <= readPort and decodedAddress(3);
 
@@ -231,9 +236,11 @@ begin
         else 
             vOutputAddressVector := "0000000";
         end if;
-        mcelow <= ramSelected and enableMemory;
-        nmcehigh <= not (ramSelected and enableMemory);
-        ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
+        --mcelow <= ramSelected and enableMemory;
+        --nmcehigh <= not (ramSelected and enableMemory);
+        mcelow <= '0';
+        nmcehigh <= '1';
+        --ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
 
     end process;
 
