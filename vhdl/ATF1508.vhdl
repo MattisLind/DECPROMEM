@@ -130,11 +130,17 @@ architecture rtl of ATF1508 is
     signal dataOut: std_logic_vector(7 downto 0);
     signal spiReadReady: std_logic;
     signal memoryAccess: std_logic;
+    attribute keep : boolean;
+    signal brplyl_oe : std_logic;
+    attribute keep of brplyl_oe : signal is true;
 begin
     asl <= basl;
     mdenl <= bmdenl;
     sdenl <= '0' when ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
-    brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
+    brplyl_oe <= '1' when (spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or (memoryAccess = '1') else '0';
+    brplyl <= '0' when brplyl_oe = '1' else 'Z';       
+    -- brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
+
     busoe <= '0' when (bmdenl = '0') or ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
     busdir <= bsdenl;
     with ioa(5 downto 0) select
