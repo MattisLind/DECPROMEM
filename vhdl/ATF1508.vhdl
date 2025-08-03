@@ -56,7 +56,7 @@ port (
 --PIN: moe : 8
 --PIN: data_0 : 5
 --PIN: data_5 : 4
---PIN: mle : 22
+--PIN: mle : 45
 --PIN: data_7 : 21
 --PIN: data_6 : 20
 --PIN: data_3 : 18
@@ -76,8 +76,8 @@ port (
 --PIN: bwlbl : 39
 --PIN: A_6 : 37
 --PIN: A_5 : 36
---PIN: nmcehigh : 44
---PIN: mcelow : 45
+--PIN: nmcehigh : 22
+--PIN: mcelow : 44
 --PIN: ma_0 : 48
 --PIN: ma_5 : 35
 --PIN: ma_3 : 33
