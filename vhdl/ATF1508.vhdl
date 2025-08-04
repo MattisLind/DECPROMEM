@@ -271,11 +271,7 @@ begin
                 -- rising edge spiclk
                 case state is 
                     when RECEIVE_DATA =>
-                        if counter = 7 then
-                            counter <= 0;
-                        else 
-                            counter <= counter + 1;
-                        end if;  
+
                         inputShiftReg <= inputShiftReg(inputShiftReg'high - 1 downto inputShiftReg'low) & miso;  
                     when OTHERS =>
                 end case;
@@ -319,7 +315,12 @@ begin
                         if counter = 7 then
                             state <= HOLD;
                             spiReadReady <= '1';
-                        end if;    
+                        end if; 
+                        if counter = 7 then
+                            counter <= 0;
+                        else 
+                            counter <= counter + 1;
+                        end if;                             
                     when HOLD =>
                         if readPort0 = '1' then
                             state <= HOLD_WAIT_LOW;
