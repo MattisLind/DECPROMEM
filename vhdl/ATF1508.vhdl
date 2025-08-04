@@ -132,6 +132,7 @@ architecture rtl of ATF1508 is
     signal memoryAccess: std_logic;
     attribute keep : boolean;
     signal brplyl_oe : std_logic;
+    signal readPort0Clked : std_logic;
     attribute keep of brplyl_oe : signal is true;
 begin
     asl <= basl;
@@ -268,6 +269,7 @@ begin
         elsif (rising_edge(clk)) then
             if intspiclk = '0' then
                 intspiclk <= '1';
+                readPort0Clked <= readPort0;
                 -- rising edge spiclk
                 case state is 
                     when RECEIVE_DATA =>
@@ -322,11 +324,11 @@ begin
                             counter <= counter + 1;
                         end if;                             
                     when HOLD =>
-                        if readPort0 = '1' then
+                        if readPort0Clked = '1' then
                             state <= HOLD_WAIT_LOW;
                         end if;
                     when HOLD_WAIT_LOW =>
-                        if readPort0 = '0' then
+                        if readPort0Clked = '0' then
                             state <= RECEIVE_DATA;
                             spiReadReady <= '0';
                         end if;
