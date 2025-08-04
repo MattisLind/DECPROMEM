@@ -316,7 +316,7 @@ begin
                             counter <= counter + 1;
                         end if;                
                     when RECEIVE_DATA =>
-                        if counter = 7 then
+                        if counter = 8 then
                             state <= HOLD;
                             spiReadReady <= '1';
                         end if;    
