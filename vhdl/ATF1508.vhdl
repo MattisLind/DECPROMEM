@@ -270,9 +270,6 @@ begin
                 intspiclk <= '1';
                 -- rising edge spiclk
                 case state is 
-                    when INITIAL =>
-                        ncs <= '0';
-                        state <= SEND_COMMAND;
                     when RECEIVE_DATA =>
                         if counter = 7 then
                             counter <= 0;
@@ -286,7 +283,9 @@ begin
                 intspiclk <= '0';
                 -- falling edge spiclk
                 case state is
-
+                    when INITIAL =>
+                        ncs <= '0';
+                        state <= SEND_COMMAND;
                     when SEND_COMMAND =>
                         if counter = 7 then
                             counter <= 0;
@@ -330,7 +329,6 @@ begin
                             state <= RECEIVE_DATA;
                             spiReadReady <= '0';
                         end if;
-                    when OTHERS =>    
                 end case;
             end if;
         end if;
