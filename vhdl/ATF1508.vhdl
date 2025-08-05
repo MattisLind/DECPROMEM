@@ -139,7 +139,7 @@ begin
     mdenl <= bmdenl;
     sdenl <= '0' when ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
     -- brplyl_oe <= '1' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort4 = '1') or (readPort6 = '1') or (memoryAccess = '1')) else '0';
-    brplyl_oe <= (spiReadReady and readPort0) or writePort or readPort4 or readPort6;
+    brplyl_oe <= (spiReadReady and readPort0) or writePort or readPort4 or readPort6 or (memoryAccess and not bdsl);
     brplyl <= '0' when brplyl_oe = '1' else 'Z';       
     -- brplyl <= '0' when ((spiReadReady = '1' and readPort0 = '1') or (writePort = '1') or (readPort = '1' and readPort0 = '0') or memoryAccess = '1') else 'Z';  
     busoe <= '0' when (bmdenl = '0') or ((bsdenl = '0') and (memoryAccess = '1' or portAccess = '1')) else '1';
@@ -199,48 +199,58 @@ begin
              '1';
        
 
-    process(a, baseAddress, msiz, enableMemory, bdsl) 
-    variable vAddress : integer range 0 to 127;
-    variable vBaseAddress : integer range 0 to 127;
-    variable vSize : integer range 0 to 255;
-    variable vTop : integer range 0 to 255;
-    variable vOutputAddress : integer range 0 to 127;
-    variable ramSelected : std_logic;
-    variable vOutputAddressVector : std_logic_vector (6 downto 0);
-    begin
-        vBaseAddress := to_integer(unsigned(baseAddress));
-        vAddress := to_integer(unsigned(a(6 downto 0)));
-        if msiz = '1' then
-            vSize := 8#200#;  -- 4 meg
-        else 
-            vSize := 8#100#;  -- 2 meg
-        end if;
-        vTop := vBaseAddress + vSize;
-        if vTop > 8#140# then
-            vTop := 8#140#;   -- 3 meg
-        end if;
-        if vAddress >= vBaseAddress and vAddress < vTop then
-            ramSelected := '1';
-        else
-            ramSelected := '0';
-        end if;
-        memoryAccess <= ramSelected and not bdsl;
-        if ramSelected = '1' then
-            vOutputAddress := vAddress - vBaseAddress;
-            vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
-        else 
-            vOutputAddressVector := "0000000";
-        end if;
+--    process(a, baseAddress, msiz, enableMemory, bdsl) 
+--    variable vAddress : integer range 0 to 127;
+--    variable vBaseAddress : integer range 0 to 127;
+--    variable vSize : integer range 0 to 255;
+--    variable vTop : integer range 0 to 255;
+--    variable vOutputAddress : integer range 0 to 127;
+--    variable ramSelected : std_logic;
+--    variable vOutputAddressVector : std_logic_vector (6 downto 0);
+--    begin
+--        vBaseAddress := to_integer(unsigned(baseAddress));
+--        vAddress := to_integer(unsigned(a(6 downto 0)));
+--        if msiz = '1' then
+--            vSize := 8#200#;  -- 4 meg
+--        else 
+--            vSize := 8#100#;  -- 2 meg
+--        end if;
+--        vTop := vBaseAddress + vSize;
+--        if vTop > 8#140# then
+--            vTop := 8#140#;   -- 3 meg
+--        end if;
+--        if vAddress >= vBaseAddress and vAddress < vTop then
+--            ramSelected := '1';
+--        else
+--            ramSelected := '0';
+--        end if;
+--        memoryAccess <= ramSelected and not bdsl and enableMemory;
+--        if ramSelected = '1' then
+--            vOutputAddress := vAddress - vBaseAddress;
+--            vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+--        else 
+--            vOutputAddressVector := "0000000";
+--        end if;
         --mcelow <= ramSelected and enableMemory;
         --nmcehigh <= not (ramSelected and enableMemory);
-        mcelow <= '0';
-        nmcehigh <= '1';
-        ma(5 downto 0) <= vOutputAddressVector(6 downto 1);
+--        mcelow <= '0';
+--        nmcehigh <= '1';
+--        ma(4 downto 0) <= vOutputAddressVector(6 downto 2);
 
-    end process;
+--    end process;
 
-    ma(6) <= memoryAccess;
-    moe <= not bwritel and not bdsl;
+--    ma(6) <= memoryAccess;
+--    ma(5) <= enableMemory;
+    ma(6 downto 0) <= a(6 downto 0);
+--    memoryAccess <= ((ma(6) and not ma(5)) or (not ma(6) and ma(5)) and enableMemory);
+    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
+                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
+                    '0';    
+    mcelow <=  memoryAccess;
+    nmcehigh <= not memoryAccess;
+    --moe <= not (bwritel and not bdsl);
+    moe <= '0' when bwritel = '1' and bdsl = '0' else 
+           '1';
     -- mhe <= bwhbl and not bwritel and bdsl;
     mhe <= '0' when bwhbl = '0' else 
            '0' when bwritel = '1' and bdsl = '0' else
@@ -248,7 +258,8 @@ begin
     mle <= '0' when bwlbl = '0' else 
            '0' when bwritel = '1' and bdsl = '0' else
            '1';
-    mwe <= bwlbl and bwhbl; 
+    mwe <= '0' when bwritel = '0' and bdsl = '0' else 
+           '1'; 
     process(clk,reset)
     begin
         
