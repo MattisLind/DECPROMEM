@@ -184,7 +184,8 @@ component ATF1508 is
         -- 
         asl : out std_logic;
         mdenl : out std_logic;
-        sdenl : out std_logic
+        sdenl : out std_logic;
+        memoryAccess2 : out std_logic
     );
 end component;
 
