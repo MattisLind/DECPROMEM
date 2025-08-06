@@ -241,11 +241,55 @@ begin
 
 --    ma(6) <= memoryAccess;
 --    ma(5) <= enableMemory;
-    ma(6 downto 0) <= a(6 downto 0);
+
+    process(a, baseAddress, msiz, enableMemory, clk, reset) 
+    variable vAddress : integer range 0 to 127;
+    variable vBaseAddress : integer range 0 to 127;
+    variable vSize : integer range 0 to 255;
+    variable vTop : integer range 0 to 255;
+    variable vOutputAddress : integer range 0 to 127;
+    variable ramSelected : std_logic;
+    variable vOutputAddressVector : std_logic_vector (6 downto 0);
+    begin
+        vBaseAddress := to_integer(unsigned(baseAddress));
+        vAddress := to_integer(unsigned(a(6 downto 0)));
+        if msiz = '1' then
+            vSize := 8#200#;  -- 4 meg
+        else 
+            vSize := 8#100#;  -- 2 meg
+        end if;
+        vTop := vBaseAddress + vSize;
+        if vTop > 8#140# then
+            vTop := 8#140#;   -- 3 meg
+        end if;
+        if vAddress >= vBaseAddress and vAddress < vTop then
+            ramSelected := '1';
+        else
+            ramSelected := '0';
+        end if;
+        
+        if ramSelected = '1' then
+            vOutputAddress := vAddress - vBaseAddress;
+            vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+        else 
+            vOutputAddressVector := "0000000";
+        end if;
+        if reset = '1' then
+            ma(6 downto 0) <= "0000000";
+            memoryAccess <= '0';
+        elsif (rising_edge(clk) and basl = '0') then 
+            ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
+            memoryAccess <= ramSelected;
+        end if;
+
+    end process;
+
+
+--    ma(6 downto 0) <= a(6 downto 0);
 --    memoryAccess <= ((ma(6) and not ma(5)) or (not ma(6) and ma(5)) and enableMemory);
-    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
-                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
-                    '0';    
+--    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
+--                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
+--                    '0';    
     mcelow <=  memoryAccess;
     nmcehigh <= not memoryAccess;
     --moe <= not (bwritel and not bdsl);
