@@ -247,11 +247,11 @@ begin
 --    ma(5) <= enableMemory;
 
     process(aslGatedClk, binitl, bdcokh) 
-    variable vAddress : integer range 0 to 127;
-    variable vBaseAddress : integer range 0 to 127;
+    variable vAddress : integer range 0 to 255;
+    variable vBaseAddress : integer range 0 to 255;
     variable vSize : integer range 0 to 255;
     variable vTop : integer range 0 to 255;
-    variable vOutputAddress : integer range 0 to 127;
+    variable vOutputAddress : integer range 0 to 255;
     variable ramSelected : std_logic;
     variable vOutputAddressVector : std_logic_vector (6 downto 0);
     begin
@@ -262,16 +262,15 @@ begin
         elsif (rising_edge(aslGatedClk)) then 
             vBaseAddress := to_integer(unsigned(baseAddress));
             vAddress := to_integer(unsigned(a(6 downto 0)));
---            if msiz = '1' then
---                vSize := 8#200#;  -- 4 meg
---            else 
---                vSize := 8#100#;  -- 2 meg
---            end if;
---            vTop := vBaseAddress + vSize;
---            if vTop > 8#140# then
---                vTop := 8#140#;   -- 3 meg
---            end if;
-            vTop := 8#140#;   -- 3 meg
+            if msiz = '1' then
+                vSize := 8#200#;  -- 4 meg
+            else 
+                vSize := 8#100#;  -- 2 meg
+            end if;
+            vTop := vBaseAddress + vSize;
+            if vTop > 8#140# then
+                vTop := 8#140#;   -- 3 meg
+            end if;
             if vAddress >= vBaseAddress and vAddress < vTop then
                 ramSelected := '1';
             else
