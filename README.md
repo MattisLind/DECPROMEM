@@ -1,5 +1,32 @@
 # DECPROMEM
 
+Project finished (almost) and deemed working as intended.
+
+![Dec pro with 3 meg](vhdl/Pro_with_3meg.JPG)
+
+My 1 meg machine now shows 1536 kWord, i.e. 3 Mega byte of memory. The Gerbers in the kicad directory is updated. The final JED file to program the AYTF1508 is in the VHDL directory.
+
+Debugging of the card took some time. Problems found during debugging:
+
+1. The height of the card was 100 mil to high. Had to carefully cut off the card a bit to get it into the card cage. Lessons learned: Always double (triple) check dimensions. The new layout has this fixed.
+2. The brand new 20 MHz crystal from Mouser didn't oscillate. While investigating this I found that certain signals of the Microchip 25LC08A SPI EEPROM require a 50 ns setup time. With a 20 MHz that would be on the margin unless the state machine was modified. I used a 14.7456 MHz crystal oscillator that I happened to find in my drawer.
+3. SDENL need to be gated with with signals that indicate that the card is selected. Either IO read or memory read. Otherwise it will clash with other drivers on the bus.
+4. The schematic had mixed up the MCELOW, NMCEHIGH and MLE signals. The good thibng it was easy to reroute those signals in the CPLD.
+5. The BRPLYL signal was not developed internally. The OC signal was created by setting the signal to either 0 or Z. Somehow Yosys optimzed this away unless I set an attribute on those signal.
+6. The BIOSEL signal has to be latched as an address signal. But since the SSxL signal is basically created with the latched BIOSEL on the motherboard there is no point in using BIOSEL anyway. Removed it from the CPLD VHLD logic.
+7. The test bench for the SPI ROM wasn't perfect. It mismatched a bit from how reality worked so the SPI communication didn't work properly. The counter has to be incremented on falling edge instead of rising edge. Lessons learned is that good testbed is crucial. Still need to fix that SPIROM test device which still do the wrong thing.
+8. When testing it read random number of bytes from the SPI ROM. Sometimes 30 sometimes 50. A metastability issues caused the HOLDL signal to get stuck. Syncing the readPort0 signal on the rising edge solved the problem.
+9. The memoryAccess signal generated was spuriously active. Lilkely to be an effect of the fact that it is developed by a long chain of logic which ripples through. By syncing the memoryAccess signal with the clock and gating the clock to with the ASL signal solved the problem. Also making sure that all variables used in the process is the same length.
+
+
+[![Schematic](DECPROMEM.png)](kicad/DECPROMEM.pdf)
+
+The development board with a lot of test points.
+
+![Board](DECProMemBoard.jpg)
+
+The original board:
+
 ![Original PRO mem  board](OriginalBoard.jpeg)
 This project aims at creating a modern memory board for the 1985 vintage DEC Professional series of computers with CTI bus. The idea is to use SRAM technology and programmable logic to implement all the random logic needed. The diagnostic ROM that all CTI bus boards need to have is implemented in a SPI EEPROM chip. The programmable logic choosen for this project is the Atmel / Microchip ATF1508 since it is the only contemporary chip that is 5V. I will be using one or two 1Mx16 SRAM chip which also are 5V. A small SPI EEPROM will contain the diag software. There will not be any parity on board whihc means that the diag software need to be changed compared to the original so that it doesn't test the parity generating and checking circuits on board.
 
