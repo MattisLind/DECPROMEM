@@ -43,7 +43,9 @@ port (
     asl: out std_logic;
     mdenl: out std_logic;
     sdenl: out std_logic;
-    memoryAccess2: out std_logic
+    memoryAccess2: out std_logic;
+    memoryAccess3out: out std_logic;
+    memoryAccess4: out std_logic
 --PIN: CHIP "src/ATF1508" ASSIGNED TO AN PLCC84
 --PIN: miso : 73
 --PIN: spiclk : 76
@@ -106,7 +108,9 @@ port (
 --PIN: asl : 58
 --PIN: mdenl : 60
 --PIN: sdenl : 61
---PIN: memoryAccess2 : 81  
+--PIN: memoryAccess2 : 81
+--PIN: memoryAccess3out : 80
+--PIN: memoryAccess4 : 79  
 );
 end entity ATF1508;
 architecture rtl of ATF1508 is
@@ -132,12 +136,36 @@ architecture rtl of ATF1508 is
     signal dataOut: std_logic_vector(7 downto 0);
     signal spiReadReady: std_logic;
     signal memoryAccess: std_logic;
+    signal memoryAccess3: std_logic;
     attribute keep : boolean;
     signal brplyl_oe : std_logic;
     signal readPort0Clked : std_logic;
     signal aslGatedClk : std_logic;
+    signal s: std_logic_vector (6 downto 0);
+    signal compareterms : std_logic_vector (9 downto 0);
     attribute keep of brplyl_oe : signal is true;
 begin
+    
+    s(0) <= a(0) xnor baseAddress(0);
+    s(1) <= a(1) xnor baseAddress(1);
+    s(2) <= a(2) xnor baseAddress(2);
+    s(3) <= a(3) xnor baseAddress(3);
+    s(4) <= a(4) xnor baseAddress(4);
+    s(5) <= a(5) xnor baseAddress(5);
+    s(6) <= a(6) xnor baseAddress(6);
+
+    compareterms(0) <= (s(0) and s(1) and s(2) and s(3) and s(4) and s(5) and s(6)); 
+    compareterms(1) <= (a(6) and not baseAddress(6));
+    compareterms(2) <= (s(6) and a(5) and not baseAddress(5));
+    compareterms(3) <= (s(6) and s(5) and a(4) and not baseAddress(4));
+    compareterms(4) <= (s(6) and s(5) and s(4) and a(3) and not baseAddress(3));
+    compareterms(5) <= (s(6) and s(5) and s(4) and s(3) and a(2) and not baseAddress(2));
+    compareterms(6) <= (s(6) and s(5) and s(4) and s(3) and s(2) and a(1) and not baseAddress(1));
+    compareterms(7) <= (s(6) and s(5) and s(4) and s(3) and s(2) and s(1) and a(0) and not baseAddress(0));
+    compareterms(8) <= (not a(6));
+    compareterms(9) <= (a(6) and not a(5));
+    memoryAccess3 <= (compareterms(0) or compareterms(1) or compareterms(2) or compareterms(3) or compareterms(4) or compareterms(5) or compareterms(6) or compareterms(7)) and (compareterms(8) or compareterms(9)) and enableMemory;
+    memoryAccess3out <= memoryAccess3;
     asl <= basl;
     aslGatedClk <= not basl and clk; 
     mdenl <= bmdenl;
@@ -246,7 +274,8 @@ begin
 --    ma(6) <= memoryAccess;
 --    ma(5) <= enableMemory;
 
-    process(aslGatedClk, binitl, bdcokh) 
+    process(aslGatedClk, binitl)
+--    process(a) 
     variable vAddress : integer range 0 to 255;
     variable vBaseAddress : integer range 0 to 255;
     variable vSize : integer range 0 to 255;
@@ -256,35 +285,43 @@ begin
     variable vOutputAddressVector : std_logic_vector (6 downto 0);
     begin
 
-        if binitl = '0' and bdcokh = '1' then
+        if binitl = '0' then
             --ma(6 downto 0) <= "0000000";
             memoryAccess2 <= '0';
+            memoryAccess4 <= '0';
         elsif (rising_edge(aslGatedClk)) then 
             vBaseAddress := to_integer(unsigned(baseAddress));
             vAddress := to_integer(unsigned(a(6 downto 0)));
-            if msiz = '1' then
-                vSize := 8#200#;  -- 4 meg
-            else 
-                vSize := 8#100#;  -- 2 meg
-            end if;
-            vTop := vBaseAddress + vSize;
-            if vTop > 8#140# then
-                vTop := 8#140#;   -- 3 meg
-            end if;
+--            if msiz = '1' then
+--                vSize := 8#200#;  -- 4 meg
+--            else 
+--                vSize := 8#100#;  -- 2 meg
+--            end if;
+--            vTop := vBaseAddress + vSize;
+--            if vTop > 8#140# then
+--                vTop := 8#140#;   -- 3 meg
+--            end if;
+--            if vAddress >= vBaseAddress and vAddress < vTop then
+--                ramSelected := '1';
+--            else
+--                ramSelected := '0';
+--            end if;
+            vTop := 8#140#; 
             if vAddress >= vBaseAddress and vAddress < vTop then
                 ramSelected := '1';
             else
                 ramSelected := '0';
-            end if;
-            
-            if ramSelected = '1' then
-                vOutputAddress := vAddress - vBaseAddress;
-                vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
-            else 
-                vOutputAddressVector := "0000000";
-            end if;        
+            end if;                     
+--            if ramSelected = '1' then
+--                vOutputAddress := vAddress - vBaseAddress;
+--                vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+--            else 
+--                vOutputAddressVector := "0000000";
+--            end if;        
             --ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
-            memoryAccess2 <= ramSelected;
+            --memoryAccess2 <= ramSelected;
+            memoryAccess2 <= memoryAccess3; 
+            memoryAccess4 <= ramSelected and enableMemory;
         end if;
 
     end process;
