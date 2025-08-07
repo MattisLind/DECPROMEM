@@ -908,23 +908,25 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -1.778 6.35 0)
+			(property "Reference" "U11"
+				(at -3.556 6.604 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Value" "ATF1508_MEM"
-				(at 10.414 -40.386 90)
+				(at 10.16 -57.15 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_LCC:PLCC-84_THT-Socket"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1200,7 +1202,7 @@
 				(pin output line
 					(at 25.4 -39.37 180)
 					(length 2.54)
-					(name "mle"
+					(name "nmcehigh"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1632,7 +1634,7 @@
 				(pin output line
 					(at 25.4 -34.29 180)
 					(length 2.54)
-					(name "nmcehigh"
+					(name "mcelow"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1650,7 +1652,7 @@
 				(pin output line
 					(at 25.4 -36.83 180)
 					(length 2.54)
-					(name "mcelow"
+					(name "mle"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -12953,16 +12955,6 @@
 		)
 		(uuid "39cd5af5-c71b-47dd-a61b-e3567e36e652")
 	)
-	(wire
-		(pts
-			(xy 205.74 26.67) (xy 213.36 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b28b0ed-10e7-4f81-8a0c-196c27842d62")
-	)
 	(bus
 		(pts
 			(xy 86.36 107.95) (xy 86.36 110.49)
@@ -13062,6 +13054,16 @@
 			(type default)
 		)
 		(uuid "3dbf9a39-d6e0-4ded-8dc6-36cc48d49005")
+	)
+	(wire
+		(pts
+			(xy 158.75 259.08) (xy 158.75 256.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e42fa6b-1c58-4025-9a62-d054b9c02bef")
 	)
 	(wire
 		(pts
@@ -15155,6 +15157,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 259.08) (xy 158.75 259.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "786a8a62-e7d6-4109-8eef-c3dadc158c49")
+	)
+	(wire
+		(pts
 			(xy 148.59 133.35) (xy 148.59 88.9)
 		)
 		(stroke
@@ -15872,6 +15884,16 @@
 			(type default)
 		)
 		(uuid "8b3f5111-4c87-4e7b-9352-048ff406e340")
+	)
+	(wire
+		(pts
+			(xy 218.44 26.67) (xy 218.44 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ba777af-6102-4f93-b2fa-452fe9752952")
 	)
 	(wire
 		(pts
@@ -20105,7 +20127,6 @@
 	)
 	(label "DAH5"
 		(at 298.45 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20116,7 +20137,6 @@
 	)
 	(label "A18"
 		(at 219.71 255.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20127,7 +20147,6 @@
 	)
 	(label "A1"
 		(at 219.71 212.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20138,7 +20157,6 @@
 	)
 	(label "DAH0"
 		(at 349.25 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20149,7 +20167,6 @@
 	)
 	(label "DAH3"
 		(at 156.21 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20160,7 +20177,6 @@
 	)
 	(label "DAH7"
 		(at 156.21 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20171,7 +20187,6 @@
 	)
 	(label "A10"
 		(at 195.58 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20182,7 +20197,6 @@
 	)
 	(label "BDCOKH"
 		(at 162.56 241.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20193,7 +20207,6 @@
 	)
 	(label "DAH1"
 		(at 349.25 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20204,7 +20217,6 @@
 	)
 	(label "A14"
 		(at 322.58 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20215,7 +20227,6 @@
 	)
 	(label "DAH7"
 		(at 298.45 129.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20226,7 +20237,6 @@
 	)
 	(label "DAH4"
 		(at 349.25 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20237,7 +20247,6 @@
 	)
 	(label "A21"
 		(at 262.89 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20248,7 +20257,6 @@
 	)
 	(label "BDAL11"
 		(at 90.17 210.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20259,7 +20267,6 @@
 	)
 	(label "A1"
 		(at 187.96 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20270,7 +20277,6 @@
 	)
 	(label "DAH3"
 		(at 389.89 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20281,7 +20287,6 @@
 	)
 	(label "BDAL7"
 		(at 165.1 170.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20292,7 +20297,6 @@
 	)
 	(label "BDCOKH"
 		(at 40.64 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20303,7 +20307,6 @@
 	)
 	(label "BDAL2"
 		(at 90.17 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20314,7 +20317,6 @@
 	)
 	(label "BASL"
 		(at 40.64 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20325,7 +20327,6 @@
 	)
 	(label "DAH20"
 		(at 156.21 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20336,7 +20337,6 @@
 	)
 	(label "A19"
 		(at 262.89 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20347,7 +20347,6 @@
 	)
 	(label "DAH9"
 		(at 123.19 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20358,7 +20357,6 @@
 	)
 	(label "BUSOEL"
 		(at 193.04 238.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20369,7 +20367,6 @@
 	)
 	(label "DAH17"
 		(at 130.81 250.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20380,7 +20377,6 @@
 	)
 	(label "A9"
 		(at 195.58 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20391,7 +20387,6 @@
 	)
 	(label "A1"
 		(at 262.89 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20402,7 +20397,6 @@
 	)
 	(label "A12"
 		(at 363.22 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20413,7 +20407,6 @@
 	)
 	(label "BDAL1"
 		(at 90.17 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20424,7 +20417,6 @@
 	)
 	(label "BDAL16"
 		(at 95.25 247.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20435,7 +20427,6 @@
 	)
 	(label "BDAL9"
 		(at 90.17 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20446,7 +20437,6 @@
 	)
 	(label "A6"
 		(at 219.71 224.79 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20457,7 +20447,6 @@
 	)
 	(label "BDAL10"
 		(at 62.23 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20468,7 +20457,6 @@
 	)
 	(label "A6"
 		(at 322.58 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20479,7 +20467,6 @@
 	)
 	(label "DAH16"
 		(at 123.19 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20490,7 +20477,6 @@
 	)
 	(label "BDAL15"
 		(at 90.17 220.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20501,7 +20487,6 @@
 	)
 	(label "MA17"
 		(at 322.58 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20512,7 +20497,6 @@
 	)
 	(label "HOLDL"
 		(at 233.68 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20523,7 +20507,6 @@
 	)
 	(label "MA18"
 		(at 297.18 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20534,7 +20517,6 @@
 	)
 	(label "BDAL7"
 		(at 93.98 173.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20545,7 +20527,6 @@
 	)
 	(label "BDSL"
 		(at 162.56 233.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20556,7 +20537,6 @@
 	)
 	(label "BDSL"
 		(at 252.73 60.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20567,7 +20547,6 @@
 	)
 	(label "BASL"
 		(at 252.73 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20578,7 +20557,6 @@
 	)
 	(label "BWRITEL"
 		(at 40.64 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20589,7 +20567,6 @@
 	)
 	(label "DAH20"
 		(at 123.19 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20600,7 +20577,6 @@
 	)
 	(label "DAH15"
 		(at 123.19 220.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20611,7 +20587,6 @@
 	)
 	(label "BMDENL"
 		(at 40.64 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20622,7 +20597,6 @@
 	)
 	(label "DAH14"
 		(at 130.81 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20633,7 +20607,6 @@
 	)
 	(label "DAH11"
 		(at 389.89 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20644,7 +20617,6 @@
 	)
 	(label "DAH0"
 		(at 156.21 24.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20655,7 +20627,6 @@
 	)
 	(label "BSDENL"
 		(at 40.64 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20666,7 +20637,6 @@
 	)
 	(label "DAH14"
 		(at 160.02 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20677,7 +20647,6 @@
 	)
 	(label "+5V"
 		(at 63.5 134.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20688,7 +20657,6 @@
 	)
 	(label "BDAL6"
 		(at 90.17 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20699,7 +20667,6 @@
 	)
 	(label "GND"
 		(at 62.23 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20710,7 +20677,6 @@
 	)
 	(label "DAH7"
 		(at 123.19 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20721,7 +20687,6 @@
 	)
 	(label "BDAL20"
 		(at 165.1 203.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20732,7 +20697,6 @@
 	)
 	(label "A13"
 		(at 195.58 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20743,7 +20707,6 @@
 	)
 	(label "DAH6"
 		(at 156.21 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20754,7 +20717,6 @@
 	)
 	(label "DAH8"
 		(at 123.19 203.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20765,7 +20727,6 @@
 	)
 	(label "GND"
 		(at 63.5 137.16 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20776,7 +20737,6 @@
 	)
 	(label "DAH18"
 		(at 123.19 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20787,7 +20747,6 @@
 	)
 	(label "A7"
 		(at 187.96 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20798,7 +20757,6 @@
 	)
 	(label "A[21..1]"
 		(at 271.78 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20809,7 +20767,6 @@
 	)
 	(label "DAH13"
 		(at 194.31 185.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20820,7 +20777,6 @@
 	)
 	(label "A3"
 		(at 187.96 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20831,7 +20787,6 @@
 	)
 	(label "ASL"
 		(at 195.58 213.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20842,7 +20797,6 @@
 	)
 	(label "BDAL14"
 		(at 90.17 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20853,7 +20807,6 @@
 	)
 	(label "A10"
 		(at 322.58 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20864,7 +20817,6 @@
 	)
 	(label "GND"
 		(at 40.64 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20875,7 +20827,6 @@
 	)
 	(label "MHEL"
 		(at 194.31 233.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20886,7 +20837,6 @@
 	)
 	(label "DAH4"
 		(at 298.45 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20897,7 +20847,6 @@
 	)
 	(label "BDAL7"
 		(at 90.17 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20908,7 +20857,6 @@
 	)
 	(label "DAH5"
 		(at 132.08 168.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20919,7 +20867,6 @@
 	)
 	(label "DAH8"
 		(at 389.89 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20930,7 +20877,6 @@
 	)
 	(label "BDAL2"
 		(at 93.98 161.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20941,7 +20887,6 @@
 	)
 	(label "BRPLYL"
 		(at 298.45 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20952,7 +20897,6 @@
 	)
 	(label "BDAL14"
 		(at 40.64 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20963,7 +20907,6 @@
 	)
 	(label "MA[21..15]"
 		(at 323.85 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20974,7 +20917,6 @@
 	)
 	(label "MOSI"
 		(at 250.19 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20985,7 +20927,6 @@
 	)
 	(label "BIOSELL"
 		(at 40.64 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20996,7 +20937,6 @@
 	)
 	(label "BDAL18"
 		(at 95.25 252.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21007,7 +20947,6 @@
 	)
 	(label "MA21"
 		(at 322.58 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21018,7 +20957,6 @@
 	)
 	(label "BDAL13"
 		(at 62.23 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21029,7 +20967,6 @@
 	)
 	(label "BDAL13"
 		(at 165.1 185.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21040,7 +20977,6 @@
 	)
 	(label "BDAL8"
 		(at 62.23 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21051,7 +20987,6 @@
 	)
 	(label "DAH10"
 		(at 123.19 208.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21062,7 +20997,6 @@
 	)
 	(label "BDAL7"
 		(at 62.23 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21073,7 +21007,6 @@
 	)
 	(label "DAH2"
 		(at 298.45 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21084,7 +21017,6 @@
 	)
 	(label "A20"
 		(at 219.71 260.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21095,7 +21027,6 @@
 	)
 	(label "BDAL4"
 		(at 90.17 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21106,7 +21037,6 @@
 	)
 	(label "A1"
 		(at 363.22 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21117,7 +21047,6 @@
 	)
 	(label "DAH2"
 		(at 132.08 161.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21128,7 +21057,6 @@
 	)
 	(label "DAH18"
 		(at 130.81 252.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21139,7 +21067,6 @@
 	)
 	(label "DAH2"
 		(at 123.19 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21150,7 +21077,6 @@
 	)
 	(label "A15"
 		(at 195.58 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21161,7 +21087,6 @@
 	)
 	(label "DAH4"
 		(at 132.08 166.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21172,7 +21097,6 @@
 	)
 	(label "CLK"
 		(at 194.31 241.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21183,7 +21107,6 @@
 	)
 	(label "MWEL"
 		(at 194.31 223.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21194,7 +21117,6 @@
 	)
 	(label "A6"
 		(at 363.22 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21205,7 +21127,6 @@
 	)
 	(label "A19"
 		(at 219.71 257.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21216,7 +21137,6 @@
 	)
 	(label "DAH3"
 		(at 132.08 163.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21227,7 +21147,6 @@
 	)
 	(label "BDAL15"
 		(at 40.64 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21237,8 +21156,7 @@
 		(uuid "4187c4fb-c9f6-43a8-a29c-5b555c84643c")
 	)
 	(label "MCELOWH"
-		(at 194.31 228.6 0)
-		(fields_autoplaced yes)
+		(at 195.58 226.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21249,7 +21167,6 @@
 	)
 	(label "BDAL17"
 		(at 95.25 250.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21260,7 +21177,6 @@
 	)
 	(label "DAH[22..0]"
 		(at 210.82 15.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21271,7 +21187,6 @@
 	)
 	(label "DAH6"
 		(at 194.31 167.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21282,7 +21197,6 @@
 	)
 	(label "BDAL14"
 		(at 165.1 187.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21293,7 +21207,6 @@
 	)
 	(label "MA20"
 		(at 363.22 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21304,7 +21217,6 @@
 	)
 	(label "BUSDIRH"
 		(at 87.63 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21315,7 +21227,6 @@
 	)
 	(label "A15"
 		(at 219.71 247.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21326,7 +21237,6 @@
 	)
 	(label "A17"
 		(at 219.71 252.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21337,7 +21247,6 @@
 	)
 	(label "BDAL17"
 		(at 165.1 195.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21348,7 +21257,6 @@
 	)
 	(label "+12.0V"
 		(at 62.23 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21359,7 +21267,6 @@
 	)
 	(label "GND"
 		(at 40.64 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21370,7 +21277,6 @@
 	)
 	(label "A20"
 		(at 187.96 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21381,7 +21287,6 @@
 	)
 	(label "DAH21"
 		(at 194.31 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21392,7 +21297,6 @@
 	)
 	(label "BDAL12"
 		(at 62.23 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21403,7 +21307,6 @@
 	)
 	(label "DAH11"
 		(at 123.19 210.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21414,7 +21317,6 @@
 	)
 	(label "A11"
 		(at 322.58 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21425,7 +21327,6 @@
 	)
 	(label "DAH10"
 		(at 130.81 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21436,7 +21337,6 @@
 	)
 	(label "DAH14"
 		(at 349.25 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21447,7 +21347,6 @@
 	)
 	(label "A5"
 		(at 262.89 87.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21458,7 +21357,6 @@
 	)
 	(label "BWHBL"
 		(at 40.64 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21469,7 +21367,6 @@
 	)
 	(label "CSL"
 		(at 233.68 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21480,7 +21377,6 @@
 	)
 	(label "PULLUP"
 		(at 327.66 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21491,7 +21387,6 @@
 	)
 	(label "BDAL17"
 		(at 63.5 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21502,7 +21397,6 @@
 	)
 	(label "MA18"
 		(at 322.58 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21513,7 +21407,6 @@
 	)
 	(label "A5"
 		(at 322.58 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21524,7 +21417,6 @@
 	)
 	(label "BUSOEL"
 		(at 87.63 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21535,7 +21427,6 @@
 	)
 	(label "SDENL"
 		(at 194.31 218.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21546,7 +21437,6 @@
 	)
 	(label "GND"
 		(at 62.23 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21557,7 +21447,6 @@
 	)
 	(label "DAH21"
 		(at 156.21 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21568,7 +21457,6 @@
 	)
 	(label "DAH7"
 		(at 389.89 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21579,7 +21467,6 @@
 	)
 	(label "DAH3"
 		(at 194.31 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21590,7 +21477,6 @@
 	)
 	(label "BUSDIRH"
 		(at 193.04 236.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21601,7 +21487,6 @@
 	)
 	(label "BINITL"
 		(at 252.73 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21612,7 +21497,6 @@
 	)
 	(label "BWLBL"
 		(at 40.64 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21623,7 +21507,6 @@
 	)
 	(label "DAH0"
 		(at 194.31 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21634,7 +21517,6 @@
 	)
 	(label "DAH10"
 		(at 389.89 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21645,7 +21527,6 @@
 	)
 	(label "A14"
 		(at 363.22 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21656,7 +21537,6 @@
 	)
 	(label "DAH5"
 		(at 349.25 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21667,7 +21547,6 @@
 	)
 	(label "MA18"
 		(at 363.22 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21678,7 +21557,6 @@
 	)
 	(label "DAH11"
 		(at 194.31 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21689,7 +21567,6 @@
 	)
 	(label "BDAL3"
 		(at 90.17 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21700,7 +21577,6 @@
 	)
 	(label "DAH4"
 		(at 194.31 162.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21711,7 +21587,6 @@
 	)
 	(label "A20"
 		(at 262.89 130.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21722,7 +21597,6 @@
 	)
 	(label "BDAL8"
 		(at 165.1 172.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21733,7 +21607,6 @@
 	)
 	(label "A4"
 		(at 363.22 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21744,7 +21617,6 @@
 	)
 	(label "MWEL"
 		(at 302.26 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21755,7 +21627,6 @@
 	)
 	(label "A6"
 		(at 187.96 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21766,7 +21637,6 @@
 	)
 	(label "MA16"
 		(at 363.22 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21777,7 +21647,6 @@
 	)
 	(label "A5"
 		(at 219.71 222.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21788,7 +21657,6 @@
 	)
 	(label "CLK"
 		(at 256.54 100.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21799,7 +21667,6 @@
 	)
 	(label "MOEL"
 		(at 302.26 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21810,7 +21677,6 @@
 	)
 	(label "BDAL17"
 		(at 90.17 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21821,7 +21687,6 @@
 	)
 	(label "DAH12"
 		(at 349.25 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21832,7 +21697,6 @@
 	)
 	(label "A8"
 		(at 219.71 229.87 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21843,7 +21707,6 @@
 	)
 	(label "DAH15"
 		(at 389.89 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21854,7 +21717,6 @@
 	)
 	(label "BDAL0"
 		(at 93.98 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21865,7 +21727,6 @@
 	)
 	(label "DAH12"
 		(at 123.19 213.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21876,7 +21737,6 @@
 	)
 	(label "A5"
 		(at 363.22 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21887,7 +21747,6 @@
 	)
 	(label "BDAL3"
 		(at 93.98 163.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21898,7 +21757,6 @@
 	)
 	(label "MA21"
 		(at 363.22 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21909,7 +21767,6 @@
 	)
 	(label "MA18"
 		(at 193.04 252.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21920,7 +21777,6 @@
 	)
 	(label "DAH10"
 		(at 194.31 177.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21931,7 +21787,6 @@
 	)
 	(label "A3"
 		(at 322.58 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21942,7 +21797,6 @@
 	)
 	(label "BINITL"
 		(at 40.64 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21953,7 +21807,6 @@
 	)
 	(label "A14"
 		(at 219.71 245.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21964,7 +21817,6 @@
 	)
 	(label "BDAL19"
 		(at 165.1 200.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21975,7 +21827,6 @@
 	)
 	(label "A9"
 		(at 363.22 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21986,7 +21837,6 @@
 	)
 	(label "GND"
 		(at 40.64 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21997,7 +21847,6 @@
 	)
 	(label "A2"
 		(at 219.71 214.63 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22008,7 +21857,6 @@
 	)
 	(label "DAH1"
 		(at 156.21 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22019,7 +21867,6 @@
 	)
 	(label "BSDENL"
 		(at 162.56 226.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22030,7 +21877,6 @@
 	)
 	(label "A4"
 		(at 219.71 219.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22041,7 +21887,6 @@
 	)
 	(label "BDAL9"
 		(at 62.23 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22052,7 +21897,6 @@
 	)
 	(label "A14"
 		(at 195.58 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22063,7 +21907,6 @@
 	)
 	(label "BDAL16"
 		(at 90.17 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22074,7 +21917,6 @@
 	)
 	(label "BWLBL"
 		(at 252.73 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22085,7 +21927,6 @@
 	)
 	(label "A15"
 		(at 262.89 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22096,7 +21937,6 @@
 	)
 	(label "DAH7"
 		(at 194.31 170.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22107,7 +21947,6 @@
 	)
 	(label "MA19"
 		(at 322.58 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22118,7 +21957,6 @@
 	)
 	(label "DAH0"
 		(at 123.19 24.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22129,7 +21967,6 @@
 	)
 	(label "DAH19"
 		(at 123.19 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22140,7 +21977,6 @@
 	)
 	(label "BUSDIRH"
 		(at 297.18 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22151,7 +21987,6 @@
 	)
 	(label "BDSL"
 		(at 40.64 109.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22162,7 +21997,6 @@
 	)
 	(label "DAH0"
 		(at 132.08 156.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22173,7 +22007,6 @@
 	)
 	(label "DAH12"
 		(at 160.02 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22184,7 +22017,6 @@
 	)
 	(label "BDAL12"
 		(at 90.17 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22195,7 +22027,6 @@
 	)
 	(label "DAH11"
 		(at 349.25 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22206,7 +22037,6 @@
 	)
 	(label "A17"
 		(at 262.89 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22217,7 +22047,6 @@
 	)
 	(label "A12"
 		(at 322.58 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22228,7 +22057,6 @@
 	)
 	(label "A16"
 		(at 219.71 250.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22239,7 +22067,6 @@
 	)
 	(label "SCK"
 		(at 251.46 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22250,7 +22077,6 @@
 	)
 	(label "BDAL6"
 		(at 93.98 171.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22261,7 +22087,6 @@
 	)
 	(label "DAH1"
 		(at 298.45 114.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22272,7 +22097,6 @@
 	)
 	(label "BDAL20"
 		(at 63.5 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22283,7 +22107,6 @@
 	)
 	(label "DAH9"
 		(at 349.25 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22294,7 +22117,6 @@
 	)
 	(label "DAH5"
 		(at 156.21 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22305,7 +22127,6 @@
 	)
 	(label "A7"
 		(at 363.22 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22316,7 +22137,6 @@
 	)
 	(label "MA16"
 		(at 322.58 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22327,7 +22147,6 @@
 	)
 	(label "BDAL9"
 		(at 90.17 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22338,7 +22157,6 @@
 	)
 	(label "DAH19"
 		(at 156.21 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22349,7 +22167,6 @@
 	)
 	(label "A8"
 		(at 195.58 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22360,7 +22177,6 @@
 	)
 	(label "BDAL4"
 		(at 93.98 166.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22371,7 +22187,6 @@
 	)
 	(label "BDAL1"
 		(at 165.1 154.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22382,7 +22197,6 @@
 	)
 	(label "DAH0"
 		(at 389.89 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22393,7 +22207,6 @@
 	)
 	(label "A10"
 		(at 219.71 234.95 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22403,8 +22216,7 @@
 		(uuid "82ce3965-d96b-4246-ac3f-a71b0713dd28")
 	)
 	(label "MLEL"
-		(at 194.31 231.14 0)
-		(fields_autoplaced yes)
+		(at 195.58 228.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22415,7 +22227,6 @@
 	)
 	(label "DAH15"
 		(at 130.81 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22426,7 +22237,6 @@
 	)
 	(label "BWRITEL"
 		(at 162.56 218.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22437,7 +22247,6 @@
 	)
 	(label "DAH11"
 		(at 130.81 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22448,7 +22257,6 @@
 	)
 	(label "DAH21"
 		(at 123.19 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22459,7 +22267,6 @@
 	)
 	(label "DAH8"
 		(at 160.02 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22470,7 +22277,6 @@
 	)
 	(label "BINITL"
 		(at 162.56 228.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22481,7 +22287,6 @@
 	)
 	(label "DAH18"
 		(at 156.21 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22492,7 +22297,6 @@
 	)
 	(label "DAH15"
 		(at 194.31 190.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22503,7 +22307,6 @@
 	)
 	(label "MA19"
 		(at 363.22 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22514,7 +22317,6 @@
 	)
 	(label "BDAL14"
 		(at 90.17 218.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22525,7 +22327,6 @@
 	)
 	(label "DAH6"
 		(at 349.25 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22535,8 +22336,7 @@
 		(uuid "8a182d2e-94e4-4dfc-aede-4c213d5b6f5e")
 	)
 	(label "MLEL"
-		(at 299.72 83.82 0)
-		(fields_autoplaced yes)
+		(at 300.99 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22547,7 +22347,6 @@
 	)
 	(label "DAH1"
 		(at 132.08 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22558,7 +22357,6 @@
 	)
 	(label "BDAL10"
 		(at 90.17 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22569,7 +22367,6 @@
 	)
 	(label "DAH7"
 		(at 132.08 173.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22580,7 +22377,6 @@
 	)
 	(label "BDAL19"
 		(at 90.17 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22591,7 +22387,6 @@
 	)
 	(label "BDAL0"
 		(at 90.17 24.13 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22602,7 +22397,6 @@
 	)
 	(label "MDENL"
 		(at 194.31 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22613,7 +22407,6 @@
 	)
 	(label "MA21"
 		(at 193.04 260.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22624,7 +22417,6 @@
 	)
 	(label "A1"
 		(at 322.58 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22635,7 +22427,6 @@
 	)
 	(label "DAH13"
 		(at 123.19 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22646,7 +22437,6 @@
 	)
 	(label "BDAL21"
 		(at 95.25 260.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22657,7 +22447,6 @@
 	)
 	(label "BDAL15"
 		(at 165.1 190.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22668,7 +22457,6 @@
 	)
 	(label "DAH4"
 		(at 156.21 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22679,7 +22467,6 @@
 	)
 	(label "MA20"
 		(at 297.18 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22690,7 +22477,6 @@
 	)
 	(label "BDAL5"
 		(at 90.17 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22701,7 +22487,6 @@
 	)
 	(label "A9"
 		(at 322.58 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22712,7 +22497,6 @@
 	)
 	(label "A2"
 		(at 262.89 80.01 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22723,7 +22507,6 @@
 	)
 	(label "DAH1"
 		(at 123.19 26.67 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22734,7 +22517,6 @@
 	)
 	(label "BWRITEL"
 		(at 252.73 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22745,7 +22527,6 @@
 	)
 	(label "DAH7"
 		(at 349.25 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22756,7 +22537,6 @@
 	)
 	(label "DAH3"
 		(at 298.45 119.38 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22767,7 +22547,6 @@
 	)
 	(label "A18"
 		(at 262.89 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22778,7 +22557,6 @@
 	)
 	(label "DAH15"
 		(at 349.25 74.93 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22789,7 +22567,6 @@
 	)
 	(label "A13"
 		(at 219.71 242.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22800,7 +22577,6 @@
 	)
 	(label "DAH2"
 		(at 194.31 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22811,7 +22587,6 @@
 	)
 	(label "A4"
 		(at 262.89 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22822,7 +22597,6 @@
 	)
 	(label "MOEL"
 		(at 194.31 220.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22833,7 +22607,6 @@
 	)
 	(label "DAH12"
 		(at 389.89 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22844,7 +22617,6 @@
 	)
 	(label "BDAL1"
 		(at 93.98 158.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22855,7 +22627,6 @@
 	)
 	(label "DAH16"
 		(at 194.31 193.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22866,7 +22637,6 @@
 	)
 	(label "A11"
 		(at 363.22 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22877,7 +22647,6 @@
 	)
 	(label "DAH6"
 		(at 298.45 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22888,7 +22657,6 @@
 	)
 	(label "A3"
 		(at 363.22 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22899,7 +22667,6 @@
 	)
 	(label "BDCOKH"
 		(at 252.73 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22910,7 +22677,6 @@
 	)
 	(label "DAH13"
 		(at 130.81 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22921,7 +22687,6 @@
 	)
 	(label "DAH15"
 		(at 160.02 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22932,7 +22697,6 @@
 	)
 	(label "DAH19"
 		(at 194.31 200.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22943,7 +22707,6 @@
 	)
 	(label "DAH9"
 		(at 160.02 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22954,7 +22717,6 @@
 	)
 	(label "DAH13"
 		(at 349.25 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22965,7 +22727,6 @@
 	)
 	(label "BDAL0"
 		(at 165.1 152.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22976,7 +22737,6 @@
 	)
 	(label "A2"
 		(at 322.58 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22987,7 +22747,6 @@
 	)
 	(label "DAH20"
 		(at 194.31 203.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22998,7 +22757,6 @@
 	)
 	(label "A5"
 		(at 187.96 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23009,7 +22767,6 @@
 	)
 	(label "DAH9"
 		(at 194.31 175.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23020,7 +22777,6 @@
 	)
 	(label "BDAL6"
 		(at 165.1 167.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23031,7 +22787,6 @@
 	)
 	(label "SDENL"
 		(at 92.71 181.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23042,7 +22797,6 @@
 	)
 	(label "BMDENL"
 		(at 252.73 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23053,7 +22807,6 @@
 	)
 	(label "BDAL19"
 		(at 63.5 121.92 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23064,7 +22817,6 @@
 	)
 	(label "BIOSELL"
 		(at 162.56 238.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23075,7 +22827,6 @@
 	)
 	(label "DAH5"
 		(at 389.89 49.53 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23086,7 +22837,6 @@
 	)
 	(label "DAH16"
 		(at 156.21 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23097,7 +22847,6 @@
 	)
 	(label "DAH6"
 		(at 389.89 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23108,7 +22857,6 @@
 	)
 	(label "BDAL11"
 		(at 62.23 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23119,7 +22867,6 @@
 	)
 	(label "BDAL11"
 		(at 90.17 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23130,7 +22877,6 @@
 	)
 	(label "BDAL2"
 		(at 62.23 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23141,7 +22887,6 @@
 	)
 	(label "DAH17"
 		(at 123.19 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23152,7 +22897,6 @@
 	)
 	(label "DAH16"
 		(at 130.81 247.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23163,7 +22907,6 @@
 	)
 	(label "DAH1"
 		(at 194.31 154.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23174,7 +22917,6 @@
 	)
 	(label "MA20"
 		(at 193.04 257.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23185,7 +22927,6 @@
 	)
 	(label "BDAL4"
 		(at 62.23 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23196,7 +22937,6 @@
 	)
 	(label "DAH3"
 		(at 123.19 31.75 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23207,7 +22947,6 @@
 	)
 	(label "BRPLYL"
 		(at 40.64 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23218,7 +22957,6 @@
 	)
 	(label "A16"
 		(at 262.89 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23229,7 +22967,6 @@
 	)
 	(label "A18"
 		(at 187.96 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23240,7 +22977,6 @@
 	)
 	(label "MHEL"
 		(at 299.72 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23251,7 +22987,6 @@
 	)
 	(label "A21"
 		(at 219.71 262.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23262,7 +22997,6 @@
 	)
 	(label "BWHBL"
 		(at 252.73 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23273,7 +23007,6 @@
 	)
 	(label "A9"
 		(at 219.71 232.41 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23284,7 +23017,6 @@
 	)
 	(label "A3"
 		(at 219.71 217.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23295,7 +23027,6 @@
 	)
 	(label "MA15"
 		(at 193.04 245.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23306,7 +23037,6 @@
 	)
 	(label "+5V"
 		(at 62.23 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23317,7 +23047,6 @@
 	)
 	(label "DAH20"
 		(at 130.81 257.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23328,7 +23057,6 @@
 	)
 	(label "BMDENL"
 		(at 162.56 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23339,7 +23067,6 @@
 	)
 	(label "A16"
 		(at 187.96 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23350,7 +23077,6 @@
 	)
 	(label "BDAL11"
 		(at 165.1 180.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23361,7 +23087,6 @@
 	)
 	(label "DAH5"
 		(at 194.31 165.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23372,7 +23097,6 @@
 	)
 	(label "DAH9"
 		(at 130.81 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23383,7 +23107,6 @@
 	)
 	(label "ASL"
 		(at 300.99 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23394,7 +23117,6 @@
 	)
 	(label "BSDENL"
 		(at 252.73 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23405,7 +23127,6 @@
 	)
 	(label "A4"
 		(at 322.58 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23416,7 +23137,6 @@
 	)
 	(label "GND"
 		(at 40.64 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23427,7 +23147,6 @@
 	)
 	(label "MDENL"
 		(at 298.45 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23438,7 +23157,6 @@
 	)
 	(label "ASL"
 		(at 156.21 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23449,7 +23167,6 @@
 	)
 	(label "BDAL21"
 		(at 165.1 205.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23460,7 +23177,6 @@
 	)
 	(label "A7"
 		(at 219.71 227.33 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23471,7 +23187,6 @@
 	)
 	(label "MA20"
 		(at 322.58 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23482,7 +23197,6 @@
 	)
 	(label "BDAL12"
 		(at 165.1 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23493,7 +23207,6 @@
 	)
 	(label "BDAL10"
 		(at 165.1 177.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23504,7 +23217,6 @@
 	)
 	(label "A13"
 		(at 363.22 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23515,7 +23227,6 @@
 	)
 	(label "A13"
 		(at 322.58 67.31 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23526,7 +23237,6 @@
 	)
 	(label "DAH4"
 		(at 389.89 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23537,7 +23247,6 @@
 	)
 	(label "BASL"
 		(at 162.56 236.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23548,7 +23257,6 @@
 	)
 	(label "BDAL1"
 		(at 62.23 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23559,7 +23267,6 @@
 	)
 	(label "DAH17"
 		(at 194.31 195.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23570,7 +23277,6 @@
 	)
 	(label "SSnL"
 		(at 162.56 231.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23581,7 +23287,6 @@
 	)
 	(label "DAH10"
 		(at 160.02 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23592,7 +23297,6 @@
 	)
 	(label "BDAL18"
 		(at 165.1 198.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23603,7 +23307,6 @@
 	)
 	(label "MA21"
 		(at 297.18 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23614,7 +23317,6 @@
 	)
 	(label "DAH13"
 		(at 160.02 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23625,7 +23327,6 @@
 	)
 	(label "MA19"
 		(at 297.18 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23636,7 +23337,6 @@
 	)
 	(label "DAH21"
 		(at 130.81 260.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23646,8 +23346,7 @@
 		(uuid "c74b273e-4eb1-4263-9305-35c99df09004")
 	)
 	(label "MCEHIGHL"
-		(at 194.31 226.06 0)
-		(fields_autoplaced yes)
+		(at 194.31 231.14 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23658,7 +23357,6 @@
 	)
 	(label "BDAL16"
 		(at 63.5 129.54 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23669,7 +23367,6 @@
 	)
 	(label "BDAL13"
 		(at 90.17 215.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23680,7 +23377,6 @@
 	)
 	(label "BDAL2"
 		(at 165.1 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23691,7 +23387,6 @@
 	)
 	(label "A11"
 		(at 195.58 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23702,7 +23397,6 @@
 	)
 	(label "BDAL3"
 		(at 62.23 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23713,7 +23407,6 @@
 	)
 	(label "DAH3"
 		(at 349.25 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23724,7 +23417,6 @@
 	)
 	(label "BUSOEL"
 		(at 297.18 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23735,7 +23427,6 @@
 	)
 	(label "DAH19"
 		(at 130.81 255.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23746,7 +23437,6 @@
 	)
 	(label "DAH2"
 		(at 349.25 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23757,7 +23447,6 @@
 	)
 	(label "BDAL6"
 		(at 62.23 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23768,7 +23457,6 @@
 	)
 	(label "BRPLYL"
 		(at 162.56 213.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23779,7 +23467,6 @@
 	)
 	(label "MDENL"
 		(at 92.71 179.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23790,7 +23477,6 @@
 	)
 	(label "DAH6"
 		(at 123.19 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23801,7 +23487,6 @@
 	)
 	(label "DAH11"
 		(at 160.02 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23812,7 +23497,6 @@
 	)
 	(label "BDAL20"
 		(at 90.17 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23823,7 +23507,6 @@
 	)
 	(label "BDAL5"
 		(at 62.23 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23834,7 +23517,6 @@
 	)
 	(label "A12"
 		(at 195.58 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23845,7 +23527,6 @@
 	)
 	(label "A10"
 		(at 363.22 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23856,7 +23537,6 @@
 	)
 	(label "DAH12"
 		(at 194.31 182.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23867,7 +23547,6 @@
 	)
 	(label "DAH2"
 		(at 156.21 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23878,7 +23557,6 @@
 	)
 	(label "DAH8"
 		(at 130.81 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23889,7 +23567,6 @@
 	)
 	(label "A6"
 		(at 262.89 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23900,7 +23577,6 @@
 	)
 	(label "BDAL19"
 		(at 95.25 255.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23911,7 +23587,6 @@
 	)
 	(label "BDAL12"
 		(at 90.17 213.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23922,7 +23597,6 @@
 	)
 	(label "BDAL5"
 		(at 93.98 168.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23933,7 +23607,6 @@
 	)
 	(label "MA16"
 		(at 193.04 247.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23944,7 +23617,6 @@
 	)
 	(label "SDENL"
 		(at 298.45 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23954,8 +23626,7 @@
 		(uuid "d834fe73-9a67-4e29-9a75-36e0a86c82ba")
 	)
 	(label "MCEHIGHL"
-		(at 300.99 78.74 0)
-		(fields_autoplaced yes)
+		(at 298.45 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23966,7 +23637,6 @@
 	)
 	(label "A4"
 		(at 187.96 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23977,7 +23647,6 @@
 	)
 	(label "DAH6"
 		(at 132.08 171.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23988,7 +23657,6 @@
 	)
 	(label "A12"
 		(at 219.71 240.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -23999,7 +23667,6 @@
 	)
 	(label "DAH1"
 		(at 389.89 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24010,7 +23677,6 @@
 	)
 	(label "BIOSELL"
 		(at 252.73 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24021,7 +23687,6 @@
 	)
 	(label "SSnL"
 		(at 40.64 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24032,7 +23697,6 @@
 	)
 	(label "DAH9"
 		(at 389.89 59.69 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24043,7 +23707,6 @@
 	)
 	(label "BDAL21"
 		(at 90.17 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24054,7 +23717,6 @@
 	)
 	(label "BDAL9"
 		(at 165.1 175.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24065,7 +23727,6 @@
 	)
 	(label "MA15"
 		(at 363.22 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24076,7 +23737,6 @@
 	)
 	(label "DAH14"
 		(at 123.19 218.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24087,7 +23747,6 @@
 	)
 	(label "DAH13"
 		(at 389.89 69.85 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24098,7 +23757,6 @@
 	)
 	(label "A8"
 		(at 363.22 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24109,7 +23767,6 @@
 	)
 	(label "DAH4"
 		(at 123.19 34.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24120,7 +23777,6 @@
 	)
 	(label "BDAL5"
 		(at 165.1 165.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24131,7 +23787,6 @@
 	)
 	(label "BDAL18"
 		(at 63.5 124.46 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24141,8 +23796,7 @@
 		(uuid "e24ae38b-1f54-4d69-b065-4d8d3b5ebfe3")
 	)
 	(label "MCELOWH"
-		(at 300.99 81.28 0)
-		(fields_autoplaced yes)
+		(at 300.99 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24153,7 +23807,6 @@
 	)
 	(label "BDAL8"
 		(at 90.17 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24164,7 +23817,6 @@
 	)
 	(label "A11"
 		(at 219.71 237.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24175,7 +23827,6 @@
 	)
 	(label "DAH14"
 		(at 194.31 187.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24186,7 +23837,6 @@
 	)
 	(label "DAH2"
 		(at 389.89 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24197,7 +23847,6 @@
 	)
 	(label "MA16"
 		(at 297.18 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24208,7 +23857,6 @@
 	)
 	(label "MA17"
 		(at 363.22 77.47 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24219,7 +23867,6 @@
 	)
 	(label "A19"
 		(at 187.96 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24230,7 +23877,6 @@
 	)
 	(label "A7"
 		(at 322.58 52.07 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24241,7 +23887,6 @@
 	)
 	(label "SSnL"
 		(at 252.73 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24252,7 +23897,6 @@
 	)
 	(label "BDAL4"
 		(at 165.1 162.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24263,7 +23907,6 @@
 	)
 	(label "DAH18"
 		(at 194.31 198.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24274,7 +23917,6 @@
 	)
 	(label "BDAL8"
 		(at 90.17 203.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24285,7 +23927,6 @@
 	)
 	(label "A21"
 		(at 187.96 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24296,7 +23937,6 @@
 	)
 	(label "BDAL13"
 		(at 90.17 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24307,7 +23947,6 @@
 	)
 	(label "+5V"
 		(at 62.23 109.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24318,7 +23957,6 @@
 	)
 	(label "BDAL20"
 		(at 95.25 257.81 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24329,7 +23967,6 @@
 	)
 	(label "DAH17"
 		(at 156.21 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24340,7 +23977,6 @@
 	)
 	(label "DAH14"
 		(at 389.89 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24351,7 +23987,6 @@
 	)
 	(label "A3"
 		(at 262.89 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24362,7 +23997,6 @@
 	)
 	(label "MA15"
 		(at 322.58 72.39 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24373,7 +24007,6 @@
 	)
 	(label "BWHBL"
 		(at 162.56 223.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24384,7 +24017,6 @@
 	)
 	(label "DAH10"
 		(at 349.25 62.23 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24395,7 +24027,6 @@
 	)
 	(label "BDAL15"
 		(at 90.17 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24406,7 +24037,6 @@
 	)
 	(label "BDAL10"
 		(at 90.17 208.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24417,7 +24047,6 @@
 	)
 	(label "BDAL[21..0]"
 		(at 53.34 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24428,7 +24057,6 @@
 	)
 	(label "MA17"
 		(at 193.04 250.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24439,7 +24067,6 @@
 	)
 	(label "BDAL3"
 		(at 165.1 160.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24450,7 +24077,6 @@
 	)
 	(label "BDAL16"
 		(at 165.1 193.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24461,7 +24087,6 @@
 	)
 	(label "DAH0"
 		(at 298.45 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24472,7 +24097,6 @@
 	)
 	(label "MA15"
 		(at 297.18 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24483,7 +24107,6 @@
 	)
 	(label "MA19"
 		(at 193.04 255.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24494,7 +24117,6 @@
 	)
 	(label "DAH5"
 		(at 123.19 36.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24505,7 +24127,6 @@
 	)
 	(label "BDAL0"
 		(at 62.23 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24516,7 +24137,6 @@
 	)
 	(label "DAH8"
 		(at 194.31 172.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24527,7 +24147,6 @@
 	)
 	(label "DAH12"
 		(at 130.81 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24538,7 +24157,6 @@
 	)
 	(label "BWLBL"
 		(at 162.56 220.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24549,7 +24167,6 @@
 	)
 	(label "A2"
 		(at 363.22 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24560,7 +24177,6 @@
 	)
 	(label "BDAL21"
 		(at 63.5 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24571,7 +24187,6 @@
 	)
 	(label "MA17"
 		(at 297.18 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24582,7 +24197,6 @@
 	)
 	(label "A8"
 		(at 322.58 54.61 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24593,7 +24207,6 @@
 	)
 	(label "BDAL18"
 		(at 90.17 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24604,7 +24217,6 @@
 	)
 	(label "DAH8"
 		(at 349.25 57.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24615,7 +24227,6 @@
 	)
 	(label "A17"
 		(at 187.96 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24626,7 +24237,6 @@
 	)
 	(label "A2"
 		(at 187.96 29.21 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -27059,8 +26669,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "MLEL"
-			(at 183.642 230.632 0)
+		(property "Value" "MCEHIGHL"
+			(at 183.896 230.632 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30256,74 +29866,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 215.9 26.67 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6ee00ebe-d9c7-45ef-9e73-a125657b95ed")
-		(property "Reference" "R3"
-			(at 215.9 21.59 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 215.9 24.13 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 215.9 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 215.9 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 215.9 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "88d211e4-8e37-4a81-980d-761032d41db5")
-		)
-		(pin "1"
-			(uuid "b21d0bc6-5bea-4abb-96ff-d3c55eb88282")
-		)
-		(instances
-			(project "DECPROMEM"
-				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 157.48 152.4 0)
 		(unit 1)
@@ -32505,7 +32047,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "MCELOWH"
+		(property "Value" "MLEL"
 			(at 183.642 228.092 0)
 			(effects
 				(font
@@ -32954,7 +32496,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "20 MHz"
+		(property "Value" "14.7456 MHz"
 			(at 245.618 98.298 0)
 			(effects
 				(font
@@ -34188,72 +33730,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 205.74 26.67 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b2883155-48ae-4250-ba3c-3e8067c58dca")
-		(property "Reference" "#PWR034"
-			(at 205.74 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 205.74 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 205.74 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 205.74 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 205.74 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "154a5c97-b069-49e2-bea2-b852a02c2dbd")
-		)
-		(instances
-			(project "DECPROMEM"
-				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
-					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 381 118.11 0)
 		(unit 1)
@@ -34509,6 +33985,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 158.75 256.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bf04ef73-f3e2-4661-ac4a-4c896030f1ec")
+		(property "Reference" "#PWR037"
+			(at 158.75 260.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 155.702 255.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 158.75 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 158.75 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 158.75 256.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "240479ed-4aa4-4b0e-a199-85b00a8edf0b")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -34780,6 +34321,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 218.44 39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cc6db926-6410-4527-8f49-9cefcabd3564")
+		(property "Reference" "#PWR034"
+			(at 218.44 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 218.44 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 218.44 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 218.44 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 218.44 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "89a42de6-0999-4ea4-82b6-c1fa8cf7ab54")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Polarized_Small")
 		(at 331.47 190.5 0)
 		(unit 1)
@@ -35039,6 +34646,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "J12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 152.4 259.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d1fb5f08-7db7-4164-bc42-a28068d7a2b8")
+		(property "Reference" "J107"
+			(at 150.114 258.826 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 148.082 258.572 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "CompLibFootprint:Testpoint"
+			(at 152.4 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 152.4 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 152.4 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab189092-db55-429b-af39-80ba9c144063")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "J107")
 					(unit 1)
 				)
 			)
@@ -36433,7 +36105,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "MCEHIGHL"
+		(property "Value" "MCELOWH"
 			(at 183.642 225.552 0)
 			(effects
 				(font
