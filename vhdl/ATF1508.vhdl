@@ -304,13 +304,13 @@ begin
             else
                 ramSelected := '0';
             end if;                     
---            if ramSelected = '1' then
---                vOutputAddress := vAddress - vBaseAddress;
---                vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
---            else 
---                vOutputAddressVector := "0000000";
---            end if;        
-            --ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
+            if ramSelected = '1' then
+                vOutputAddress := vAddress - vBaseAddress;
+                vOutputAddressVector := std_logic_vector(to_unsigned(vOutputAddress, 7));
+            else 
+                vOutputAddressVector := "0000000";
+            end if;        
+            ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
             --memoryAccess2 <= ramSelected;
             memoryAccess2 <= memoryAccess3; 
             memoryAccess <= ramSelected and enableMemory;
@@ -318,7 +318,7 @@ begin
 
     end process;
 
-    ma(6 downto 0) <= a(6 downto 0);
+--    ma(6 downto 0) <= a(6 downto 0);
 --    memoryAccess <= ((ma(6) and not ma(5)) or (not ma(6) and ma(5)) and enableMemory);
 --    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
 --                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
