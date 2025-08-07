@@ -19,7 +19,7 @@ Debugging of the card took some time. Problems found during debugging:
 9. The memoryAccess signal generated was spuriously active. Lilkely to be an effect of the fact that it is developed by a long chain of logic which ripples through. By syncing the memoryAccess signal with the clock and gating the clock to with the ASL signal solved the problem. Also making sure that all variables used in the process is the same length.
 
 
-[![Schematic](DECPROMEM.png)](kicad/DECPROMEM.pdf)
+[![Schematic](DECPROMEM.png)](kicad/DECPROMEM/DECPROMEM.pdf)
 
 The development board with a lot of test points.
 
