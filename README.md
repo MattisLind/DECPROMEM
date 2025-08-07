@@ -83,3 +83,11 @@ Since I want to change the firmware to not have any parity checking I need to bu
 
 The Makefile provided should do all the work of doing all this provided that the correct paths to the macro-11 and obj2bin binaries has been given.
 
+### Reminaing to be done.
+
+1. Test with 74ALS640 chips.
+2. Test with a single memory chip rather than two.
+3. Test on machine with less than 1 meg or more than 1 meg.
+4. What happens if there is another memory board in the machine? Should work but not tested yet.
+   
+
