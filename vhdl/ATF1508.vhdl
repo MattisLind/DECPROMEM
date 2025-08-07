@@ -44,8 +44,7 @@ port (
     mdenl: out std_logic;
     sdenl: out std_logic;
     memoryAccess2: out std_logic;
-    memoryAccess3out: out std_logic;
-    memoryAccess4: out std_logic
+    memoryAccess3out: out std_logic
 --PIN: CHIP "src/ATF1508" ASSIGNED TO AN PLCC84
 --PIN: miso : 73
 --PIN: spiclk : 76
@@ -109,8 +108,7 @@ port (
 --PIN: mdenl : 60
 --PIN: sdenl : 61
 --PIN: memoryAccess2 : 81
---PIN: memoryAccess3out : 80
---PIN: memoryAccess4 : 79  
+--PIN: memoryAccess3out : 80  
 );
 end entity ATF1508;
 architecture rtl of ATF1508 is
@@ -288,7 +286,7 @@ begin
         if binitl = '0' then
             --ma(6 downto 0) <= "0000000";
             memoryAccess2 <= '0';
-            memoryAccess4 <= '0';
+            memoryAccess <= '0';
         elsif (rising_edge(aslGatedClk)) then 
             vBaseAddress := to_integer(unsigned(baseAddress));
             vAddress := to_integer(unsigned(a(6 downto 0)));
@@ -321,16 +319,16 @@ begin
             --ma(6 downto 0) <= vOutputAddressVector(6 downto 0);
             --memoryAccess2 <= ramSelected;
             memoryAccess2 <= memoryAccess3; 
-            memoryAccess4 <= ramSelected and enableMemory;
+            memoryAccess <= ramSelected and enableMemory;
         end if;
 
     end process;
 
     ma(6 downto 0) <= a(6 downto 0);
 --    memoryAccess <= ((ma(6) and not ma(5)) or (not ma(6) and ma(5)) and enableMemory);
-    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
-                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
-                    '0';    
+--    memoryAccess <= '1' when a(6) = '1' and a(5) = '0' and enableMemory = '1' else
+--                    '1' when a(6) = '0' and a(5) = '1' and enableMemory = '1' else
+--                    '0';    
     mcelow <=  memoryAccess;
     nmcehigh <= not memoryAccess;
     --moe <= not (bwritel and not bdsl);
