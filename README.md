@@ -4,7 +4,13 @@ Project finished (almost) and deemed working as intended.
 
 ![Dec pro with 3 meg](vhdl/Pro_with_3meg.JPG)
 
-My 1 meg machine now shows 1536 kWord, i.e. 3 Mega byte of memory. The Gerbers in the kicad directory is updated. The final JED file to program the AYTF1508 is in the VHDL directory.
+My 1 meg machine now shows 1536 kWord, i.e. 3 Mega byte of memory. The Gerbers in the kicad directory is updated. The final JED file to program the AYTF1508 is in the VHDL directory. Programming the board requires the rather expensive ATDH1150USB JTAG device. But supposedely other devices can be used. Check more here on [this page](https://github.com/peterzieba/5Vpld)
+
+The board can be populated with either 1 or 2 chips. One chip will take your machine from 1 meg to the maximum of three meg. If you have less than 1 meg in your base machine a two chip card is better. The SIZE jumper need to be inserted if you only have one chip. 
+
+The board can be populated with either AMD DP8307 bus tranceivers (which are obsolete but can be found online) or 74ALS640 which should be compatible. However not 100 % pincompatible, thus the overlapping layout.
+
+I have not tested the board with one single chip or using 74ALS640 tranceivers (but it has been tested in simulation).
 
 Debugging of the card took some time. Problems found during debugging:
 
