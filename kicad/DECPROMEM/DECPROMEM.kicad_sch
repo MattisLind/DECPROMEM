@@ -908,25 +908,23 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U11"
-				(at -3.556 6.604 0)
+			(property "Reference" "U"
+				(at -1.778 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "ATF1508_MEM"
-				(at 10.16 -57.15 90)
+				(at 10.414 -40.386 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Footprint" "Package_LCC:PLCC-84_THT-Socket"
+			(property "Footprint" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -1163,6 +1161,24 @@
 						)
 					)
 				)
+				(pin input line
+					(at -5.08 -52.07 0)
+					(length 2.54)
+					(name "inverting"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 				(pin tri_state line
 					(at 25.4 -82.55 180)
 					(length 2.54)
@@ -1202,7 +1218,7 @@
 				(pin output line
 					(at 25.4 -39.37 180)
 					(length 2.54)
-					(name "nmcehigh"
+					(name "mle"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1634,7 +1650,7 @@
 				(pin output line
 					(at 25.4 -34.29 180)
 					(length 2.54)
-					(name "mcelow"
+					(name "nmcehigh"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1652,7 +1668,7 @@
 				(pin output line
 					(at 25.4 -36.83 180)
 					(length 2.54)
-					(name "mle"
+					(name "mcelow"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -8425,6 +8441,12 @@
 		(uuid "a1947de4-bcf0-4460-a42a-832c863a470b")
 	)
 	(junction
+		(at 223.52 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a90879e4-f93b-4b69-8825-7c7f2286a8b3")
+	)
+	(junction
 		(at 243.84 195.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -11587,6 +11609,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 104.14) (xy 223.52 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fd84236-7e3c-45cb-9a0d-e9bab8e4ef26")
+	)
+	(wire
+		(pts
 			(xy 354.33 124.46) (xy 354.33 102.87)
 		)
 		(stroke
@@ -13557,6 +13589,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 90.17) (xy 223.52 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49b81d0a-4afb-48f0-a8ee-82ccbd337e80")
+	)
+	(wire
+		(pts
 			(xy 325.12 92.71) (xy 325.12 93.98)
 		)
 		(stroke
@@ -13857,6 +13899,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 93.98) (xy 220.98 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51ef5978-1f70-4643-aecc-9ad0381be0c9")
+	)
+	(wire
+		(pts
 			(xy 81.28 91.44) (xy 105.41 91.44)
 		)
 		(stroke
@@ -14085,6 +14137,16 @@
 		)
 		(uuid "575c8443-d49a-4270-b76c-93dde13a180a")
 	)
+	(wire
+		(pts
+			(xy 223.52 83.82) (xy 223.52 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "575c8afe-fe15-4f00-bf31-ff77269c9ad6")
+	)
 	(bus
 		(pts
 			(xy 317.5 29.21) (xy 317.5 15.24)
@@ -14224,6 +14286,16 @@
 			(type default)
 		)
 		(uuid "5b24fb88-ece9-4aba-b548-d4a00d5fd0fd")
+	)
+	(wire
+		(pts
+			(xy 266.7 96.52) (xy 247.65 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b2ada00-6fe6-4907-9b8b-f6b76eb97ae0")
 	)
 	(wire
 		(pts
@@ -14654,6 +14726,16 @@
 			(type default)
 		)
 		(uuid "699f535a-84b8-4859-b3ca-a7a62f711150")
+	)
+	(wire
+		(pts
+			(xy 210.82 93.98) (xy 210.82 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a20af4e-2b19-4735-b9f9-7426ba5ff4fe")
 	)
 	(bus
 		(pts
@@ -19087,6 +19169,16 @@
 	)
 	(wire
 		(pts
+			(xy 247.65 96.52) (xy 247.65 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e647b6c4-79d9-4e05-9ca7-bb52e95cc626")
+	)
+	(wire
+		(pts
 			(xy 297.18 91.44) (xy 302.26 91.44)
 		)
 		(stroke
@@ -19204,6 +19296,16 @@
 			(type default)
 		)
 		(uuid "e9463768-1f20-45fd-a91e-5a63b66c5ac5")
+	)
+	(wire
+		(pts
+			(xy 247.65 104.14) (xy 223.52 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9a95c2d-1b58-4849-a41d-2e811aea5f98")
 	)
 	(wire
 		(pts
@@ -24442,6 +24544,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 210.82 99.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0626639a-f5b3-4a71-836b-97da21381a89")
+		(property "Reference" "#PWR038"
+			(at 210.82 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 210.82 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 210.82 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 210.82 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 210.82 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9f058ce8-58c8-4b31-b2fd-8b6fd34207ca")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 187.96 252.73 0)
 		(unit 1)
@@ -29536,6 +29704,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Jumper:Jumper_2_Open")
+		(at 215.9 93.98 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "62eda79f-3d6d-4f23-8c47-c140e00a3905")
+		(property "Reference" "JP2"
+			(at 215.9 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NONINVERTING"
+			(at 215.9 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 215.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 215.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, open"
+			(at 215.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b80f9d4a-2db9-40eb-b856-fedcd0ee0a0c")
+		)
+		(pin "1"
+			(uuid "51e15733-5f47-4331-a0fb-15895787d324")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "JP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 186.69 160.02 0)
 		(unit 1)
@@ -32219,6 +32455,71 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 223.52 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "967e4d9d-0cae-4348-a7f7-f51f613fddd6")
+		(property "Reference" "#PWR039"
+			(at 223.52 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 224.536 80.772 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.52 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 223.52 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7fbd2679-8464-443c-8962-62f3b5498920")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -35204,6 +35505,9 @@
 		(pin "68"
 			(uuid "745f9790-cafc-4e35-a4e8-4f2ea7fd784f")
 		)
+		(pin "2"
+			(uuid "cee75a4b-afa6-4cac-91d9-f36897ae7e2f")
+		)
 		(instances
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
@@ -36478,6 +36782,76 @@
 			(project "DECPROMEM"
 				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
 					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 223.52 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ea0c099b-eda7-4063-8c85-792c64da460f")
+		(property "Reference" "R3"
+			(at 226.06 86.3599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 226.06 88.8999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 223.52 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 223.52 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 223.52 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "651dd961-6b5c-477a-ad6e-7400edf61d50")
+		)
+		(pin "2"
+			(uuid "5890d558-bebb-4286-aad6-5b798a546c46")
+		)
+		(instances
+			(project "DECPROMEM"
+				(path "/78e01ea5-495a-4b34-a4f4-d19c2a94730d"
+					(reference "R3")
 					(unit 1)
 				)
 			)
