@@ -908,23 +908,25 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -1.778 6.35 0)
+			(property "Reference" "U11"
+				(at -3.556 6.604 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Value" "ATF1508_MEM"
-				(at 10.414 -40.386 90)
+				(at 10.16 -57.15 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_LCC:PLCC-84_THT-Socket"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1218,7 +1220,7 @@
 				(pin output line
 					(at 25.4 -39.37 180)
 					(length 2.54)
-					(name "mle"
+					(name "nmcehigh"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1650,7 +1652,7 @@
 				(pin output line
 					(at 25.4 -34.29 180)
 					(length 2.54)
-					(name "nmcehigh"
+					(name "mcelow"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1668,7 +1670,7 @@
 				(pin output line
 					(at 25.4 -36.83 180)
 					(length 2.54)
-					(name "mcelow"
+					(name "mle"
 						(effects
 							(font
 								(size 1.27 1.27)
