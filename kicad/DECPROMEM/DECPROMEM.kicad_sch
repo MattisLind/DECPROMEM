@@ -20249,9 +20249,9 @@
 		)
 		(uuid "ffdaf11a-39ec-408b-82d0-300f7bab542a")
 	)
-	(text "Either use 74ALS640 or DP8307"
+	(text "Either use 74ALS640 or DP8307 or 74XXX245 transceivers."
 		(exclude_from_sim no)
-		(at 87.63 146.05 0)
+		(at 81.28 147.32 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20259,15 +20259,15 @@
 		)
 		(uuid "403fb1ca-8978-4ce9-87c3-9d57c9690b75")
 	)
-	(text "Check all pins of connector. Especially pin 33!"
+	(text "With NONINVERTING jumper installed it is possible to use 245 style tranceivers."
 		(exclude_from_sim no)
-		(at 35.814 132.588 90)
+		(at 207.01 102.87 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "58bb4cd4-af9c-4ceb-a93e-216cb3616b8f")
+		(uuid "504f76b7-1a6b-4e7c-9cab-6b47836d8ca9")
 	)
 	(label "DAH5"
 		(at 298.45 124.46 0)
